@@ -526,7 +526,7 @@ public class Dispatch extends JacobObject {
 	 */
 	public static Variant call(Dispatch dispatchTarget, String name) {
 		throwIfUnattachedDispatch(dispatchTarget);
-		return callN(dispatchTarget, name, NO_VARIANT_ARGS);
+		return callN(dispatchTarget, name, NO_OBJECT_ARGS);
 	}
 
 	/**
@@ -548,7 +548,7 @@ public class Dispatch extends JacobObject {
 	 */
 	public static Variant call(Dispatch dispatchTarget, int dispid) {
 		throwIfUnattachedDispatch(dispatchTarget);
-		return callN(dispatchTarget, dispid, NO_VARIANT_ARGS);
+		return callN(dispatchTarget, dispid, NO_OBJECT_ARGS);
 	}
 
 	/**

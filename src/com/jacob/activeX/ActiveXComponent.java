@@ -473,7 +473,7 @@ public class ActiveXComponent extends Dispatch {
 	 * @return Variant returned by the invoke (Dispatch.callN)
 	 */
 	public Variant invoke(String name, Variant... args) {
-		return Dispatch.callN(this, name, args);
+		return Dispatch.callN(this, name, (Object[]) args);
 	}
 
 }
