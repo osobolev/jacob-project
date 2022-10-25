@@ -137,7 +137,7 @@ public class Variant extends JacobObject {
 	// VT_CARRARY = 28
 	// VT_USERDEFINED = 29
 
-	/** what is this? VT_TYPEMASK && VT_BSTR_BLOB 0xfff */
+	/** what is this? VT_TYPEMASK &amp;&amp; VT_BSTR_BLOB 0xfff */
 	public static final short VariantTypeMask = 4095;
 
 	/** variant's type is array VT_ARRAY 0x2000 */

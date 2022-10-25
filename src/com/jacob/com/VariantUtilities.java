@@ -383,7 +383,7 @@ public final class VariantUtilities {
 	}// toJava()
 
 	/**
-	 * Verifies that we have a scale 0 <= x <= 28 and now more than 96 bits of
+	 * Verifies that we have a scale 0 &lt;= x &lt;= 28 and now more than 96 bits of
 	 * data. The roundToMSDecimal method will attempt to adjust a BigDecimal to
 	 * pass this set of tests
 	 * 

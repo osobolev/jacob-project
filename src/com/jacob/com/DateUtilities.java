@@ -45,8 +45,8 @@ public class DateUtilities {
 	 * (milliseconds). Visual Basic time values are based to 30.12.1899, Java
 	 * time values are based to 1.1.1970 (= 0 milliseconds). The difference is
 	 * added to the Visual Basic value to get the corresponding Java value. The
-	 * Visual Basic double value reads: <day count delta since 30.12.1899>.<1
-	 * day percentage fraction>, e.g. "38100.6453" means: 38100 days since
+	 * Visual Basic double value reads: &lt;day count delta since 30.12.1899&gt;.&lt;1
+	 * day percentage fraction&gt;, e.g. "38100.6453" means: 38100 days since
 	 * 30.12.1899 plus (24 hours * 0.6453). Example usage:
 	 * <code>Date javaDate = new Date(toMilliseconds (vbDate));</code>.
 	 * 

@@ -54,8 +54,8 @@ import java.util.Set;
  * on the version of Windows. </li>
  * 
  * <li> If none of the above are true, the default is to load the library named
- * "jacob-&lt;version&gt;-&lt;arch&gt" (or
- * "jacob-&lt;version&gt;-&lt;arch&rt;.dll") from the {@code java.library.path}.
+ * "jacob-&lt;version&gt;-&lt;arch&gt;" (or
+ * "jacob-&lt;version&gt;-&lt;arch&gt;.dll") from the {@code java.library.path}.
  * </li>
  * </ol>
  * 
@@ -189,7 +189,7 @@ public final class LibraryLoader {
 	 * Developer note: This method MUST be synchronized with the DLL names
 	 * created as part of the build process in build.xml
 	 * <p>
-	 * The DLL name is "jacob\<PLATFORM\>.release"
+	 * The DLL name is "jacob&lt;PLATFORM&gt;.release"
 	 * 
 	 * @return the preferred name of the DLL adjusted for this platform and
 	 *         version without the ".dll" extension
