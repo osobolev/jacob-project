@@ -7,6 +7,7 @@ import java.lang.reflect.Array;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.MathContext;
+import java.math.RoundingMode;
 import java.util.Date;
 
 /**
@@ -473,7 +474,7 @@ public final class VariantUtilities {
 		BigInteger sourceDecimalIntComponent = sourceDecimal.unscaledValue();
 		BigDecimal destinationDecimal = new BigDecimal(
 				sourceDecimalIntComponent, sourceDecimal.scale());
-		int roundingModel = BigDecimal.ROUND_HALF_UP;
+		RoundingMode roundingModel = RoundingMode.HALF_UP;
 		validateDecimalMinMax(destinationDecimal);
 		// First limit the number of digits and then the precision.
 		// Try and round to 29 digits because we can sometimes do that
