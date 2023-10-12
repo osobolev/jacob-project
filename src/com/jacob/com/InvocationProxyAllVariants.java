@@ -58,16 +58,18 @@ public class InvocationProxyAllVariants extends InvocationProxy {
         if (targetParameters == null) {
             throw new IllegalArgumentException("InvocationProxy: missing Variant parameters");
         }
+        if (JacobObject.isDebugEnabled()) {
+            JacobObject.debug("InvocationProxy: trying to invoke " + methodName + " on " + mTargetObject);
+        }
+        Class<?>[] types = {Variant[].class};
+        Object[] args = {targetParameters};
         try {
-            if (JacobObject.isDebugEnabled()) {
-                JacobObject.debug("InvocationProxy: trying to invoke " + methodName + " on " + mTargetObject);
-            }
-            Method targetMethod = targetClass.getMethod(methodName, Variant[].class);
+            Method targetMethod = targetClass.getMethod(methodName, types);
             // protected classes can't be invoked against even if they
             // let you grab the method. you could do
             // targetMethod.setAccessible(true);
             // but that should be stopped by the security manager
-            Object mReturnedByInvocation = targetMethod.invoke(mTargetObject, new Object[] {targetParameters});
+            Object mReturnedByInvocation = targetMethod.invoke(mTargetObject, args);
             if (mReturnedByInvocation == null) {
                 return null;
             } else if (mReturnedByInvocation instanceof Variant) {
