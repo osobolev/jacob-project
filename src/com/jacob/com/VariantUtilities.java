@@ -249,7 +249,8 @@ public final class VariantUtilities {
             // errors after some GC. So now we just get stupid about it and
             // always make a copy just like toSafeArray() does.
             result = sourceData.toSafeArray();
-        } else { // non-array object returned
+        } else {
+            // non-array object returned
             switch (type) {
             case Variant.VariantEmpty: // 0
             case Variant.VariantNull: // 1
@@ -361,7 +362,7 @@ public final class VariantUtilities {
         }
 
         return result;
-    }// toJava()
+    }
 
     /**
      * Verifies that we have a scale 0 &lt;= x &lt;= 28 and now more than 96 bits of
