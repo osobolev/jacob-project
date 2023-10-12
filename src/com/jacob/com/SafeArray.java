@@ -46,7 +46,7 @@ public class SafeArray extends JacobObject {
      * @param vt type of array
      */
     public SafeArray(int vt) {
-        init(vt, new int[] { 0 }, new int[] { -1 });
+        init(vt, new int[] {0}, new int[] {-1});
     }
 
     /**
@@ -57,7 +57,7 @@ public class SafeArray extends JacobObject {
      * @param celems length of the array
      */
     public SafeArray(int vt, int celems) {
-        init(vt, new int[] { 0 }, new int[] { celems });
+        init(vt, new int[] {0}, new int[] {celems});
     }
 
     /**
@@ -68,7 +68,7 @@ public class SafeArray extends JacobObject {
      * @param celems2 length of the array in second dimension
      */
     public SafeArray(int vt, int celems1, int celems2) {
-        init(vt, new int[] { 0, 0 }, new int[] { celems1, celems2 });
+        init(vt, new int[] {0, 0}, new int[] {celems1, celems2});
     }
 
     /**
@@ -99,7 +99,7 @@ public class SafeArray extends JacobObject {
          * }, new int[] { ca.length }); fromCharArray(ca);
          */
         byte[] ba = s.getBytes();
-        init(Variant.VariantByte, new int[] { 0 }, new int[] { ba.length });
+        init(Variant.VariantByte, new int[] {0}, new int[] {ba.length});
         fromByteArray(ba);
     }
 
