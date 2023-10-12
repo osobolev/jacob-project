@@ -134,9 +134,7 @@ public abstract class ROT {
                         + " objects to clear in this thread's ROT ");
             }
             // walk the values
-            Iterator<JacobObject> it = tab.keySet().iterator();
-            while (it.hasNext()) {
-                JacobObject o = it.next();
+            for (JacobObject o : tab.keySet()) {
                 if (o != null
                 // can't use this cause creates a Variant if calling SafeAray
                 // and we get an exception modifying the collection while
