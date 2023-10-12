@@ -150,8 +150,7 @@ public final class LibraryLoader {
             // libraries.
             // Check for a defined NAME. System property overrides resource
             // bundle.
-            String name = null;
-
+            String name;
             if (System.getProperty(JACOB_DLL_NAME) != null) {
                 name = System.getProperty(JACOB_DLL_NAME);
             } else if (System.getProperty(JACOB_DLL_NAME_X86) != null && shouldLoad32Bit()) {

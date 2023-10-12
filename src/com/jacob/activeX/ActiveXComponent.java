@@ -100,7 +100,7 @@ public class ActiveXComponent extends Dispatch {
      * @return Dispatch pointer to the COM object or null if couldn't create
      */
     public static ActiveXComponent createNewInstance(String pRequestedProgramId) {
-        ActiveXComponent mCreatedDispatch = null;
+        ActiveXComponent mCreatedDispatch;
         try {
             mCreatedDispatch = new ActiveXComponent();
             mCreatedDispatch.coCreateInstance(pRequestedProgramId);
@@ -129,7 +129,7 @@ public class ActiveXComponent extends Dispatch {
      * running
      */
     public static ActiveXComponent connectToActiveInstance(String pRequestedProgramId) {
-        ActiveXComponent mCreatedDispatch = null;
+        ActiveXComponent mCreatedDispatch;
         try {
             mCreatedDispatch = new ActiveXComponent();
             mCreatedDispatch.getActiveInstance(pRequestedProgramId);

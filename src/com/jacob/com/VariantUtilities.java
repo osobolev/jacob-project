@@ -136,7 +136,7 @@ public final class VariantUtilities {
             // automatically convert arrays using reflection
             // handle it differently based on the type of array
             // added primitive support sourceforge 2762275
-            SafeArray sa = null;
+            SafeArray sa;
             int len1 = Array.getLength(objectToBeMadeIntoVariant);
             Class<?> componentType = objectToBeMadeIntoVariant.getClass().getComponentType();
 

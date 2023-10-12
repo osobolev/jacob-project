@@ -12,7 +12,7 @@ package com.jacob.com;
  */
 public class Currency {
 
-    Long embeddedValue = null;
+    Long embeddedValue;
 
     /**
      * constructor that takes a long already in COM representation
