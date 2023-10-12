@@ -26,24 +26,24 @@ package com.jacob.com;
  */
 public class JacobException extends RuntimeException {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -1637125318746002715L;
+    /**
+     * 
+     */
+    private static final long serialVersionUID = -1637125318746002715L;
 
-	/**
-	 * Default constructor. Calls super with a "No Message Provided" string
-	 */
-	public JacobException() {
-		super("No Message Provided");
-	}
+    /**
+     * Default constructor. Calls super with a "No Message Provided" string
+     */
+    public JacobException() {
+        super("No Message Provided");
+    }
 
-	/**
-	 * standard constructor
-	 * 
-	 * @param message
-	 */
-	public JacobException(String message) {
-		super(message);
-	}
+    /**
+     * standard constructor
+     * 
+     * @param message
+     */
+    public JacobException(String message) {
+        super(message);
+    }
 }

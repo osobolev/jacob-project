@@ -39,70 +39,70 @@ package com.jacob.com;
  */
 public abstract class InvocationProxy {
 
-	/**
-	 * the object we will try and forward to.
-	 */
-	protected Object mTargetObject = null;
+    /**
+     * the object we will try and forward to.
+     */
+    protected Object mTargetObject = null;
 
-	/**
-	 * dummy constructor for subclasses that don't actually wrap anything and
-	 * just want to override the invoke() method
-	 */
-	protected InvocationProxy() {
-		super();
-	}
+    /**
+     * dummy constructor for subclasses that don't actually wrap anything and
+     * just want to override the invoke() method
+     */
+    protected InvocationProxy() {
+        super();
+    }
 
-	/**
-	 * The method actually invoked by EventProxy.cpp. The method name is
-	 * calculated by the underlying JNI code from the MS windows Callback
-	 * function name. The method is assumed to take an array of Variant objects.
-	 * The method may return a Variant or be a void. Those are the only two
-	 * options that will not blow up.
-	 * <p>
-	 * Subclasses that override this should make sure mTargetObject is not null
-	 * before processing.
-	 * 
-	 * @param methodName
-	 *            name of method in mTargetObject we will invoke
-	 * @param targetParameters
-	 *            Variant[] that is the single parameter to the method
-	 * @return an object that will be returned to the com event caller
-	 */
-	public abstract Variant invoke(String methodName,
+    /**
+     * The method actually invoked by EventProxy.cpp. The method name is
+     * calculated by the underlying JNI code from the MS windows Callback
+     * function name. The method is assumed to take an array of Variant objects.
+     * The method may return a Variant or be a void. Those are the only two
+     * options that will not blow up.
+     * <p>
+     * Subclasses that override this should make sure mTargetObject is not null
+     * before processing.
+     * 
+     * @param methodName
+     *            name of method in mTargetObject we will invoke
+     * @param targetParameters
+     *            Variant[] that is the single parameter to the method
+     * @return an object that will be returned to the com event caller
+     */
+    public abstract Variant invoke(String methodName,
                                    Variant[] targetParameters);
 
-	/**
-	 * used by EventProxy.cpp to create variant objects in the right thread
-	 * 
-	 * @return Variant object that will be used by the COM layer
-	 */
-	public Variant getVariant() {
-		return new VariantViaEvent();
-	}
+    /**
+     * used by EventProxy.cpp to create variant objects in the right thread
+     * 
+     * @return Variant object that will be used by the COM layer
+     */
+    public Variant getVariant() {
+        return new VariantViaEvent();
+    }
 
-	/**
-	 * Sets the target for this InvocationProxy.
-	 * 
-	 * @param pTargetObject
-	 * @throws IllegalArgumentException
-	 *             if target is not publicly accessible
-	 */
-	public void setTarget(Object pTargetObject) {
-		if (JacobObject.isDebugEnabled()) {
-			JacobObject.debug("InvocationProxy: setting target "
-					+ pTargetObject);
-		}
-		if (pTargetObject != null) {
-			// JNI code apparently bypasses this check and could operate against
-			// protected classes. This seems like a security issue...
-			// maybe it was because JNI code isn't in a package?
-			if (!java.lang.reflect.Modifier.isPublic(pTargetObject.getClass()
-					.getModifiers())) {
-				throw new IllegalArgumentException(
-						"InvocationProxy only public classes can receive event notifications");
-			}
-		}
-		mTargetObject = pTargetObject;
-	}
+    /**
+     * Sets the target for this InvocationProxy.
+     * 
+     * @param pTargetObject
+     * @throws IllegalArgumentException
+     *             if target is not publicly accessible
+     */
+    public void setTarget(Object pTargetObject) {
+        if (JacobObject.isDebugEnabled()) {
+            JacobObject.debug("InvocationProxy: setting target "
+                    + pTargetObject);
+        }
+        if (pTargetObject != null) {
+            // JNI code apparently bypasses this check and could operate against
+            // protected classes. This seems like a security issue...
+            // maybe it was because JNI code isn't in a package?
+            if (!java.lang.reflect.Modifier.isPublic(pTargetObject.getClass()
+                    .getModifiers())) {
+                throw new IllegalArgumentException(
+                        "InvocationProxy only public classes can receive event notifications");
+            }
+        }
+        mTargetObject = pTargetObject;
+    }
 
 }

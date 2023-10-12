@@ -72,159 +72,159 @@ import java.util.Set;
  * @author Jason Smith
  */
 public final class LibraryLoader {
-	/**
-	 * Name of system property (currently <tt>jacob.dll.path</tt>) that may
-	 * contain an absolute path to the JNI library.
-	 */
-	public static final String JACOB_DLL_PATH = "jacob.dll.path";
+    /**
+     * Name of system property (currently <tt>jacob.dll.path</tt>) that may
+     * contain an absolute path to the JNI library.
+     */
+    public static final String JACOB_DLL_PATH = "jacob.dll.path";
 
-	/**
-	 * Name of system property (currently <tt>jacob.dll.name</tt>) that may
-	 * contain an alternate name for the JNI library (default is 'jacob').
-	 */
-	public static final String JACOB_DLL_NAME = "jacob.dll.name";
+    /**
+     * Name of system property (currently <tt>jacob.dll.name</tt>) that may
+     * contain an alternate name for the JNI library (default is 'jacob').
+     */
+    public static final String JACOB_DLL_NAME = "jacob.dll.name";
 
-	/**
-	 * Name of system property (currently <tt>jacob.dll.name</tt>) that may
-	 * contain an alternate name for the JNI library (default is 'jacob'), 32
-	 * bit windows.
-	 */
-	public static final String JACOB_DLL_NAME_X86 = "jacob.dll.name.x86";
+    /**
+     * Name of system property (currently <tt>jacob.dll.name</tt>) that may
+     * contain an alternate name for the JNI library (default is 'jacob'), 32
+     * bit windows.
+     */
+    public static final String JACOB_DLL_NAME_X86 = "jacob.dll.name.x86";
 
-	/**
-	 * Name of system property (currently <tt>jacob.dll.name</tt>) that may
-	 * contain an alternate name for the JNI library (default is 'jacob'), 64
-	 * bit windows.
-	 */
-	public static final String JACOB_DLL_NAME_X64 = "jacob.dll.name.x64";
+    /**
+     * Name of system property (currently <tt>jacob.dll.name</tt>) that may
+     * contain an alternate name for the JNI library (default is 'jacob'), 64
+     * bit windows.
+     */
+    public static final String JACOB_DLL_NAME_X64 = "jacob.dll.name.x64";
 
-	/**
-	 * Appended to "jacob" when building DLL name This string must EXACTLY match
-	 * the string in the build.xml file
-	 */
-	public static final String DLL_NAME_MODIFIER_32_BIT = "x86";
-	/**
-	 * Appended to "jacob" when building DLL name This string must EXACTLY match
-	 * the string in the build.xml file
-	 */
-	public static final String DLL_NAME_MODIFIER_64_BIT = "x64";
+    /**
+     * Appended to "jacob" when building DLL name This string must EXACTLY match
+     * the string in the build.xml file
+     */
+    public static final String DLL_NAME_MODIFIER_32_BIT = "x86";
+    /**
+     * Appended to "jacob" when building DLL name This string must EXACTLY match
+     * the string in the build.xml file
+     */
+    public static final String DLL_NAME_MODIFIER_64_BIT = "x64";
 
-	/**
-	 * Load the jacob dll either from an absolute path or by a library name,
-	 * both of which may be defined in various ways.
-	 * 
-	 * @throws UnsatisfiedLinkError
-	 *             if the library does not exist.
-	 */
-	public static void loadJacobLibrary() {
-		// In some cases, a library that uses Jacob won't be able to set system
-		// properties
-		// prior to Jacob being loaded. The resource bundle provides an
-		// alternate way to
-		// override DLL name or path that will be loaded with Jacob regardless
-		// of other
-		// initialization order.
-		ResourceBundle resources = null;
-		Set<String> keys = new HashSet<>();
-		try {
-			resources = ResourceBundle.getBundle(LibraryLoader.class.getName(),
-					Locale.getDefault(), LibraryLoader.class.getClassLoader());
-			for (Enumeration<String> i = resources.getKeys(); i
-					.hasMoreElements();) {
-				String key = i.nextElement();
-				keys.add(key);
-			}
-		} catch (MissingResourceException e) {
-			// Do nothing. Expected.
-		}
+    /**
+     * Load the jacob dll either from an absolute path or by a library name,
+     * both of which may be defined in various ways.
+     * 
+     * @throws UnsatisfiedLinkError
+     *             if the library does not exist.
+     */
+    public static void loadJacobLibrary() {
+        // In some cases, a library that uses Jacob won't be able to set system
+        // properties
+        // prior to Jacob being loaded. The resource bundle provides an
+        // alternate way to
+        // override DLL name or path that will be loaded with Jacob regardless
+        // of other
+        // initialization order.
+        ResourceBundle resources = null;
+        Set<String> keys = new HashSet<>();
+        try {
+            resources = ResourceBundle.getBundle(LibraryLoader.class.getName(),
+                    Locale.getDefault(), LibraryLoader.class.getClassLoader());
+            for (Enumeration<String> i = resources.getKeys(); i
+                    .hasMoreElements();) {
+                String key = i.nextElement();
+                keys.add(key);
+            }
+        } catch (MissingResourceException e) {
+            // Do nothing. Expected.
+        }
 
-		// First, check for a defined PATH. System property overrides resource
-		// bundle.
-		String path = System.getProperty(JACOB_DLL_PATH);
-		if (path == null && resources != null && keys.contains(JACOB_DLL_PATH)) {
-			path = (String) resources.getObject(JACOB_DLL_PATH);
-		}
+        // First, check for a defined PATH. System property overrides resource
+        // bundle.
+        String path = System.getProperty(JACOB_DLL_PATH);
+        if (path == null && resources != null && keys.contains(JACOB_DLL_PATH)) {
+            path = (String) resources.getObject(JACOB_DLL_PATH);
+        }
 
-		if (path != null) {
-			JacobObject.debug("Loading library " + path
-					+ " using System.loadLibrary ");
-			System.load(path);
-		} else {
-			// Path was not defined, so use the OS mechanism for loading
-			// libraries.
-			// Check for a defined NAME. System property overrides resource
-			// bundle.
-			String name = null;
+        if (path != null) {
+            JacobObject.debug("Loading library " + path
+                    + " using System.loadLibrary ");
+            System.load(path);
+        } else {
+            // Path was not defined, so use the OS mechanism for loading
+            // libraries.
+            // Check for a defined NAME. System property overrides resource
+            // bundle.
+            String name = null;
 
-			if (System.getProperty(JACOB_DLL_NAME) != null) {
-				name = System.getProperty(JACOB_DLL_NAME);
-			} else if (System.getProperty(JACOB_DLL_NAME_X86) != null
-					&& shouldLoad32Bit()) {
-				name = System.getProperty(JACOB_DLL_NAME_X86);
-			} else if (System.getProperty(JACOB_DLL_NAME_X64) != null
-					&& !shouldLoad32Bit()) {
-				name = System.getProperty(JACOB_DLL_NAME_X64);
-			} else if (resources != null && keys.contains(JACOB_DLL_NAME)) {
-				name = resources.getString(JACOB_DLL_NAME);
-			} else if (resources != null && keys.contains(JACOB_DLL_NAME_X86)
-					&& shouldLoad32Bit()) {
-				name = resources.getString(JACOB_DLL_NAME_X86);
-			} else if (resources != null && keys.contains(JACOB_DLL_NAME_X64)
-					&& !shouldLoad32Bit()) {
-				name = resources.getString(JACOB_DLL_NAME_X64);
-			} else {
-				// No alternate NAME or PATH was defined, so use the default.
-				// We will almost always end up here.
-				name = getPreferredDLLName();
-			}
+            if (System.getProperty(JACOB_DLL_NAME) != null) {
+                name = System.getProperty(JACOB_DLL_NAME);
+            } else if (System.getProperty(JACOB_DLL_NAME_X86) != null
+                    && shouldLoad32Bit()) {
+                name = System.getProperty(JACOB_DLL_NAME_X86);
+            } else if (System.getProperty(JACOB_DLL_NAME_X64) != null
+                    && !shouldLoad32Bit()) {
+                name = System.getProperty(JACOB_DLL_NAME_X64);
+            } else if (resources != null && keys.contains(JACOB_DLL_NAME)) {
+                name = resources.getString(JACOB_DLL_NAME);
+            } else if (resources != null && keys.contains(JACOB_DLL_NAME_X86)
+                    && shouldLoad32Bit()) {
+                name = resources.getString(JACOB_DLL_NAME_X86);
+            } else if (resources != null && keys.contains(JACOB_DLL_NAME_X64)
+                    && !shouldLoad32Bit()) {
+                name = resources.getString(JACOB_DLL_NAME_X64);
+            } else {
+                // No alternate NAME or PATH was defined, so use the default.
+                // We will almost always end up here.
+                name = getPreferredDLLName();
+            }
 
-			JacobObject.debug("Loading library " + name
-					+ " using System.loadLibrary ");
-			// System.out.println("Loading " + name);
-			System.loadLibrary(name);
-		}
-	}
+            JacobObject.debug("Loading library " + name
+                    + " using System.loadLibrary ");
+            // System.out.println("Loading " + name);
+            System.loadLibrary(name);
+        }
+    }
 
-	/**
-	 * Developer note: This method MUST be synchronized with the DLL names
-	 * created as part of the build process in build.xml
-	 * <p>
-	 * The DLL name is "jacob&lt;PLATFORM&gt;.release"
-	 * 
-	 * @return the preferred name of the DLL adjusted for this platform and
-	 *         version without the ".dll" extension
-	 */
-	public static String getPreferredDLLName() {
-		if (shouldLoad32Bit()) {
-			return "jacob" + "-" + JacobReleaseInfo.getBuildVersion() + "-"
-					+ DLL_NAME_MODIFIER_32_BIT;
-		} else {
-			return "jacob" + "-" + JacobReleaseInfo.getBuildVersion() + "-"
-					+ DLL_NAME_MODIFIER_64_BIT;
-		}
-	}
+    /**
+     * Developer note: This method MUST be synchronized with the DLL names
+     * created as part of the build process in build.xml
+     * <p>
+     * The DLL name is "jacob&lt;PLATFORM&gt;.release"
+     * 
+     * @return the preferred name of the DLL adjusted for this platform and
+     *         version without the ".dll" extension
+     */
+    public static String getPreferredDLLName() {
+        if (shouldLoad32Bit()) {
+            return "jacob" + "-" + JacobReleaseInfo.getBuildVersion() + "-"
+                    + DLL_NAME_MODIFIER_32_BIT;
+        } else {
+            return "jacob" + "-" + JacobReleaseInfo.getBuildVersion() + "-"
+                    + DLL_NAME_MODIFIER_64_BIT;
+        }
+    }
 
-	/**
-	 * Detects whether this is a 32-bit JVM.
-	 * 
-	 * @return {@code true} if this is a 32-bit JVM.
-	 */
-	protected static boolean shouldLoad32Bit() {
-		// This guesses whether we are running 32 or 64 bit Java.
-		// This works for Sun and IBM JVMs version 5.0 or later.
-		// May need to be adjusted for non-Sun JVMs.
+    /**
+     * Detects whether this is a 32-bit JVM.
+     * 
+     * @return {@code true} if this is a 32-bit JVM.
+     */
+    protected static boolean shouldLoad32Bit() {
+        // This guesses whether we are running 32 or 64 bit Java.
+        // This works for Sun and IBM JVMs version 5.0 or later.
+        // May need to be adjusted for non-Sun JVMs.
 
-		String bits = System.getProperty("sun.arch.data.model", "?");
-		if (bits.equals("32"))
-			return true;
-		else if (bits.equals("64"))
-			return false;
+        String bits = System.getProperty("sun.arch.data.model", "?");
+        if (bits.equals("32"))
+            return true;
+        else if (bits.equals("64"))
+            return false;
 
-		// this works for jRocket
-		String arch = System.getProperty("java.vm.name", "?");
-		if (arch.toLowerCase().contains("64-bit"))
-			return false;
+        // this works for jRocket
+        String arch = System.getProperty("java.vm.name", "?");
+        if (arch.toLowerCase().contains("64-bit"))
+            return false;
 
-		return true;
-	}
+        return true;
+    }
 } // LibraryLoader

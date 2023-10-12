@@ -26,16 +26,16 @@ package com.jacob.com;
  */
 public class NotImplementedException extends JacobException {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -9169900832852356445L;
+    /**
+     * 
+     */
+    private static final long serialVersionUID = -9169900832852356445L;
 
-	/**
-	 * @param description
-	 */
-	public NotImplementedException(String description) {
-		super(description);
-	}
+    /**
+     * @param description
+     */
+    public NotImplementedException(String description) {
+        super(description);
+    }
 
 }
