@@ -77,7 +77,7 @@ public abstract class ROT {
 	/**
 	 * ThreadLocal with the com objects created in that thread
 	 */
-	private static ThreadLocal<Map<JacobObject, String>> rot = new ThreadLocal<Map<JacobObject, String>>();
+	private static ThreadLocal<Map<JacobObject, String>> rot = new ThreadLocal<>();
 
 	/**
 	 * adds a new thread storage area to rot
@@ -92,9 +92,9 @@ public abstract class ROT {
 						+ USE_AUTOMATIC_GARBAGE_COLLECTION);
 			}
 			if (!USE_AUTOMATIC_GARBAGE_COLLECTION) {
-				tab = new HashMap<JacobObject, String>();
+				tab = new HashMap<>();
 			} else {
-				tab = new WeakHashMap<JacobObject, String>();
+				tab = new WeakHashMap<>();
 			}
 			rot.set(tab);
 		}

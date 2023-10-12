@@ -125,7 +125,7 @@ public final class LibraryLoader {
 		// of other
 		// initialization order.
 		ResourceBundle resources = null;
-		Set<String> keys = new HashSet<String>();
+		Set<String> keys = new HashSet<>();
 		try {
 			resources = ResourceBundle.getBundle(LibraryLoader.class.getName(),
 					Locale.getDefault(), LibraryLoader.class.getClassLoader());
