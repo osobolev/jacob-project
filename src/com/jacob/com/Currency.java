@@ -19,7 +19,7 @@ public class Currency {
 	 * @param newValue
 	 */
 	public Currency(long newValue) {
-		embeddedValue = new Long(newValue);
+		embeddedValue = newValue;
 	}
 
 	/**
@@ -28,7 +28,7 @@ public class Currency {
 	 * @param newValue
 	 */
 	public Currency(String newValue) {
-		embeddedValue = new Long(newValue);
+		embeddedValue = Long.valueOf(newValue);
 	}
 
 	/**

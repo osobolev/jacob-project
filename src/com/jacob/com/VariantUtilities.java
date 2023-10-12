@@ -267,28 +267,28 @@ public final class VariantUtilities {
 			case Variant.VariantNull: // 1
 				break;
 			case Variant.VariantShort: // 2
-				result = new Short(sourceData.getShort());
+				result = sourceData.getShort();
 				break;
 			case Variant.VariantShort | Variant.VariantByref: // 2
-				result = new Short(sourceData.getShortRef());
+				result = sourceData.getShortRef();
 				break;
 			case Variant.VariantInt: // 3
-				result = new Integer(sourceData.getInt());
+				result = sourceData.getInt();
 				break;
 			case Variant.VariantInt | Variant.VariantByref: // 3
-				result = new Integer(sourceData.getIntRef());
+				result = sourceData.getIntRef();
 				break;
 			case Variant.VariantFloat: // 4
-				result = new Float(sourceData.getFloat());
+				result = sourceData.getFloat();
 				break;
 			case Variant.VariantFloat | Variant.VariantByref: // 4
-				result = new Float(sourceData.getFloatRef());
+				result = sourceData.getFloatRef();
 				break;
 			case Variant.VariantDouble: // 5
-				result = new Double(sourceData.getDouble());
+				result = sourceData.getDouble();
 				break;
 			case Variant.VariantDouble | Variant.VariantByref: // 5
-				result = new Double(sourceData.getDoubleRef());
+				result = sourceData.getDoubleRef();
 				break;
 			case Variant.VariantCurrency: // 6
 				result = sourceData.getCurrency();
@@ -320,10 +320,10 @@ public final class VariantUtilities {
 						"toJavaObject() Not implemented for VariantError");
 				break;
 			case Variant.VariantBoolean: // 11
-				result = new Boolean(sourceData.getBoolean());
+				result = sourceData.getBoolean();
 				break;
 			case Variant.VariantBoolean | Variant.VariantByref: // 11
-				result = new Boolean(sourceData.getBooleanRef());
+				result = sourceData.getBooleanRef();
 				break;
 			case Variant.VariantVariant: // 12 they are always by ref
 				result = new NotImplementedException(
@@ -343,16 +343,16 @@ public final class VariantUtilities {
 				result = sourceData.getDecimalRef();
 				break;
 			case Variant.VariantByte: // 17
-				result = new Byte(sourceData.getByte());
+				result = sourceData.getByte();
 				break;
 			case Variant.VariantByte | Variant.VariantByref: // 17
-				result = new Byte(sourceData.getByteRef());
+				result = sourceData.getByteRef();
 				break;
 			case Variant.VariantLongInt: // 20
-				result = new Long(sourceData.getLong());
+				result = sourceData.getLong();
 				break;
 			case Variant.VariantLongInt | Variant.VariantByref: // 20
-				result = new Long(sourceData.getLongRef());
+				result = sourceData.getLongRef();
 				break;
 			case Variant.VariantTypeMask: // 4095
 				result = new NotImplementedException(

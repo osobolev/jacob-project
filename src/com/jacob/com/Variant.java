@@ -176,7 +176,7 @@ public class Variant extends JacobObject {
 	 * @param in
 	 */
 	public Variant(boolean in) {
-		this(new Boolean(in));
+		this(Boolean.valueOf(in));
 	}
 
 	/**
@@ -185,7 +185,7 @@ public class Variant extends JacobObject {
 	 * @param in
 	 */
 	public Variant(byte in) {
-		this(new Byte(in));
+		this(Byte.valueOf(in));
 	}
 
 	/**
@@ -194,7 +194,7 @@ public class Variant extends JacobObject {
 	 * @param in
 	 */
 	public Variant(double in) {
-		this(new Double(in));
+		this(Double.valueOf(in));
 	}
 
 	/**
@@ -203,7 +203,7 @@ public class Variant extends JacobObject {
 	 * @param in
 	 */
 	public Variant(float in) {
-		this(new Float(in));
+		this(Float.valueOf(in));
 	}
 
 	/**
@@ -212,7 +212,7 @@ public class Variant extends JacobObject {
 	 * @param in
 	 */
 	public Variant(int in) {
-		this(new Integer(in));
+		this(Integer.valueOf(in));
 	};
 
 	/**
@@ -221,7 +221,7 @@ public class Variant extends JacobObject {
 	 * @param in
 	 */
 	public Variant(long in) {
-		this(new Long(in));
+		this(Long.valueOf(in));
 	}
 
 	/**
@@ -256,7 +256,7 @@ public class Variant extends JacobObject {
 	 * @param in
 	 */
 	public Variant(short in) {
-		this(new Short(in));
+		this(Short.valueOf(in));
 	}
 
 	/**
