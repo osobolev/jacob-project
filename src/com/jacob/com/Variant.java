@@ -790,8 +790,7 @@ public class Variant extends JacobObject {
                 JacobObject.debug("About to call getVariantVariant()");
             }
             Variant enclosedVariant = new Variant();
-            long enclosedVariantMemory = getVariantVariant();
-            enclosedVariant.m_pVariant = enclosedVariantMemory;
+            enclosedVariant.m_pVariant = getVariantVariant();
             Object enclosedVariantAsJava = enclosedVariant.toJavaObject();
             // zero out the reference to the underlying windows memory so that
             // it is still only owned in one place by one java object

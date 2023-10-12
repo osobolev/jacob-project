@@ -249,8 +249,7 @@ public final class VariantUtilities {
             // copy of the data so you would end up with weird run time
             // errors after some GC. So now we just get stupid about it and
             // always make a copy just like toSafeArray() does.
-            SafeArray array = sourceData.toSafeArray();
-            result = array;
+            result = sourceData.toSafeArray();
         } else { // non-array object returned
             switch (type) {
             case Variant.VariantEmpty: // 0
