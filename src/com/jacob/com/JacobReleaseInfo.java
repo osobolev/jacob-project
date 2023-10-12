@@ -92,5 +92,4 @@ public class JacobReleaseInfo {
         }
         return buildVersion;
     }
-
 }

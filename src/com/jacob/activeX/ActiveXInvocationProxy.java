@@ -179,5 +179,4 @@ public class ActiveXInvocationProxy extends InvocationProxy {
         }
         return parametersAsJavaObjects;
     }
-
 }

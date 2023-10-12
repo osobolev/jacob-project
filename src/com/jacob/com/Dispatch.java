@@ -868,5 +868,4 @@ public class Dispatch extends JacobObject {
         throwIfUnattachedDispatch(dispatchTarget);
         return hasExited(dispatchTarget, 0, LOCALE_SYSTEM_DEFAULT);
     }
-
 }

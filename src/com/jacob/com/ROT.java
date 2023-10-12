@@ -41,6 +41,7 @@ import java.util.WeakHashMap;
  * Is [ 1116101 ] jacob-msg 0284 relevant???
  */
 public abstract class ROT {
+
     /**
      * Manual garbage collection was the only option pre 1.9 Can staticly cache
      * the results because only one value and we don't let it change during a
@@ -262,5 +263,4 @@ public abstract class ROT {
     static {
         LibraryLoader.loadJacobLibrary();
     }
-
 }

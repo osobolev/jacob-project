@@ -109,5 +109,4 @@ public class JacobObject {
     static {
         LibraryLoader.loadJacobLibrary();
     }
-
 }

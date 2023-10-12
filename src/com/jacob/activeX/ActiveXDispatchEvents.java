@@ -102,5 +102,4 @@ public class ActiveXDispatchEvents extends DispatchEvents {
         newProxy.setTarget(pTargetObject);
         return newProxy;
     }
-
 }

@@ -29,6 +29,7 @@ package com.jacob.com;
  * construct a separate DispatchProxy instance for each such case!
  */
 public class DispatchProxy extends JacobObject {
+
     /**
      * Comment for <code>m_pStream</code>
      */

@@ -25,6 +25,7 @@ package com.jacob.com;
  */
 public class EnumVariant extends JacobObject implements
         java.util.Enumeration<Variant> {
+
     /** pointer to windows memory */
     private long m_pIEnumVARIANT;
 

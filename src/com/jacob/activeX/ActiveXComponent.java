@@ -475,5 +475,4 @@ public class ActiveXComponent extends Dispatch {
     public Variant invoke(String name, Variant... args) {
         return Dispatch.callN(this, name, (Object[]) args);
     }
-
 }

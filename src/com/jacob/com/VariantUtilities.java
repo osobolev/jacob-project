@@ -14,6 +14,7 @@ import java.util.Date;
  * A utility class used to convert between Java objects and Variants
  */
 public final class VariantUtilities {
+
     private VariantUtilities() {
         // utility class with only static methods don't need constructors
     }

@@ -23,6 +23,7 @@ package com.jacob.com;
  * COM Fail Exception class raised when there is a problem
  */
 public class ComFailException extends ComException {
+
     /**
      * eclipse generated to get rid of a wanring
      */

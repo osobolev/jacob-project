@@ -11,6 +11,7 @@ package com.jacob.com;
  * In the future, this should convert to and from BigDecimal or Double
  */
 public class Currency {
+
     Long embeddedValue = null;
 
     /**

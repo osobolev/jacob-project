@@ -27,6 +27,7 @@ import java.util.Date;
  * were a later addition.
  */
 public class SafeArray extends JacobObject {
+
     /** The super secret long that is actually the pointer to windows memory */
     long m_pV = 0;
 
@@ -1215,5 +1216,4 @@ public class SafeArray extends JacobObject {
      * @return Variant[] array of variants contained in this collection
      */
     public native Variant[] toVariantArray();
-
 }

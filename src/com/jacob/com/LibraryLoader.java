@@ -72,6 +72,7 @@ import java.util.Set;
  * @author Jason Smith
  */
 public final class LibraryLoader {
+
     /**
      * Name of system property (currently <tt>jacob.dll.path</tt>) that may
      * contain an absolute path to the JNI library.

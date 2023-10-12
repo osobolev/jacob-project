@@ -24,8 +24,8 @@ package com.jacob.com;
  * methods are static and no instances are ever created.
  */
 public abstract class ComThread {
-    private static final int MTA = 0x0;
 
+    private static final int MTA = 0x0;
     private static final int STA = 0x2;
 
     /**

@@ -37,5 +37,4 @@ public class NotImplementedException extends JacobException {
     public NotImplementedException(String description) {
         super(description);
     }
-
 }

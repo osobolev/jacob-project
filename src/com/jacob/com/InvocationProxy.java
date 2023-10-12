@@ -104,5 +104,4 @@ public abstract class InvocationProxy {
         }
         mTargetObject = pTargetObject;
     }
-
 }

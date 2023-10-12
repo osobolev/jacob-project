@@ -2241,5 +2241,4 @@ public class Variant extends JacobObject {
      * Clear the content of this variant
      */
     public native void VariantClear();
-
 }

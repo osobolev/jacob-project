@@ -25,6 +25,7 @@ package com.jacob.com;
  * component that wants to run in an STA other than the main STA.
  */
 public class STA extends Thread {
+
     /**
      * referenced by STA.cpp
      */
