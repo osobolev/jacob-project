@@ -142,7 +142,7 @@ public final class VariantUtilities {
 			// added primitive support sourceforge 2762275
 			SafeArray sa = null;
 			int len1 = Array.getLength(objectToBeMadeIntoVariant);
-			Class componentType = objectToBeMadeIntoVariant.getClass()
+			Class<?> componentType = objectToBeMadeIntoVariant.getClass()
 					.getComponentType();
 
 			if (componentType.isArray()) { // array of arrays

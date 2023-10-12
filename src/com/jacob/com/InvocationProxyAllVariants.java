@@ -54,7 +54,7 @@ public class InvocationProxyAllVariants extends InvocationProxy {
 			// here
 			return null;
 		}
-		Class targetClass = mTargetObject.getClass();
+		Class<?> targetClass = mTargetObject.getClass();
 		if (methodName == null) {
 			throw new IllegalArgumentException(
 					"InvocationProxy: missing method name");
