@@ -91,12 +91,6 @@ public class ActiveXInvocationProxy extends InvocationProxy {
         } catch (NoSuchMethodException e) {
             // this happens whenever the listener doesn't implement all the
             // methods
-        } catch (IllegalArgumentException e) {
-            // we can throw these inside the catch block so need to re-throw it
-            Exception oneWeShouldToss = new IllegalArgumentException(
-                "Unable to map parameters for method " + methodName + ": " + e
-            );
-            oneWeShouldToss.printStackTrace();
         } catch (IllegalAccessException e) {
             // can't access the method on the target instance for some reason
             e.printStackTrace();

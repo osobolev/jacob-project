@@ -84,10 +84,6 @@ public class InvocationProxyAllVariants extends InvocationProxy {
             if (JacobObject.isDebugEnabled()) {
                 JacobObject.debug("InvocationProxy: listener (" + mTargetObject + ") doesn't implement " + methodName);
             }
-        } catch (IllegalArgumentException e) {
-            e.printStackTrace();
-            // we can throw these inside the catch block so need to re-throw it
-            throw e;
         } catch (IllegalAccessException e) {
             // can't access the method on the target instance for some reason
             if (JacobObject.isDebugEnabled()) {
