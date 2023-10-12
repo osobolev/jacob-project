@@ -58,8 +58,7 @@ public class JacobReleaseInfo {
                 buildVersion = versionProps.getProperty("version");
                 buildDate = versionProps.getProperty("build.date");
             } catch (IOException ioe) {
-                ioe.printStackTrace();
-                System.err.println("Warning! Couldn't load props " + ioe);
+                throw new JacobException(ioe);
             }
         }
     }
