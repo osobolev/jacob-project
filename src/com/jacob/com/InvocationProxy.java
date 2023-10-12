@@ -69,7 +69,7 @@ public abstract class InvocationProxy {
 	 * @return an object that will be returned to the com event caller
 	 */
 	public abstract Variant invoke(String methodName,
-			Variant targetParameters[]);
+                                   Variant[] targetParameters);
 
 	/**
 	 * used by EventProxy.cpp to create variant objects in the right thread

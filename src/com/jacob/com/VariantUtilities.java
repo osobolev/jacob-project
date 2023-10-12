@@ -218,7 +218,7 @@ public final class VariantUtilities {
 			// just return the passed in array if it is a Variant array
 			return (Variant[]) arrayOfObjectsToBeConverted;
 		} else {
-			Variant vArg[] = new Variant[arrayOfObjectsToBeConverted.length];
+			Variant[] vArg = new Variant[arrayOfObjectsToBeConverted.length];
 			for (int i = 0; i < arrayOfObjectsToBeConverted.length; i++) {
 				vArg[i] = objectToVariant(arrayOfObjectsToBeConverted[i]);
 			}

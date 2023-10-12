@@ -43,7 +43,7 @@ public class InvocationProxyAllVariants extends InvocationProxy {
 	 *      com.jacob.com.Variant[])
 	 */
 	@SuppressWarnings("unchecked")
-	public Variant invoke(String methodName, Variant targetParameters[]) {
+	public Variant invoke(String methodName, Variant[] targetParameters) {
 		Variant mVariantToBeReturned = null;
 		if (mTargetObject == null) {
 			if (JacobObject.isDebugEnabled()) {

@@ -60,7 +60,7 @@ public class ActiveXInvocationProxy extends InvocationProxy {
 	 *      com.jacob.com.Variant[])
 	 */
 	@SuppressWarnings("unchecked")
-	public Variant invoke(String methodName, Variant targetParameters[]) {
+	public Variant invoke(String methodName, Variant[] targetParameters) {
 		Variant mVariantToBeReturned = null;
 		if (mTargetObject == null) {
 			// structured programming guidlines say this return should not be up
@@ -78,8 +78,8 @@ public class ActiveXInvocationProxy extends InvocationProxy {
 		}
 		try {
 			Method targetMethod;
-			Object parametersAsJavaObjects[] = getParametersAsJavaObjects(targetParameters);
-			Class parametersAsJavaClasses[] = getParametersAsJavaClasses(parametersAsJavaObjects);
+			Object[] parametersAsJavaObjects = getParametersAsJavaObjects(targetParameters);
+			Class[] parametersAsJavaClasses = getParametersAsJavaClasses(parametersAsJavaObjects);
 			targetMethod = targetClass.getMethod(methodName,
 					parametersAsJavaClasses);
 			if (targetMethod != null) {
@@ -135,7 +135,7 @@ public class ActiveXInvocationProxy extends InvocationProxy {
 					"This only works with an array of parameters");
 		}
 		int numParameters = parametersAsJavaObjects.length;
-		Class parametersAsJavaClasses[] = new Class[numParameters];
+		Class[] parametersAsJavaClasses = new Class[numParameters];
 		for (int parameterIndex = 0; parameterIndex < numParameters; parameterIndex++) {
 			Object oneParameterObject = parametersAsJavaObjects[parameterIndex];
 			if (oneParameterObject == null) {
@@ -160,7 +160,7 @@ public class ActiveXInvocationProxy extends InvocationProxy {
 					"This only works with an array of parameters");
 		}
 		int numParameters = targetParameters.length;
-		Object parametersAsJavaObjects[] = new Object[numParameters];
+		Object[] parametersAsJavaObjects = new Object[numParameters];
 		for (int parameterIndex = 0; parameterIndex < numParameters; parameterIndex++) {
 			Variant oneParameterObject = targetParameters[parameterIndex];
 			if (oneParameterObject == null) {

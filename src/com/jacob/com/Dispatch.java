@@ -410,8 +410,8 @@ public class Dispatch extends JacobObject {
 	 * @return int id for the passed in name
 	 */
 	public static int getIDOfName(Dispatch dispatchTarget, String name) {
-		int ids[] = getIDsOfNames(dispatchTarget,
-				Dispatch.LOCALE_SYSTEM_DEFAULT, new String[] { name });
+		int[] ids = getIDsOfNames(dispatchTarget,
+                                  Dispatch.LOCALE_SYSTEM_DEFAULT, new String[] { name });
 		return ids[0];
 	}
 
