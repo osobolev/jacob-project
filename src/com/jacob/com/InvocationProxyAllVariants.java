@@ -73,10 +73,7 @@ public class InvocationProxyAllVariants extends InvocationProxy {
             } else if (mReturnedByInvocation instanceof Variant) {
                 return (Variant) mReturnedByInvocation;
             } else {
-                // could try and convert to Variant here.
-                throw new IllegalArgumentException(
-                    "InvocationProxy: invokation of target method returned non-null non-variant object: " + mReturnedByInvocation
-                );
+                return new Variant(mReturnedByInvocation);
             }
         } catch (NoSuchMethodException e) {
             // this happens whenever the listener doesn't implement all the
