@@ -19,12 +19,12 @@
  */
 package com.jacob.activeX;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-
 import com.jacob.com.InvocationProxy;
 import com.jacob.com.NotImplementedException;
 import com.jacob.com.Variant;
+
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 /**
  * RELEASE 1.12 EXPERIMENTAL.
