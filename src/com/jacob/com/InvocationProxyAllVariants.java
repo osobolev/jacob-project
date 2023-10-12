@@ -64,9 +64,7 @@ public class InvocationProxyAllVariants extends InvocationProxy {
             if (JacobObject.isDebugEnabled()) {
                 JacobObject.debug("InvocationProxy: trying to invoke " + methodName + " on " + mTargetObject);
             }
-            Method targetMethod;
-            targetMethod = targetClass.getMethod(methodName,
-                    new Class[] { Variant[].class });
+            Method targetMethod = targetClass.getMethod(methodName, Variant[].class);
             if (targetMethod != null) {
                 // protected classes can't be invoked against even if they
                 // let you grab the method. you could do
