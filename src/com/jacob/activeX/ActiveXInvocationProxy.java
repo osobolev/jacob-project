@@ -88,9 +88,6 @@ public class ActiveXInvocationProxy extends InvocationProxy {
             } else {
                 return new Variant(mReturnedByInvocation);
             }
-        } catch (SecurityException e) {
-            // what causes this exception?
-            e.printStackTrace();
         } catch (NoSuchMethodException e) {
             // this happens whenever the listener doesn't implement all the
             // methods

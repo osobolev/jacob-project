@@ -78,9 +78,6 @@ public class InvocationProxyAllVariants extends InvocationProxy {
                     "InvocationProxy: invokation of target method returned non-null non-variant object: " + mReturnedByInvocation
                 );
             }
-        } catch (SecurityException e) {
-            // what causes this exception?
-            e.printStackTrace();
         } catch (NoSuchMethodException e) {
             // this happens whenever the listener doesn't implement all the
             // methods
