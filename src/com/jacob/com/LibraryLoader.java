@@ -186,9 +186,9 @@ public final class LibraryLoader {
      */
     public static String getPreferredDLLName() {
         if (shouldLoad32Bit()) {
-            return "jacob" + "-" + JacobReleaseInfo.getBuildVersion() + "-" + DLL_NAME_MODIFIER_32_BIT;
+            return "jacob-" + JacobReleaseInfo.getBuildVersion() + "-" + DLL_NAME_MODIFIER_32_BIT;
         } else {
-            return "jacob" + "-" + JacobReleaseInfo.getBuildVersion() + "-" + DLL_NAME_MODIFIER_64_BIT;
+            return "jacob-" + JacobReleaseInfo.getBuildVersion() + "-" + DLL_NAME_MODIFIER_64_BIT;
         }
     }
 
