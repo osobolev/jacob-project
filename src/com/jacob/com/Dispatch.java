@@ -70,15 +70,15 @@ public class Dispatch extends JacobObject {
     /**
      * Dummy empty array used one doesn't have to be created on every invocation
      */
-    private final static Object[] NO_OBJECT_ARGS = new Object[0];
+    private static final Object[] NO_OBJECT_ARGS = new Object[0];
     /**
      * Dummy empty array used one doesn't have to be created on every invocation
      */
-    private final static Variant[] NO_VARIANT_ARGS = new Variant[0];
+    private static final Variant[] NO_VARIANT_ARGS = new Variant[0];
     /**
      * Dummy empty array used one doesn't have to be created on every invocation
      */
-    private final static int[] NO_INT_ARGS = new int[0];
+    private static final int[] NO_INT_ARGS = new int[0];
 
     /**
      * zero argument constructor that sets the dispatch pointer to 0 This is the

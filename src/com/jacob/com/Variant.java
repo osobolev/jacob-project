@@ -43,22 +43,22 @@ public class Variant extends JacobObject {
     /**
      * Use this constant for optional parameters
      */
-    public final static com.jacob.com.Variant DEFAULT;
+    public static final com.jacob.com.Variant DEFAULT;
 
     /**
      * Same than {@link #DEFAULT}
      */
-    public final static com.jacob.com.Variant VT_MISSING;
+    public static final com.jacob.com.Variant VT_MISSING;
 
     /**
      * Use for true/false variant parameters
      */
-    public final static com.jacob.com.Variant VT_TRUE = new com.jacob.com.Variant(true);
+    public static final com.jacob.com.Variant VT_TRUE = new com.jacob.com.Variant(true);
 
     /**
      * Use for true/false variant parameters
      */
-    public final static com.jacob.com.Variant VT_FALSE = new com.jacob.com.Variant(false);
+    public static final com.jacob.com.Variant VT_FALSE = new com.jacob.com.Variant(false);
 
     /**
      * variant's type is empty : equivalent to VB Nothing and VT_EMPTY

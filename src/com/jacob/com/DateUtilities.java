@@ -35,7 +35,7 @@ public class DateUtilities {
      * @param comTime
      * @return Date object representing the windows time as specified in comTime
      */
-    static public Date convertWindowsTimeToDate(double comTime) {
+    public static Date convertWindowsTimeToDate(double comTime) {
         return new Date(convertWindowsTimeToMilliseconds(comTime));
     }
 
@@ -52,7 +52,7 @@ public class DateUtilities {
      * @param comTime COM time.
      * @return Java time.
      */
-    static public long convertWindowsTimeToMilliseconds(double comTime) {
+    public static long convertWindowsTimeToMilliseconds(double comTime) {
         // code from jacobgen:
         comTime -= 25569D;
         Calendar cal = Calendar.getInstance();
@@ -68,7 +68,7 @@ public class DateUtilities {
      * @param javaDate the java date to be converted to windows time
      * @return the double representing the date in a form windows understands
      */
-    static public double convertDateToWindowsTime(Date javaDate) {
+    public static double convertDateToWindowsTime(Date javaDate) {
         if (javaDate == null) {
             throw new IllegalArgumentException("cannot convert null to windows time");
         }
@@ -81,7 +81,7 @@ public class DateUtilities {
      * @param milliseconds Java time.
      * @return COM time.
      */
-    static public double convertMillisecondsToWindowsTime(long milliseconds) {
+    public static double convertMillisecondsToWindowsTime(long milliseconds) {
         // code from jacobgen:
         Calendar cal = Calendar.getInstance();
         cal.setTimeInMillis(milliseconds);

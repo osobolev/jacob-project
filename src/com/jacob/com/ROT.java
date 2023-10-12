@@ -83,7 +83,7 @@ public abstract class ROT {
      *
      * @return Map corresponding to the thread that this call was made in
      */
-    protected synchronized static Map<JacobObject, String> addThread() {
+    protected static synchronized Map<JacobObject, String> addThread() {
         Map<JacobObject, String> tab = rot.get();
         if (tab == null) {
             if (JacobObject.isDebugEnabled()) {
@@ -107,7 +107,7 @@ public abstract class ROT {
      * @return Map the collection that holds the objects created in the current
      * thread
      */
-    protected synchronized static Map<JacobObject, String> getThreadObjects(boolean createIfDoesNotExist) {
+    protected static synchronized Map<JacobObject, String> getThreadObjects(boolean createIfDoesNotExist) {
         Map<JacobObject, String> tab = rot.get();
         if (tab == null && createIfDoesNotExist) {
             tab = addThread();
@@ -168,7 +168,7 @@ public abstract class ROT {
     /**
      * Removes the map from the rot that is associated with the current thread.
      */
-    private synchronized static void removeThread() {
+    private static synchronized void removeThread() {
         rot.remove();
     }
 
