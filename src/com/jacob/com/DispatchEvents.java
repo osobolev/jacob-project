@@ -116,8 +116,7 @@ public class DispatchEvents extends JacobObject {
     public DispatchEvents(Dispatch sourceOfEvent, Object eventSink,
                           String progId, String typeLib) {
         if (JacobObject.isDebugEnabled()) {
-            System.out.println("DispatchEvents: Registering " + eventSink
-                    + "for events ");
+            System.out.println("DispatchEvents: Registering " + eventSink + "for events ");
         }
         if (eventSink instanceof InvocationProxy) {
             mInvocationProxy = (InvocationProxy) eventSink;

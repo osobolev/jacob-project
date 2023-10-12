@@ -126,10 +126,8 @@ public final class LibraryLoader {
         ResourceBundle resources = null;
         Set<String> keys = new HashSet<>();
         try {
-            resources = ResourceBundle.getBundle(LibraryLoader.class.getName(),
-                    Locale.getDefault(), LibraryLoader.class.getClassLoader());
-            for (Enumeration<String> i = resources.getKeys(); i
-                    .hasMoreElements();) {
+            resources = ResourceBundle.getBundle(LibraryLoader.class.getName(), Locale.getDefault(), LibraryLoader.class.getClassLoader());
+            for (Enumeration<String> i = resources.getKeys(); i.hasMoreElements(); ) {
                 String key = i.nextElement();
                 keys.add(key);
             }

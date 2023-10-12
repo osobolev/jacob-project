@@ -46,8 +46,8 @@ public abstract class ROT {
      * the results because only one value and we don't let it change during a
      * run
      */
-    protected static final boolean USE_AUTOMATIC_GARBAGE_COLLECTION = "true"
-            .equalsIgnoreCase(System.getProperty("com.jacob.autogc"));
+    protected static final boolean USE_AUTOMATIC_GARBAGE_COLLECTION =
+        "true".equalsIgnoreCase(System.getProperty("com.jacob.autogc"));
 
     /**
      * If the code is ran from an applet that is called from javascript the Java
@@ -59,9 +59,8 @@ public abstract class ROT {
      * boolean here to indicate this prevents a call to System.getProperty as
      * part of the general call flow.
      */
-    protected static final Boolean INCLUDE_ALL_CLASSES_IN_ROT = Boolean
-            .valueOf(System.getProperty("com.jacob.includeAllClassesInROT",
-                    "true"));
+    protected static final Boolean INCLUDE_ALL_CLASSES_IN_ROT =
+        Boolean.valueOf(System.getProperty("com.jacob.includeAllClassesInROT", "true"));
 
     /**
      * Suffix added to class name to make up property name that determines if

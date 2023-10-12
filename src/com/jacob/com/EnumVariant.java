@@ -49,8 +49,7 @@ public class EnumVariant extends JacobObject implements
         // some
         // non-conforming legacy implementations that expose _NewEnum as a
         // method.
-        Variant evv = Dispatch.invokev(disp, DispatchIdentifier.DISPID_NEWENUM,
-                Dispatch.Get | Dispatch.Method, new Variant[0], hres);
+        Variant evv = Dispatch.invokev(disp, DispatchIdentifier.DISPID_NEWENUM, Dispatch.Get | Dispatch.Method, new Variant[0], hres);
         if (evv.getvt() != Variant.VariantObject)
             // The DISPID_NEWENUM did not result in a valid object
             throw new ComFailException("Can't obtain EnumVARIANT");

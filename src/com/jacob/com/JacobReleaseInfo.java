@@ -40,14 +40,12 @@ public class JacobReleaseInfo {
     private static void loadVersionProperties() {
         Properties versionProps = new Properties();
         // can't use system class loader cause won't work in JavaWebStart
-        InputStream stream = JacobReleaseInfo.class.getClassLoader()
-                .getResourceAsStream(PROPERTY_FILE_NAME);
+        InputStream stream = JacobReleaseInfo.class.getClassLoader().getResourceAsStream(PROPERTY_FILE_NAME);
         // This should never happen. This is an attempt to make something work
         // for WebSphere. They may be using some kind of Servlet loader that
         // needs an absolute path based search
         if (stream == null) {
-            stream = JacobReleaseInfo.class.getClassLoader()
-                    .getResourceAsStream("/" + PROPERTY_FILE_NAME);
+            stream = JacobReleaseInfo.class.getClassLoader().getResourceAsStream("/" + PROPERTY_FILE_NAME);
         }
         // A report came in that WebSphere had trouble finding the file
         // so lets trap it. Plus, it's a good idea anyway.

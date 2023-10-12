@@ -51,16 +51,13 @@ public final class VariantUtilities {
             }
         } else if (pValueObject instanceof Boolean) {
             if (fByRef) {
-                targetVariant.putBooleanRef(((Boolean) pValueObject)
-                        .booleanValue());
+                targetVariant.putBooleanRef(((Boolean) pValueObject).booleanValue());
             } else {
-                targetVariant.putBoolean(((Boolean) pValueObject)
-                        .booleanValue());
+                targetVariant.putBoolean(((Boolean) pValueObject).booleanValue());
             }
         } else if (pValueObject instanceof Double) {
             if (fByRef) {
-                targetVariant.putDoubleRef(((Double) pValueObject)
-                        .doubleValue());
+                targetVariant.putDoubleRef(((Double) pValueObject).doubleValue());
             } else {
                 targetVariant.putDouble(((Double) pValueObject).doubleValue());
             }
@@ -141,8 +138,7 @@ public final class VariantUtilities {
             // added primitive support sourceforge 2762275
             SafeArray sa = null;
             int len1 = Array.getLength(objectToBeMadeIntoVariant);
-            Class<?> componentType = objectToBeMadeIntoVariant.getClass()
-                    .getComponentType();
+            Class<?> componentType = objectToBeMadeIntoVariant.getClass().getComponentType();
 
             if (componentType.isArray()) { // array of arrays
                 int max = 0;

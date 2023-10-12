@@ -305,9 +305,7 @@ public class ActiveXComponent extends Dispatch {
                 // break out the byref bits if they are on this
                 if ((argType & Variant.VariantByref) == Variant.VariantByref) {
                     // show the type and the fact that its byref
-                    argString += "("
-                            + (args[i].getvt() & ~Variant.VariantByref) + "/"
-                            + Variant.VariantByref + ")";
+                    argString += "(" + (args[i].getvt() & ~Variant.VariantByref) + "/" + Variant.VariantByref + ")";
                 } else {
                     // show the type
                     argString += "(" + argType + ")";
