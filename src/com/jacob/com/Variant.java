@@ -463,7 +463,7 @@ public class Variant extends JacobObject {
      */
     public BigDecimal getDecimal() {
         if (this.getvt() == VariantDecimal) {
-            return (BigDecimal) (getVariantDec());
+            return (BigDecimal) getVariantDec();
         } else {
             throw new IllegalStateException("getDecimal() only legal on Variants of type VariantDecimal, not " + this.getvt());
         }
@@ -478,7 +478,7 @@ public class Variant extends JacobObject {
     public BigDecimal getDecimalRef() {
         if ((this.getvt() & VariantTypeMask) == VariantDecimal &&
             (this.getvt() & VariantByref) == VariantByref) {
-            return (BigDecimal) (getVariantDecRef());
+            return (BigDecimal) getVariantDecRef();
         } else {
             throw new IllegalStateException("getDecimalRef() only legal on byRef Variants of type VariantDecimal, not " + this.getvt());
         }

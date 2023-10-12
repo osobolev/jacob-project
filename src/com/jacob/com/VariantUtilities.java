@@ -69,9 +69,9 @@ public final class VariantUtilities {
             }
         } else if (pValueObject instanceof BigDecimal) {
             if (fByRef) {
-                targetVariant.putDecimalRef(((BigDecimal) pValueObject));
+                targetVariant.putDecimalRef((BigDecimal) pValueObject);
             } else {
-                targetVariant.putDecimal(((BigDecimal) pValueObject));
+                targetVariant.putDecimal((BigDecimal) pValueObject);
             }
         } else if (pValueObject instanceof Byte) {
             if (fByRef) {
@@ -93,9 +93,9 @@ public final class VariantUtilities {
             }
         } else if (pValueObject instanceof Currency) {
             if (fByRef) {
-                targetVariant.putCurrencyRef(((Currency) pValueObject));
+                targetVariant.putCurrencyRef((Currency) pValueObject);
             } else {
-                targetVariant.putCurrency(((Currency) pValueObject));
+                targetVariant.putCurrency((Currency) pValueObject);
             }
         } else if (pValueObject instanceof SafeArray) {
             if (fByRef) {

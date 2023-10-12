@@ -312,7 +312,7 @@ public class ActiveXComponent extends Dispatch {
                 }
                 buf.append("=");
                 if (argType == Variant.VariantDispatch) {
-                    Dispatch foo = (args[i].getDispatch());
+                    Dispatch foo = args[i].getDispatch();
                     buf.append(foo);
                 } else if ((argType & Variant.VariantBoolean) == Variant.VariantBoolean) {
                     // do the boolean thing
