@@ -437,11 +437,10 @@ public final class VariantUtilities {
         validateDecimalMinMax(destinationDecimal);
         // First limit the number of digits and then the precision.
         // Try and round to 29 digits because we can sometimes do that
-        BigInteger allWordBigInt = destinationDecimal.unscaledValue();
-        if (allWordBigInt.bitLength() > 96) {
+        if (destinationDecimal.unscaledValue().bitLength() > 96) {
             destinationDecimal = destinationDecimal.round(new MathContext(29));
             // see if 29 digits uses more than 96 bits
-            if (allWordBigInt.bitLength() > 96) {
+            if (destinationDecimal.unscaledValue().bitLength() > 96) {
                 // Dang. It was over 97 bits so shorten it one more digit to
                 // stay <= 96 bits
                 destinationDecimal = destinationDecimal.round(new MathContext(28));
