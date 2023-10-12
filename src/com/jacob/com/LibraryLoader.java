@@ -204,9 +204,9 @@ public final class LibraryLoader {
         // May need to be adjusted for non-Sun JVMs.
 
         String bits = System.getProperty("sun.arch.data.model", "?");
-        if (bits.equals("32"))
+        if ("32".equals(bits))
             return true;
-        else if (bits.equals("64"))
+        else if ("64".equals(bits))
             return false;
 
         // this works for jRocket

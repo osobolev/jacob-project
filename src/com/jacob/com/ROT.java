@@ -217,7 +217,7 @@ public abstract class ROT {
         if (!INCLUDE_ALL_CLASSES_IN_ROT) {
             shouldIncludeClassInROT = System.getProperty(o.getClass().getName() + PUT_IN_ROT_SUFFIX, "true");
         }
-        if (shouldIncludeClassInROT.equalsIgnoreCase("false")) {
+        if ("false".equalsIgnoreCase(shouldIncludeClassInROT)) {
             if (JacobObject.isDebugEnabled()) {
                 JacobObject.debug("JacobObject: New instance of " + o.getClass().getName() + " not added to ROT");
             }
