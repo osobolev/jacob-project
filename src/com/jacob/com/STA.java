@@ -40,7 +40,7 @@ public class STA extends Thread {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see java.lang.Thread#run()
      */
     public void run() {
@@ -60,7 +60,7 @@ public class STA extends Thread {
      * Override this method to create and initialize any COM component that you
      * want to run in this thread. If anything fails, return false to terminate
      * the thread.
-     * 
+     *
      * @return always returns true
      */
     public boolean OnInit() {

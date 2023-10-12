@@ -27,7 +27,7 @@ package com.jacob.com;
 public class JacobException extends RuntimeException {
 
     /**
-     * 
+     *
      */
     private static final long serialVersionUID = -1637125318746002715L;
 
@@ -40,7 +40,7 @@ public class JacobException extends RuntimeException {
 
     /**
      * standard constructor
-     * 
+     *
      * @param message
      */
     public JacobException(String message) {

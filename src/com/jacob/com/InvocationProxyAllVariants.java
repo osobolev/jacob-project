@@ -30,7 +30,7 @@ import java.lang.reflect.Method;
  * variant objects. The methods can return void or a Variant that will be
  * returned to the calling layer. All Event methods that will be recognized by
  * InvocationProxyAllEvents have the signature
- * 
+ *
  * <code> void eventMethodName(Variant[])</code> or
  * <code> Variant eventMethodName(Variant[])</code>
  */
@@ -38,7 +38,7 @@ public class InvocationProxyAllVariants extends InvocationProxy {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see com.jacob.com.InvocationProxy#invoke(java.lang.String,
      *      com.jacob.com.Variant[])
      */

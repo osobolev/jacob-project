@@ -16,7 +16,7 @@ public class Currency {
 
     /**
      * constructor that takes a long already in COM representation
-     * 
+     *
      * @param newValue
      */
     public Currency(long newValue) {
@@ -25,7 +25,7 @@ public class Currency {
 
     /**
      * constructor that takes a String already in COM representation
-     * 
+     *
      * @param newValue
      */
     public Currency(String newValue) {
@@ -33,7 +33,6 @@ public class Currency {
     }
 
     /**
-     * 
      * @return the currency as a primitive long
      */
     public long longValue() {
@@ -42,7 +41,7 @@ public class Currency {
 
     /**
      * getter to the inner storage so that cmpareTo can work
-     * 
+     *
      * @return the embedded long value
      */
     protected Long getLongValue() {
@@ -51,7 +50,7 @@ public class Currency {
 
     /**
      * compares the values of two currencies
-     * 
+     *
      * @param anotherCurrency
      * @return the usual compareTo results
      */
@@ -61,9 +60,8 @@ public class Currency {
 
     /**
      * standard comparison
-     * 
-     * @param o
-     *            must be Currency or Long
+     *
+     * @param o must be Currency or Long
      * @return the usual compareTo results
      */
     public int compareTo(Object o) {

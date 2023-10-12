@@ -26,7 +26,9 @@ package com.jacob.com;
 public class EnumVariant extends JacobObject implements
         java.util.Enumeration<Variant> {
 
-    /** pointer to windows memory */
+    /**
+     * pointer to windows memory
+     */
     private long m_pIEnumVARIANT;
 
     private final Variant[] m_recBuf = new Variant[1];
@@ -60,7 +62,7 @@ public class EnumVariant extends JacobObject implements
 
     /**
      * Implements java.util.Enumeration
-     * 
+     *
      * @return boolean true if there are more elements in this enumeration
      */
     public boolean hasMoreElements() {
@@ -75,7 +77,7 @@ public class EnumVariant extends JacobObject implements
 
     /**
      * Implements java.util.Enumeration
-     * 
+     *
      * @return next element in the enumeration
      */
     public Variant nextElement() {
@@ -91,7 +93,7 @@ public class EnumVariant extends JacobObject implements
 
     /**
      * Get next element in collection or null if at end
-     * 
+     *
      * @return Variant that is next in the collection
      * @deprecated use nextElement() instead
      */
@@ -104,7 +106,7 @@ public class EnumVariant extends JacobObject implements
 
     /**
      * This should be private and wrapped to protect JNI layer.
-     * 
+     *
      * @param receiverArray
      * @return Returns the next variant object pointer as an int from windows
      *         layer
@@ -113,9 +115,8 @@ public class EnumVariant extends JacobObject implements
 
     /**
      * This should be private and wrapped to protect JNI layer.
-     * 
-     * @param count
-     *            number to skip
+     *
+     * @param count number to skip
      */
     public native void Skip(int count);
 
@@ -127,13 +128,12 @@ public class EnumVariant extends JacobObject implements
     /**
      * now private so only this object can access was: call this to explicitly
      * release the com object before gc
-     * 
      */
     private native void release();
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see java.lang.Object#finalize()
      */
     @Override
@@ -143,7 +143,7 @@ public class EnumVariant extends JacobObject implements
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see com.jacob.com.JacobObject#safeRelease()
      */
     @Override

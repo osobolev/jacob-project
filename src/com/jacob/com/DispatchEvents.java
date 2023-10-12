@@ -36,7 +36,6 @@ package com.jacob.com;
  * object". The constructors recognize when an instance of InvocationProxy is
  * passed in and do not create a new InvocationProxy as a wrapper. They instead
  * use the passed in InvocationProxy.
- * 
  */
 public class DispatchEvents extends JacobObject {
 
@@ -62,11 +61,9 @@ public class DispatchEvents extends JacobObject {
      * callback.
      * <p>
      * Can be used on any object that implements IProvideClassInfo.
-     * 
-     * @param sourceOfEvent
-     *            Dispatch object who's MS app will generate callbacks
-     * @param eventSink
-     *            Java object that wants to receive the events
+     *
+     * @param sourceOfEvent Dispatch object who's MS app will generate callbacks
+     * @param eventSink     Java object that wants to receive the events
      */
     public DispatchEvents(Dispatch sourceOfEvent, Object eventSink) {
         this(sourceOfEvent, eventSink, null);
@@ -84,15 +81,12 @@ public class DispatchEvents extends JacobObject {
      * TypeLib is looked up in the registry on the path
      * HKEY_LOCAL_MACHINE/SOFTWARE/Classes/CLSID/(CLID drived from
      * progid)/ProgID/Typelib
-     * 
-     * @param sourceOfEvent
-     *            Dispatch object who's MS app will generate callbacks
-     * @param eventSink
-     *            Java object that wants to receive the events
-     * @param progId
-     *            program id in the registry that has a TypeLib subkey. The
-     *            progrId is mapped to a CLSID that is they used to look up the
-     *            key to the Typelib
+     *
+     * @param sourceOfEvent Dispatch object who's MS app will generate callbacks
+     * @param eventSink     Java object that wants to receive the events
+     * @param progId        program id in the registry that has a TypeLib subkey. The
+     *                      progrId is mapped to a CLSID that is they used to look up the
+     *                      key to the Typelib
      */
     public DispatchEvents(Dispatch sourceOfEvent, Object eventSink,
             String progId) {
@@ -107,21 +101,17 @@ public class DispatchEvents extends JacobObject {
      * This method was added because Excel doesn't implement IProvideClassInfo
      * and the registry entry for Excel.Application doesn't include a typelib
      * key.
-     * 
+     *
      * <pre>
      * DispatchEvents de = new DispatchEvents(someDispatch, someEventHAndler,
      *      &quot;Excel.Application&quot;,
      *      &quot;C:\\Program Files\\Microsoft Office\\OFFICE11\\EXCEL.EXE&quot;);
      * </pre>
-     * 
-     * @param sourceOfEvent
-     *            Dispatch object who's MS app will generate callbacks
-     * @param eventSink
-     *            Java object that wants to receive the events
-     * @param progId
-     *            , mandatory if the typelib is specified
-     * @param typeLib
-     *            The location of the typelib to use
+     *
+     * @param sourceOfEvent Dispatch object who's MS app will generate callbacks
+     * @param eventSink     Java object that wants to receive the events
+     * @param progId        , mandatory if the typelib is specified
+     * @param typeLib       The location of the typelib to use
      */
     public DispatchEvents(Dispatch sourceOfEvent, Object eventSink,
             String progId, String typeLib) {
@@ -147,7 +137,7 @@ public class DispatchEvents extends JacobObject {
     /**
      * Returns an instance of the proxy configured with pTargetObject as its
      * target
-     * 
+     *
      * @param pTargetObject
      * @return InvocationProxy an instance of the proxy this DispatchEvents will
      *         send to the COM layer
@@ -161,18 +151,14 @@ public class DispatchEvents extends JacobObject {
     /**
      * hooks up a connection point proxy by progId event methods on the sink
      * object will be called by name with a signature of <name>(Variant[] args)
-     * 
+     * <p>
      * You must specify the location of the typeLib.
-     * 
-     * @param src
-     *            dispatch that is the source of the messages
-     * @param sink
-     *            the object that will receive the messages
-     * @param progId
-     *            optional program id. most folks don't need this either
-     * @param typeLib
-     *            optional parameter for those programs that don't register
-     *            their type libs (like Excel)
+     *
+     * @param src     dispatch that is the source of the messages
+     * @param sink    the object that will receive the messages
+     * @param progId  optional program id. most folks don't need this either
+     * @param typeLib optional parameter for those programs that don't register
+     *                their type libs (like Excel)
      */
     private native void init3(Dispatch src, Object sink, String progId,
             String typeLib);
@@ -180,13 +166,12 @@ public class DispatchEvents extends JacobObject {
     /**
      * now private so only this object can asccess was: call this to explicitly
      * release the com object before gc
-     * 
      */
     private native void release();
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see java.lang.Object#finalize()
      */
     @Override
@@ -196,7 +181,7 @@ public class DispatchEvents extends JacobObject {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see com.jacob.com.JacobObject#safeRelease()
      */
     @Override

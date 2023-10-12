@@ -57,7 +57,7 @@ public abstract class ComThread {
      * Initialize the current java thread to be part of the Multi-threaded COM
      * Apartment, if createMainSTA is true, create a separate MainSTA thread
      * that will house all Apartment Threaded components
-     * 
+     *
      * @param createMainSTA
      */
     public static synchronized void InitMTA(boolean createMainSTA) {
@@ -68,7 +68,7 @@ public abstract class ComThread {
      * Initialize the current java thread to be an STA COM Apartment, if
      * createMainSTA is true, create a separate MainSTA thread that will house
      * all Apartment Threaded components
-     * 
+     *
      * @param createMainSTA
      */
     public static synchronized void InitSTA(boolean createMainSTA) {
@@ -76,7 +76,7 @@ public abstract class ComThread {
     }
 
     /**
-     * 
+     *
      */
     public static synchronized void startMainSTA() {
         mainSTA = new MainSTA();
@@ -84,7 +84,7 @@ public abstract class ComThread {
     }
 
     /**
-     * 
+     *
      */
     public static synchronized void quitMainSTA() {
         if (mainSTA != null)
@@ -94,7 +94,7 @@ public abstract class ComThread {
     /**
      * Initialize the current java thread to be part of the MTA/STA COM
      * Apartment
-     * 
+     *
      * @param createMainSTA
      * @param mode
      */
@@ -155,7 +155,7 @@ public abstract class ComThread {
     public static native void doCoInitialize(int threadModel);
 
     /**
-     * 
+     *
      */
     public static native void doCoUninitialize();
 

@@ -81,7 +81,7 @@ public abstract class ROT {
 
     /**
      * adds a new thread storage area to rot
-     * 
+     *
      * @return Map corresponding to the thread that this call was made in
      */
     protected synchronized static Map<JacobObject, String> addThread() {
@@ -104,7 +104,7 @@ public abstract class ROT {
     /**
      * Returns the pool for this thread if it exists. can create a new one if
      * you wish by passing in TRUE
-     * 
+     *
      * @param createIfDoesNotExist
      * @return Map the collection that holds the objects created in the current
      *         thread
@@ -210,8 +210,7 @@ public abstract class ROT {
      * we could end up deadlocked. This method should be safe without the
      * synchronization because the ROT works on per thread basis and the methods
      * that add threads and remove thread related entries are all synchronized
-     * 
-     * 
+     *
      * @param o
      */
     protected static void addObject(JacobObject o) {

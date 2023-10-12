@@ -28,22 +28,22 @@ import java.util.Date;
  */
 public class SafeArray extends JacobObject {
 
-    /** The super secret long that is actually the pointer to windows memory */
+    /**
+     * The super secret long that is actually the pointer to windows memory
+     */
     long m_pV = 0;
 
     /**
      * Constructor. Why does this exist? Yeah, someone will post on sourceforge
      * about this comment.
-     * 
      */
     public SafeArray() {
     }
 
     /**
      * Constructor.
-     * 
-     * @param vt
-     *            type of array
+     *
+     * @param vt type of array
      */
     public SafeArray(int vt) {
         init(vt, new int[] { 0 }, new int[] { -1 });
@@ -52,11 +52,9 @@ public class SafeArray extends JacobObject {
     /**
      * Constructor for a single dimensional array whose lower bounds is 0 and
      * whose upper bound is specified as a parameter
-     * 
-     * @param vt
-     *            type of the array
-     * @param celems
-     *            length of the array
+     *
+     * @param vt     type of the array
+     * @param celems length of the array
      */
     public SafeArray(int vt, int celems) {
         init(vt, new int[] { 0 }, new int[] { celems });
@@ -64,13 +62,10 @@ public class SafeArray extends JacobObject {
 
     /**
      * Creates a two dimensional SafeArray whose base indexes are 0.
-     * 
-     * @param vt
-     *            Type of the array
-     * @param celems1
-     *            length of the array in first dimension
-     * @param celems2
-     *            length of the array in second dimension
+     *
+     * @param vt      Type of the array
+     * @param celems1 length of the array in first dimension
+     * @param celems2 length of the array in second dimension
      */
     public SafeArray(int vt, int celems1, int celems2) {
         init(vt, new int[] { 0, 0 }, new int[] { celems1, celems2 });
@@ -83,7 +78,7 @@ public class SafeArray extends JacobObject {
      * SafeArray(Variant.VariantVariant, new int[] {0,0,0,0}, new int[]
      * {4,4,4,4}); Where the 1st array is lower bounds and 2nd has the lengths
      * of each dimension *
-     * 
+     *
      * @param vt
      * @param lbounds
      * @param celems
@@ -94,9 +89,8 @@ public class SafeArray extends JacobObject {
 
     /**
      * Convert a string to a VT_UI1 array.
-     * 
-     * @param s
-     *            source string
+     *
+     * @param s source string
      */
     public SafeArray(String s) {
         // https://sourceforge.net/p/jacob-project/patches/41/
@@ -112,7 +106,7 @@ public class SafeArray extends JacobObject {
 
     /**
      * Convert a VT_UI1 array to string. Is this broken for unicode?
-     * 
+     *
      * @return variant byte as a string
      */
     public String asString() {
@@ -133,7 +127,6 @@ public class SafeArray extends JacobObject {
     /**
      * now private so only this object can access. Was: call this to explicitly
      * release the com object before gc
-     * 
      */
     private native void destroy();
 
@@ -147,77 +140,77 @@ public class SafeArray extends JacobObject {
 
     /**
      * populate the safe array from the passed in array of data
-     * 
+     *
      * @param ja
      */
     public native void fromBooleanArray(boolean[] ja);
 
     /**
      * populate the safe array from the passed in array of data
-     * 
+     *
      * @param ja
      */
     public native void fromByteArray(byte[] ja);
 
     /**
      * populate the safe array from the passed in array of data
-     * 
+     *
      * @param ja
      */
     public native void fromCharArray(char[] ja);
 
     /**
      * populate the safe array from the passed in array of data
-     * 
+     *
      * @param ja
      */
     public native void fromDoubleArray(double[] ja);
 
     /**
      * populate the safe array from the passed in array of data
-     * 
+     *
      * @param ja
      */
     public native void fromFloatArray(float[] ja);
 
     /**
      * populate the safe array from the passed in array of data
-     * 
+     *
      * @param ja
      */
     public native void fromIntArray(int[] ja);
 
     /**
      * populate the safe array from the passed in array of data
-     * 
+     *
      * @param ja
      */
     public native void fromLongArray(long[] ja);
 
     /**
      * populate the safe array from the passed in array of data
-     * 
+     *
      * @param ja
      */
     public native void fromShortArray(short[] ja);
 
     /**
      * populate the safe array from the passed in array of data
-     * 
+     *
      * @param ja
      */
     public native void fromStringArray(String[] ja);
 
     /**
      * populate the safe array from the passed in array of data
-     * 
+     *
      * @param ja
      */
     public native void fromVariantArray(Variant[] ja);
 
     /**
      * boolean access
-     * 
+     *
      * @param sa_idx
      * @return boolean representation
      */
@@ -225,16 +218,15 @@ public class SafeArray extends JacobObject {
 
     /**
      * get boolean value from N-dimensional array
-     * 
-     * @param indices
-     *            - length must equal Dimension of SafeArray
+     *
+     * @param indices - length must equal Dimension of SafeArray
      * @return the value at the specified location
      */
     public native boolean getBoolean(int[] indices);
 
     /**
      * boolean access
-     * 
+     *
      * @param sa_idx1
      * @param sa_idx2
      * @return boolean representation
@@ -243,7 +235,7 @@ public class SafeArray extends JacobObject {
 
     /**
      * boolean access
-     * 
+     *
      * @param sa_idx
      * @param nelems
      * @param ja
@@ -254,7 +246,7 @@ public class SafeArray extends JacobObject {
 
     /**
      * byte access
-     * 
+     *
      * @param sa_idx
      * @return byte representaton
      */
@@ -262,16 +254,15 @@ public class SafeArray extends JacobObject {
 
     /**
      * get byte value from N-dimensional array
-     * 
-     * @param indices
-     *            - length must equal Dimension of SafeArray
+     *
+     * @param indices - length must equal Dimension of SafeArray
      * @return the value at the specified location
      */
     public native byte getByte(int[] indices);
 
     /**
      * byte access
-     * 
+     *
      * @param sa_idx1
      * @param sa_idx2
      * @return byte representation
@@ -280,7 +271,7 @@ public class SafeArray extends JacobObject {
 
     /**
      * Fills byte array from contents of this array
-     * 
+     *
      * @param sa_idx
      * @param nelems
      * @param ja
@@ -290,7 +281,7 @@ public class SafeArray extends JacobObject {
 
     /**
      * char access
-     * 
+     *
      * @param sa_idx
      * @return single character rpeesentation
      */
@@ -298,16 +289,15 @@ public class SafeArray extends JacobObject {
 
     /**
      * get char value from N-dimensional array
-     * 
-     * @param indices
-     *            - length must equal Dimension of SafeArray
+     *
+     * @param indices - length must equal Dimension of SafeArray
      * @return the value at the specified location
      */
     public native char getChar(int[] indices);
 
     /**
      * char access
-     * 
+     *
      * @param sa_idx1
      * @param sa_idx2
      * @return single character representation
@@ -316,7 +306,7 @@ public class SafeArray extends JacobObject {
 
     /**
      * char access
-     * 
+     *
      * @param sa_idx
      * @param nelems
      * @param ja
@@ -326,7 +316,7 @@ public class SafeArray extends JacobObject {
 
     /**
      * double access
-     * 
+     *
      * @param sa_idx
      * @return double stored in array
      */
@@ -334,16 +324,15 @@ public class SafeArray extends JacobObject {
 
     /**
      * get double value from N-dimensional array
-     * 
-     * @param indices
-     *            - length must equal Dimension of SafeArray
+     *
+     * @param indices - length must equal Dimension of SafeArray
      * @return the value at the specified location
      */
     public native double getDouble(int[] indices);
 
     /**
      * double access
-     * 
+     *
      * @param sa_idx1
      * @param sa_idx2
      * @return double stored in array
@@ -352,7 +341,7 @@ public class SafeArray extends JacobObject {
 
     /**
      * double access
-     * 
+     *
      * @param sa_idx
      * @param nelems
      * @param ja
@@ -373,7 +362,7 @@ public class SafeArray extends JacobObject {
 
     /**
      * float access
-     * 
+     *
      * @param sa_idx
      * @return float held in array at location
      */
@@ -381,16 +370,15 @@ public class SafeArray extends JacobObject {
 
     /**
      * get float value from N-dimensional array
-     * 
-     * @param indices
-     *            - length must equal Dimension of SafeArray
+     *
+     * @param indices - length must equal Dimension of SafeArray
      * @return the value at the specified location
      */
     public native float getFloat(int[] indices);
 
     /**
      * float access
-     * 
+     *
      * @param sa_idx1
      * @param sa_idx2
      * @return float held in array at location
@@ -399,7 +387,7 @@ public class SafeArray extends JacobObject {
 
     /**
      * float access
-     * 
+     *
      * @param sa_idx
      * @param nelems
      * @param ja
@@ -410,87 +398,71 @@ public class SafeArray extends JacobObject {
 
     /**
      * get int from an single dimensional array
-     * 
-     * @param sa_idx
-     *            array index
+     *
+     * @param sa_idx array index
      * @return int stored in array
      */
     public native int getInt(int sa_idx);
 
     /**
      * get int value from N-dimensional array
-     * 
-     * @param indices
-     *            - length must equal Dimension of SafeArray
+     *
+     * @param indices - length must equal Dimension of SafeArray
      * @return the value at the specified location
      */
     public native int getInt(int[] indices);
 
     /**
      * get int from 2 dimensional array
-     * 
-     * @param sa_idx1
-     *            array index first dimension
-     * @param sa_idx2
-     *            array index of second dimension
+     *
+     * @param sa_idx1 array index first dimension
+     * @param sa_idx2 array index of second dimension
      * @return int stored in array
      */
     public native int getInt(int sa_idx1, int sa_idx2);
 
     /**
      * retrieves a group of ints from a single dimensional array
-     * 
-     * @param sa_idx
-     *            the index in the array to start the get
-     * @param nelems
-     *            number of elements to retrieve
-     * @param ja
-     *            the structure to be filled with the ints
-     * @param ja_start
-     *            the start point in the java int array to start filling
+     *
+     * @param sa_idx   the index in the array to start the get
+     * @param nelems   number of elements to retrieve
+     * @param ja       the structure to be filled with the ints
+     * @param ja_start the start point in the java int array to start filling
      */
     public native void getInts(int sa_idx, int nelems, int[] ja, int ja_start);
 
     /**
      * get int from an single dimensional array
-     * 
-     * @param sa_idx
-     *            array index
+     *
+     * @param sa_idx array index
      * @return long stored in array
      */
     public native long getLong(int sa_idx);
 
     /**
      * get long value from N-dimensional array
-     * 
-     * @param indices
-     *            - length must equal Dimension of SafeArray
+     *
+     * @param indices - length must equal Dimension of SafeArray
      * @return the value at the specified location
      */
     public native long getLong(int[] indices);
 
     /**
      * get long from 2 dimensional array
-     * 
-     * @param sa_idx1
-     *            array index first dimension
-     * @param sa_idx2
-     *            array index of second dimension
+     *
+     * @param sa_idx1 array index first dimension
+     * @param sa_idx2 array index of second dimension
      * @return long stored in array
      */
     public native long getLong(int sa_idx1, int sa_idx2);
 
     /**
      * retrieves a group of longs from a single dimensional array
-     * 
-     * @param sa_idx
-     *            the index in the array to start the get
-     * @param nelems
-     *            number of elements to retrieve
-     * @param ja
-     *            the structure to be filled with the longs
-     * @param ja_start
-     *            the start point in the java longs array to start filling
+     *
+     * @param sa_idx   the index in the array to start the get
+     * @param nelems   number of elements to retrieve
+     * @param ja       the structure to be filled with the longs
+     * @param ja_start the start point in the java longs array to start filling
      */
     public native void getLongs(int sa_idx, int nelems, long[] ja, int ja_start);
 
@@ -500,8 +472,7 @@ public class SafeArray extends JacobObject {
     public native int getLBound();
 
     /**
-     * @param dim
-     *            the dimension we are checking in a multidimensional array
+     * @param dim the dimension we are checking in a multidimensional array
      * @return The lower bounds of the array?
      */
     public native int getLBound(int dim);
@@ -513,7 +484,7 @@ public class SafeArray extends JacobObject {
 
     /**
      * not implemented.
-     * 
+     *
      * @return 0
      */
     public int getNumLocks() {
@@ -522,7 +493,7 @@ public class SafeArray extends JacobObject {
 
     /**
      * short access
-     * 
+     *
      * @param sa_idx
      * @return short stored in array
      */
@@ -530,16 +501,15 @@ public class SafeArray extends JacobObject {
 
     /**
      * get short value from N-dimensional array
-     * 
-     * @param indices
-     *            - length must equal Dimension of SafeArray
+     *
+     * @param indices - length must equal Dimension of SafeArray
      * @return the value at the specified location
      */
     public native short getShort(int[] indices);
 
     /**
      * short access
-     * 
+     *
      * @param sa_idx1
      * @param sa_idx2
      * @return short stored in array
@@ -548,7 +518,7 @@ public class SafeArray extends JacobObject {
 
     /**
      * short access
-     * 
+     *
      * @param sa_idx
      * @param nelems
      * @param ja
@@ -559,25 +529,23 @@ public class SafeArray extends JacobObject {
 
     /**
      * string access
-     * 
+     *
      * @param sa_idx
      * @return String stored in array
-     * 
      */
     public native String getString(int sa_idx);
 
     /**
      * get String value from N-dimensional array
-     * 
-     * @param indices
-     *            - length must equal Dimension of SafeArray
+     *
+     * @param indices - length must equal Dimension of SafeArray
      * @return the value at the specified location
      */
     public native String getString(int[] indices);
 
     /**
      * string access
-     * 
+     *
      * @param sa_idx1
      * @param sa_idx2
      * @return String stored in array
@@ -586,7 +554,7 @@ public class SafeArray extends JacobObject {
 
     /**
      * string access
-     * 
+     *
      * @param sa_idx
      * @param nelems
      * @param ja
@@ -601,15 +569,14 @@ public class SafeArray extends JacobObject {
     public native int getUBound();
 
     /**
-     * @param dim
-     *            the dimension we are checking in a multidimensional array
+     * @param dim the dimension we are checking in a multidimensional array
      * @return The upper bounds of the array?
      */
     public native int getUBound(int dim);
 
     /**
      * variant access
-     * 
+     *
      * @param sa_idx
      * @return Variant held in location in the array?
      */
@@ -617,16 +584,15 @@ public class SafeArray extends JacobObject {
 
     /**
      * get Variant value from N-dimensional array
-     * 
-     * @param indices
-     *            - length must equal Dimension of SafeArray
+     *
+     * @param indices - length must equal Dimension of SafeArray
      * @return the value at the specified location
      */
     public native Variant getVariant(int[] indices);
 
     /**
      * variant access
-     * 
+     *
      * @param sa_idx1
      * @param sa_idx2
      * @return Variant held in a location in the array?
@@ -635,7 +601,7 @@ public class SafeArray extends JacobObject {
 
     /**
      * variant access
-     * 
+     *
      * @param sa_idx
      * @param nelems
      * @param ja
@@ -653,16 +619,15 @@ public class SafeArray extends JacobObject {
 
     /**
      * Does anyone want to document this?
-     * 
+     *
      * @param sa
      */
     public native void reinit(SafeArray sa);
 
     /**
      * Does anyone want to document this?
-     * 
-     * @param vt
-     *            the variant type?
+     *
+     * @param vt the variant type?
      */
     public native void reinterpretType(int vt);
 
@@ -686,7 +651,7 @@ public class SafeArray extends JacobObject {
 
     /**
      * boolean access
-     * 
+     *
      * @param sa_idx
      * @param c
      */
@@ -694,16 +659,15 @@ public class SafeArray extends JacobObject {
 
     /**
      * set boolean value in N-dimensional array
-     * 
-     * @param indices
-     *            - length must equal Dimension of SafeArray
+     *
+     * @param indices - length must equal Dimension of SafeArray
      * @param c
      */
     public native void setBoolean(int[] indices, boolean c);
 
     /**
      * boolean access
-     * 
+     *
      * @param sa_idx1
      * @param sa_idx2
      * @param c
@@ -712,7 +676,7 @@ public class SafeArray extends JacobObject {
 
     /**
      * boolean access
-     * 
+     *
      * @param sa_idx
      * @param nelems
      * @param ja
@@ -723,7 +687,7 @@ public class SafeArray extends JacobObject {
 
     /**
      * byte access
-     * 
+     *
      * @param sa_idx
      * @param c
      */
@@ -731,16 +695,15 @@ public class SafeArray extends JacobObject {
 
     /**
      * set byte value in N-dimensional array
-     * 
-     * @param indices
-     *            - length must equal Dimension of SafeArray
+     *
+     * @param indices - length must equal Dimension of SafeArray
      * @param c
      */
     public native void setByte(int[] indices, byte c);
 
     /**
      * byte access
-     * 
+     *
      * @param sa_idx1
      * @param sa_idx2
      * @param c
@@ -749,7 +712,7 @@ public class SafeArray extends JacobObject {
 
     /**
      * fills array with passed in bytes
-     * 
+     *
      * @param sa_idx
      * @param nelems
      * @param ja
@@ -759,7 +722,7 @@ public class SafeArray extends JacobObject {
 
     /**
      * char access
-     * 
+     *
      * @param sa_idx
      * @param c
      */
@@ -767,16 +730,15 @@ public class SafeArray extends JacobObject {
 
     /**
      * set char value in N-dimensional array
-     * 
-     * @param indices
-     *            - length must equal Dimension of SafeArray
+     *
+     * @param indices - length must equal Dimension of SafeArray
      * @param c
      */
     public native void setChar(int[] indices, char c);
 
     /**
      * char access
-     * 
+     *
      * @param sa_idx1
      * @param sa_idx2
      * @param c
@@ -785,7 +747,7 @@ public class SafeArray extends JacobObject {
 
     /**
      * char access
-     * 
+     *
      * @param sa_idx
      * @param nelems
      * @param ja
@@ -795,7 +757,7 @@ public class SafeArray extends JacobObject {
 
     /**
      * double access
-     * 
+     *
      * @param sa_idx
      * @param c
      */
@@ -803,16 +765,15 @@ public class SafeArray extends JacobObject {
 
     /**
      * set double value in N-dimensional array
-     * 
-     * @param indices
-     *            - length must equal Dimension of SafeArray
+     *
+     * @param indices - length must equal Dimension of SafeArray
      * @param c
      */
     public native void setDouble(int[] indices, double c);
 
     /**
      * double access
-     * 
+     *
      * @param sa_idx1
      * @param sa_idx2
      * @param c
@@ -821,7 +782,7 @@ public class SafeArray extends JacobObject {
 
     /**
      * double access
-     * 
+     *
      * @param sa_idx
      * @param nelems
      * @param ja
@@ -832,7 +793,7 @@ public class SafeArray extends JacobObject {
 
     /**
      * float access
-     * 
+     *
      * @param sa_idx
      * @param c
      */
@@ -840,16 +801,15 @@ public class SafeArray extends JacobObject {
 
     /**
      * set float value in N-dimensional array
-     * 
-     * @param indices
-     *            - length must equal Dimension of SafeArray
+     *
+     * @param indices - length must equal Dimension of SafeArray
      * @param c
      */
     public native void setFloat(int[] indices, float c);
 
     /**
      * float access
-     * 
+     *
      * @param sa_idx1
      * @param sa_idx2
      * @param c
@@ -858,7 +818,7 @@ public class SafeArray extends JacobObject {
 
     /**
      * float access
-     * 
+     *
      * @param sa_idx
      * @param nelems
      * @param ja
@@ -869,99 +829,79 @@ public class SafeArray extends JacobObject {
 
     /**
      * sets the int value of an element in a single dimensional array
-     * 
-     * @param sa_idx
-     *            index into the array
-     * @param c
-     *            the value to be set
+     *
+     * @param sa_idx index into the array
+     * @param c      the value to be set
      */
     public native void setInt(int sa_idx, int c);
 
     /**
      * set int value in N-dimensional array
-     * 
-     * @param indices
-     *            - length must equal Dimension of SafeArray
+     *
+     * @param indices - length must equal Dimension of SafeArray
      * @param c
      */
     public native void setInt(int[] indices, int c);
 
     /**
      * sets the int value of a 2 dimensional array
-     * 
-     * @param sa_idx1
-     *            index on the first dimension
-     * @param sa_idx2
-     *            index on the second dimension
-     * @param c
-     *            the value to be set
+     *
+     * @param sa_idx1 index on the first dimension
+     * @param sa_idx2 index on the second dimension
+     * @param c       the value to be set
      */
     public native void setInt(int sa_idx1, int sa_idx2, int c);
 
     /**
      * sets a group of ints into a single dimensional array
-     * 
-     * @param sa_idx
-     *            the index of the start of the array to put into
-     * @param nelems
-     *            number of elements to be copied
-     * @param ja
-     *            the new int values to be put into the array
-     * @param ja_start
-     *            the start index in the array that we are copying into
-     *            SafeArray
+     *
+     * @param sa_idx   the index of the start of the array to put into
+     * @param nelems   number of elements to be copied
+     * @param ja       the new int values to be put into the array
+     * @param ja_start the start index in the array that we are copying into
+     *                 SafeArray
      */
     public native void setInts(int sa_idx, int nelems, int[] ja, int ja_start);
 
     /**
      * sets the long value of an element in a single dimensional array
-     * 
-     * @param sa_idx
-     *            index into the array
-     * @param c
-     *            the value to be set
+     *
+     * @param sa_idx index into the array
+     * @param c      the value to be set
      */
     public native void setLong(int sa_idx, long c);
 
     /**
      * set long value in N-dimensional array
-     * 
-     * @param indices
-     *            - length must equal Dimension of SafeArray
+     *
+     * @param indices - length must equal Dimension of SafeArray
      * @param c
      */
     public native void setLong(int[] indices, long c);
 
     /**
      * sets the long value of a 2 dimensional array
-     * 
-     * @param sa_idx1
-     *            index on the first dimension
-     * @param sa_idx2
-     *            index on the second dimension
-     * @param c
-     *            the value to be set
+     *
+     * @param sa_idx1 index on the first dimension
+     * @param sa_idx2 index on the second dimension
+     * @param c       the value to be set
      */
     public native void setLong(int sa_idx1, int sa_idx2, long c);
 
     /**
      * sets a group of longs into a single dimensional array
-     * 
-     * @param sa_idx
-     *            the index of the start of the array to put into
-     * @param nelems
-     *            number of elements to be copied
-     * @param ja
-     *            the new long values to be put into the array
-     * @param ja_start
-     *            the start index in the array that we are copying into
-     *            SafeArray
+     *
+     * @param sa_idx   the index of the start of the array to put into
+     * @param nelems   number of elements to be copied
+     * @param ja       the new long values to be put into the array
+     * @param ja_start the start index in the array that we are copying into
+     *                 SafeArray
      */
     public native void setLongs(int sa_idx, int nelems, long[] ja, int ja_start);
 
     /**
      * short access
-     * 
+     *
      * @param sa_idx1
      * @param sa_idx2
      * @param c
@@ -970,7 +910,7 @@ public class SafeArray extends JacobObject {
 
     /**
      * short access
-     * 
+     *
      * @param sa_idx
      * @param c
      */
@@ -978,16 +918,15 @@ public class SafeArray extends JacobObject {
 
     /**
      * set short value in N-dimensional array
-     * 
-     * @param indices
-     *            - length must equal Dimension of SafeArray
+     *
+     * @param indices - length must equal Dimension of SafeArray
      * @param c
      */
     public native void setShort(int[] indices, short c);
 
     /**
      * short access
-     * 
+     *
      * @param sa_idx
      * @param nelems
      * @param ja
@@ -998,7 +937,7 @@ public class SafeArray extends JacobObject {
 
     /**
      * puts a string into an element in a two dimensional array.
-     * 
+     *
      * @param sa_idx1
      * @param sa_idx2
      * @param c
@@ -1013,7 +952,7 @@ public class SafeArray extends JacobObject {
 
     /**
      * puts a string into an element in a single dimensional safe array
-     * 
+     *
      * @param sa_idx
      * @param c
      */
@@ -1021,16 +960,15 @@ public class SafeArray extends JacobObject {
 
     /**
      * set Stringvalue in N-dimensional array
-     * 
-     * @param indices
-     *            - length must equal Dimension of SafeArray
+     *
+     * @param indices - length must equal Dimension of SafeArray
      * @param c
      */
     public native void setString(int[] indices, String c);
 
     /**
      * string access
-     * 
+     *
      * @param sa_idx
      * @param nelems
      * @param ja
@@ -1041,7 +979,7 @@ public class SafeArray extends JacobObject {
 
     /**
      * variant access
-     * 
+     *
      * @param sa_idx1
      * @param sa_idx2
      * @param c
@@ -1050,7 +988,7 @@ public class SafeArray extends JacobObject {
 
     /**
      * variant access
-     * 
+     *
      * @param sa_idx
      * @param c
      */
@@ -1058,9 +996,8 @@ public class SafeArray extends JacobObject {
 
     /**
      * set Variant value in N-dimensional array
-     * 
-     * @param indices
-     *            - length must equal Dimension of SafeArray
+     *
+     * @param indices - length must equal Dimension of SafeArray
      * @param v
      */
     public native void setVariant(int[] indices, Variant v);
@@ -1068,8 +1005,7 @@ public class SafeArray extends JacobObject {
     /**
      * get windows time from an single dimensional array
      *
-     * @param sa_idx
-     *            array index
+     * @param sa_idx array index
      * @return date stored in array
      */
     public native double getDate(int sa_idx);
@@ -1077,11 +1013,9 @@ public class SafeArray extends JacobObject {
     /**
      * returns the Java Date contained in this array
      *
-     * @param sa_idx1
-     *          array index
+     * @param sa_idx1 array index
      * @return Java date stored in array
-     * @throws IllegalStateException
-     *             if array is not of the requested type
+     * @throws IllegalStateException if array is not of the requested type
      */
     public Date getJavaDate(int sa_idx1) {
         Date returnDate = null;
@@ -1098,7 +1032,7 @@ public class SafeArray extends JacobObject {
 
     /**
      * variant access
-     * 
+     *
      * @param sa_idx
      * @param nelems
      * @param ja
@@ -1109,63 +1043,63 @@ public class SafeArray extends JacobObject {
 
     /**
      * Retrieves the data from the array cast to a Java data type
-     * 
+     *
      * @return boolean[] array of booleans contained in this collection
      */
     public native boolean[] toBooleanArray();
 
     /**
      * Retrieves the data from the array cast to a Java data type
-     * 
+     *
      * @return byte[] byte array contained in this collection
      */
     public native byte[] toByteArray();
 
     /**
      * Retrieves the data from the array cast to a Java data type
-     * 
+     *
      * @return char[] character array contained in this collection
      */
     public native char[] toCharArray();
 
     /**
      * Retrieves the data from the array cast to a Java data type
-     * 
+     *
      * @return double[] double array contained in this collection
      */
     public native double[] toDoubleArray();
 
     /**
      * Retrieves the data from the array cast to a Java data type
-     * 
+     *
      * @return float[] array of float contained in this collection
      */
     public native float[] toFloatArray();
 
     /**
      * Retrieves the data from the array cast to a Java data type
-     * 
+     *
      * @return int[] int array contained in this collection
      */
     public native int[] toIntArray();
 
     /**
      * Retrieves the data from the array cast to a Java data type
-     * 
+     *
      * @return long[] long array contained in this collection
      */
     public native long[] toLongArray();
 
     /**
      * Retrieves the data from the array cast to a Java data type
-     * 
+     *
      * @return short[] short array contained in this collection
      */
     public native short[] toShortArray();
 
     /**
      * Standard toString() Warning, this creates new Variant objects!
-     * 
+     *
      * @return String contents of variant
      */
     @Override
@@ -1205,14 +1139,14 @@ public class SafeArray extends JacobObject {
 
     /**
      * Retrieves the data from the array cast to a Java data type
-     * 
+     *
      * @return String[] String array contained in this collection
      */
     public native String[] toStringArray();
 
     /**
      * Retrieves the data from the array cast to a Java data type
-     * 
+     *
      * @return Variant[] array of variants contained in this collection
      */
     public native Variant[] toVariantArray();

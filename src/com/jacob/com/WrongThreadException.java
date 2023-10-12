@@ -31,7 +31,6 @@ public class WrongThreadException extends JacobException {
 
     /**
      * standard 0 arg constructor with no message
-     * 
      */
     public WrongThreadException() {
         super("No Message Provided.");
@@ -39,7 +38,7 @@ public class WrongThreadException extends JacobException {
 
     /**
      * standard constructor with a string message
-     * 
+     *
      * @param s
      */
     public WrongThreadException(String s) {

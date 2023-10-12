@@ -31,7 +31,7 @@ public class ComFailException extends ComException {
 
     /**
      * Constructor
-     * 
+     *
      * @param hrNew
      */
     public ComFailException(int hrNew) {
@@ -40,7 +40,7 @@ public class ComFailException extends ComException {
 
     /**
      * Constructor
-     * 
+     *
      * @param hrNew
      * @param message
      */
@@ -61,7 +61,7 @@ public class ComFailException extends ComException {
 
     /**
      * Constructor
-     * 
+     *
      * @param hrNew
      * @param description
      * @param source

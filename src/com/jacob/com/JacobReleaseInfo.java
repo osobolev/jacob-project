@@ -7,7 +7,6 @@ import java.util.Properties;
 /**
  * An interface to the version properties file. This code was removed from
  * JacobObject because it doesn't belong there.
- * 
  */
 public class JacobReleaseInfo {
 
@@ -15,7 +14,7 @@ public class JacobReleaseInfo {
      * holds the build version as retrieved from the version properties file
      * that exists in the JAR. This can be retrieved by calling the static
      * method getBuildVersion()
-     * 
+     *
      * @see #getBuildVersion()
      */
     private static String buildVersion = "";
@@ -23,19 +22,20 @@ public class JacobReleaseInfo {
      * holds the build date as retrieved from the version properties file that
      * exists in the JAR This can be retrieved by calling the static method
      * getBuildDate()
-     * 
+     *
      * @see #getBuildDate()
      */
     private static String buildDate = "";
-    /** the name of the jacob version properties file */
+    /**
+     * the name of the jacob version properties file
+     */
     private static final String PROPERTY_FILE_NAME = "META-INF/JacobVersion.properties";
 
     /**
      * Loads version information from PROPERTY_FILE_NAME that was built as part
      * of this release.
-     * 
-     * @throws IllegalStateException
-     *             when it can't find the version properties file
+     *
+     * @throws IllegalStateException when it can't find the version properties file
      */
     private static void loadVersionProperties() {
         Properties versionProps = new Properties();
@@ -68,7 +68,7 @@ public class JacobReleaseInfo {
 
     /**
      * loads PROPERT_FILE_NAME and returns the value of version in it
-     * 
+     *
      * @return String value of version in PROPERT_FILE_NAME or "" if none
      */
     public static String getBuildDate() {
@@ -80,7 +80,7 @@ public class JacobReleaseInfo {
 
     /**
      * loads PROPERT_FILE_NAME and returns the value of version in it
-     * 
+     *
      * @return String value of version in PROPERT_FILE_NAME or "" if none
      */
     public static String getBuildVersion() {

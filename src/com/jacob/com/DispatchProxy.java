@@ -37,7 +37,7 @@ public class DispatchProxy extends JacobObject {
 
     /**
      * Marshals the passed in dispatch into the stream
-     * 
+     *
      * @param localDispatch
      */
     public DispatchProxy(Dispatch localDispatch) {
@@ -45,7 +45,6 @@ public class DispatchProxy extends JacobObject {
     }
 
     /**
-     * 
      * @return Dispatch the dispatch retrieved from the stream
      */
     public Dispatch toDispatch() {
@@ -59,13 +58,12 @@ public class DispatchProxy extends JacobObject {
     /**
      * now private so only this object can access was: call this to explicitly
      * release the com object before gc
-     * 
      */
     private native void release();
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see java.lang.Object#finalize()
      */
     @Override
@@ -75,7 +73,7 @@ public class DispatchProxy extends JacobObject {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see com.jacob.com.JacobObject#safeRelease()
      */
     @Override

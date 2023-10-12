@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.jacob.com;
 
@@ -22,7 +22,7 @@ public final class VariantUtilities {
     /**
      * Populates a variant object from a java object. This method attempts to
      * figure out the appropriate Variant type
-     * 
+     *
      * @param targetVariant
      * @param pValueObject
      * @param fByRef
@@ -125,7 +125,7 @@ public final class VariantUtilities {
     /**
      * Map arguments based on msdn documentation. This method relies on the
      * variant constructor except for arrays.
-     * 
+     *
      * @param objectToBeMadeIntoVariant
      * @return Variant that represents the object
      */
@@ -206,7 +206,7 @@ public final class VariantUtilities {
     /**
      * converts an array of objects into an array of Variants by repeatedly
      * calling obj2Variant(Object)
-     * 
+     *
      * @param arrayOfObjectsToBeConverted
      * @return Variant[]
      */
@@ -232,7 +232,7 @@ public final class VariantUtilities {
      * special data types (it shouldn't do any!)
      * <p>
      * Converts Variant.VariantArray types to SafeArrays
-     * 
+     *
      * @return Corresponding Java object of the type matching the Variant type.
      * @throws IllegalStateException
      *             if no underlying windows data structure
@@ -377,7 +377,7 @@ public final class VariantUtilities {
      * Verifies that we have a scale 0 &lt;= x &lt;= 28 and now more than 96 bits of
      * data. The roundToMSDecimal method will attempt to adjust a BigDecimal to
      * pass this set of tests
-     * 
+     *
      * @param in
      * @throws IllegalArgumentException
      *             if out of bounds
@@ -412,7 +412,7 @@ public final class VariantUtilities {
     /**
      * Does any validation that couldn't have been fixed by rounding or scale
      * modification.
-     * 
+     *
      * @param in
      *            The BigDecimal to be validated
      * @throws IllegalArgumentException
@@ -441,7 +441,7 @@ public final class VariantUtilities {
      * Changing the scale on a number that can fit in an MS Decimal can change
      * the number's representation enough that it will round to a number too
      * large to be represented by an MS VT_DECIMAL
-     * 
+     *
      * @param sourceDecimal
      * @return BigDecimal a new big decimal that was rounded to fit in an MS
      *         VT_DECIMAL

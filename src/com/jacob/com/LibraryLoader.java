@@ -67,7 +67,7 @@ import java.util.Set;
  * JACOB_DLL_PATH submitted sourceforge ticket 1493647 Added 1.11 <br>
  * JACOB_DLL_NAME, JACOB_DLL_NAME_32, JACOB_DLL_NAME_64 submitted sourceforge
  * ticket 1845039 Added 1.14M7
- * 
+ *
  * @author Scott Dickerson (sjd78)
  * @author Jason Smith
  */
@@ -113,9 +113,8 @@ public final class LibraryLoader {
     /**
      * Load the jacob dll either from an absolute path or by a library name,
      * both of which may be defined in various ways.
-     * 
-     * @throws UnsatisfiedLinkError
-     *             if the library does not exist.
+     *
+     * @throws UnsatisfiedLinkError if the library does not exist.
      */
     public static void loadJacobLibrary() {
         // In some cases, a library that uses Jacob won't be able to set system
@@ -191,7 +190,7 @@ public final class LibraryLoader {
      * created as part of the build process in build.xml
      * <p>
      * The DLL name is "jacob&lt;PLATFORM&gt;.release"
-     * 
+     *
      * @return the preferred name of the DLL adjusted for this platform and
      *         version without the ".dll" extension
      */
@@ -207,7 +206,7 @@ public final class LibraryLoader {
 
     /**
      * Detects whether this is a 32-bit JVM.
-     * 
+     *
      * @return {@code true} if this is a 32-bit JVM.
      */
     protected static boolean shouldLoad32Bit() {

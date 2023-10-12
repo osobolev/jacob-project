@@ -27,7 +27,7 @@ package com.jacob.com;
 public class NotImplementedException extends JacobException {
 
     /**
-     * 
+     *
      */
     private static final long serialVersionUID = -9169900832852356445L;
 

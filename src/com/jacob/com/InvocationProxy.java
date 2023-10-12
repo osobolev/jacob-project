@@ -60,11 +60,9 @@ public abstract class InvocationProxy {
      * <p>
      * Subclasses that override this should make sure mTargetObject is not null
      * before processing.
-     * 
-     * @param methodName
-     *            name of method in mTargetObject we will invoke
-     * @param targetParameters
-     *            Variant[] that is the single parameter to the method
+     *
+     * @param methodName       name of method in mTargetObject we will invoke
+     * @param targetParameters Variant[] that is the single parameter to the method
      * @return an object that will be returned to the com event caller
      */
     public abstract Variant invoke(String methodName,
@@ -72,7 +70,7 @@ public abstract class InvocationProxy {
 
     /**
      * used by EventProxy.cpp to create variant objects in the right thread
-     * 
+     *
      * @return Variant object that will be used by the COM layer
      */
     public Variant getVariant() {
@@ -81,10 +79,9 @@ public abstract class InvocationProxy {
 
     /**
      * Sets the target for this InvocationProxy.
-     * 
+     *
      * @param pTargetObject
-     * @throws IllegalArgumentException
-     *             if target is not publicly accessible
+     * @throws IllegalArgumentException if target is not publicly accessible
      */
     public void setTarget(Object pTargetObject) {
         if (JacobObject.isDebugEnabled()) {

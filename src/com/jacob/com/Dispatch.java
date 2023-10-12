@@ -2,15 +2,15 @@
  * Copyright (c) 1999-2004 Sourceforge JACOB Project. All rights reserved. Originator: Dan Adler
  * (http://danadler.com). Get more information about JACOB at
  * http://sourceforge.net/projects/jacob-project
- * 
+ *
  * This library is free software; you can redistribute it and/or modify it under the terms of the
  * GNU Lesser General Public License as published by the Free Software Foundation; either version
  * 2.1 of the License, or (at your option) any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
  * even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License along with this library;
  * if not, write to the Free Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA
@@ -20,8 +20,8 @@ package com.jacob.com;
 /**
  * Object represents MS level dispatch object. Each instance of this points at
  * some data structure on the MS windows side.
- * 
- * 
+ *
+ *
  * <p>
  * You're going to live here a lot
  */
@@ -31,13 +31,21 @@ public class Dispatch extends JacobObject {
      * Used to set the locale in a call. The user locale is another option
      */
     public static final int LOCALE_SYSTEM_DEFAULT = 2048;
-    /** used by callN() and callSubN() */
+    /**
+     * used by callN() and callSubN()
+     */
     public static final int Method = 1;
-    /** used by callN() and callSubN() */
+    /**
+     * used by callN() and callSubN()
+     */
     public static final int Get = 2;
-    /** used by put() */
+    /**
+     * used by put()
+     */
     public static final int Put = 4;
-    /** not used, probably intended for putRef() */
+    /**
+     * not used, probably intended for putRef()
+     */
     public static final int PutRef = 8;
     /**
      * One of legal values for GetDispId. Not used in this layer and probably
@@ -52,7 +60,9 @@ public class Dispatch extends JacobObject {
      */
     public long m_pDispatch;
 
-    /** program Id passed in by ActiveX components in their constructor */
+    /**
+     * program Id passed in by ActiveX components in their constructor
+     */
     private String programId = null;
 
     private static int NOT_ATTACHED = 0;
@@ -87,7 +97,7 @@ public class Dispatch extends JacobObject {
      * This constructor always creates a new windows/program object because it
      * is based on the CoCreate() windows function.
      * <p>
-     * 
+     *
      * @param requestedProgramId
      * @throws IllegalArgumentException
      *             if null is passed in as the program id
@@ -106,13 +116,13 @@ public class Dispatch extends JacobObject {
      * native call createInstance only used by the constructor with the same
      * parm type. This probably should be private. It is the wrapper for the
      * Windows CoCreate() call
-     * <P>
+     * <p>
      * This ends up calling CoCreate down in the JNI layer
      * <p>
      * The behavior is different if a ":" character exists in the progId. In
      * that case CoGetObject and CreateInstance (someone needs to describe this
      * better)
-     * 
+     *
      * @param progid
      */
     private native void createInstanceNative(String progid);
@@ -121,21 +131,20 @@ public class Dispatch extends JacobObject {
      * native call getActiveInstance only used by the constructor with the same
      * parm type. This probably should be private. It is the wrapper for the
      * Windows GetActiveObject() call
-     * <P>
+     * <p>
      * This ends up calling GetActiveObject down in the JNI layer
      * <p>
      * This does not have the special behavior for program ids with ":" in them
      * that createInstance has.
-     * 
+     *
      * @param progid
      */
     private native void getActiveInstanceNative(String progid);
 
     /**
      * Wrapper around the native method
-     * 
-     * @param pProgramIdentifier
-     *            name of the program you wish to connect to
+     *
+     * @param pProgramIdentifier name of the program you wish to connect to
      */
     protected void getActiveInstance(String pProgramIdentifier) {
         if (pProgramIdentifier == null || "".equals(pProgramIdentifier)) {
@@ -149,19 +158,19 @@ public class Dispatch extends JacobObject {
      * native call coCreateInstance only used by the constructor with the same
      * parm type. This probably should be private. It is the wrapper for the
      * Windows CoCreate() call
-     * <P>
+     * <p>
      * This ends up calling CoCreate down in the JNI layer
      * <p>
      * This does not have the special behavior for program ids with ":" in them
      * that createInstance has.
-     * 
+     *
      * @param progid
      */
     private native void coCreateInstanceNative(String progid);
 
     /**
      * Wrapper around the native method
-     * 
+     *
      * @param pProgramIdentifier
      */
     protected void coCreateInstance(String pProgramIdentifier) {
@@ -184,7 +193,7 @@ public class Dispatch extends JacobObject {
      * <p>
      * The Dispatch instance resulting from this query is instanciated in the
      * JNI code.
-     * 
+     *
      * @param iid
      * @return Dispatch a disptach that matches ??
      */
@@ -194,7 +203,7 @@ public class Dispatch extends JacobObject {
      * Constructor that only gets called from JNI QueryInterface calls JNI code
      * that looks up the object for the key passed in. The JNI CODE then creates
      * a new dispatch object using this constructor
-     * 
+     *
      * @param pDisp
      */
     protected Dispatch(long pDisp) {
@@ -207,7 +216,7 @@ public class Dispatch extends JacobObject {
      * WordDocument that is a subclass of Dispatch and it will have a
      * constructor public WordDocument(Dispatch). That constructor should just
      * call this constructor as super(Dispatch)
-     * 
+     *
      * @param dispatchToBeDisplaced
      */
     public Dispatch(Dispatch dispatchToBeDisplaced) {
@@ -220,7 +229,7 @@ public class Dispatch extends JacobObject {
     /**
      * returns the program id if an activeX component created this otherwise it
      * returns null. This was added to aid in debugging
-     * 
+     *
      * @return the program id an activeX component was created against
      */
     public String getProgramId() {
@@ -229,7 +238,7 @@ public class Dispatch extends JacobObject {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see java.lang.Object#finalize()
      */
     @Override
@@ -239,7 +248,7 @@ public class Dispatch extends JacobObject {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see com.jacob.com.JacobObject#safeRelease()
      */
     @Override
@@ -258,7 +267,6 @@ public class Dispatch extends JacobObject {
     }
 
     /**
-     * 
      * @return true if there is an underlying windows dispatch object
      */
     protected boolean isAttached() {
@@ -270,12 +278,9 @@ public class Dispatch extends JacobObject {
     }
 
     /**
-     * @param theOneInQuestion
-     *            dispatch being tested
-     * @throws IllegalStateException
-     *             if this dispatch isn't hooked up
-     * @throws IllegalArgumentException
-     *             if null the dispatch under test is null
+     * @param theOneInQuestion dispatch being tested
+     * @throws IllegalStateException    if this dispatch isn't hooked up
+     * @throws IllegalArgumentException if null the dispatch under test is null
      */
     private static void throwIfUnattachedDispatch(Dispatch theOneInQuestion) {
         if (theOneInQuestion == null) {
@@ -290,13 +295,12 @@ public class Dispatch extends JacobObject {
     /**
      * now private so only this object can access was: call this to explicitly
      * release the com object before gc
-     * 
      */
     private native void release();
 
     /**
      * not implemented yet
-     * 
+     *
      * @param dispatchTarget
      * @param name
      * @param val
@@ -358,7 +362,7 @@ public class Dispatch extends JacobObject {
 
     /**
      * not implemented yet
-     * 
+     *
      * @param dispatchTarget
      * @param name
      * @param values
@@ -373,8 +377,7 @@ public class Dispatch extends JacobObject {
     /**
      * @param dispatchTarget
      * @param name
-     * @param args
-     *            an array of argument objects
+     * @param args           an array of argument objects
      */
     public static void callSubN(Dispatch dispatchTarget, String name,
             Object... args) {
@@ -386,8 +389,7 @@ public class Dispatch extends JacobObject {
     /**
      * @param dispatchTarget
      * @param dispID
-     * @param args
-     *            an array of argument objects
+     * @param args           an array of argument objects
      */
     public static void callSubN(Dispatch dispatchTarget, int dispID,
             Object... args) {
@@ -551,9 +553,8 @@ public class Dispatch extends JacobObject {
     /**
      * @param dispatchTarget
      * @param dispid
-     * @param attributes
-     *            var arg list of attributes that will be passed to the
-     *            underlying function
+     * @param attributes     var arg list of attributes that will be passed to the
+     *                       underlying function
      * @return Variant returned by underlying callN
      */
     public static Variant call(Dispatch dispatchTarget, int dispid,
@@ -729,12 +730,11 @@ public class Dispatch extends JacobObject {
 
     /**
      * makes call to native callSubN
-     * 
+     *
      * @param dispatchTarget
      * @param name
-     * @param attributes
-     *            var args list of attributes to be passed to underlying
-     *            functions
+     * @param attributes     var args list of attributes to be passed to underlying
+     *                       functions
      */
     public static void callSub(Dispatch dispatchTarget, String name,
             Object... attributes) {
@@ -744,7 +744,7 @@ public class Dispatch extends JacobObject {
 
     /**
      * makes call to native callSubN
-     * 
+     *
      * @param dispatchTarget
      * @param dispid
      */
@@ -755,12 +755,11 @@ public class Dispatch extends JacobObject {
 
     /**
      * makes call to native callSubN
-     * 
+     *
      * @param dispatchTarget
      * @param dispid
-     * @param attributes
-     *            var args list of attributes to be passed to underlying
-     *            function
+     * @param attributes     var args list of attributes to be passed to underlying
+     *                       function
      */
     public static void callSub(Dispatch dispatchTarget, int dispid,
             Object... attributes) {
@@ -788,7 +787,7 @@ public class Dispatch extends JacobObject {
 
     /**
      * Cover for call to underlying invokev()
-     * 
+     *
      * @param dispatchTarget
      * @param dispid
      * @return Variant returned by the request for retrieval of parameter
@@ -806,7 +805,7 @@ public class Dispatch extends JacobObject {
      */
     /**
      * cover for underlying call to invoke
-     * 
+     *
      * @param dispatchTarget
      * @param name
      * @param val
@@ -819,7 +818,7 @@ public class Dispatch extends JacobObject {
 
     /**
      * cover for underlying call to invoke
-     * 
+     *
      * @param dispatchTarget
      * @param dispid
      * @param val
@@ -832,7 +831,7 @@ public class Dispatch extends JacobObject {
 
     /**
      * not implemented yet
-     * 
+     *
      * @param dispatchTarget
      * @param name
      * @return Variant never returned
@@ -844,7 +843,7 @@ public class Dispatch extends JacobObject {
 
     /**
      * Cover for native method
-     * 
+     *
      * @param disp
      * @param dispid
      * @param lcid
@@ -857,7 +856,7 @@ public class Dispatch extends JacobObject {
      * server in gone.
      * <p>
      * Sourceforge feature request 2927058
-     * 
+     *
      * @param dispatchTarget
      * @return 0 if the dispatch is still active and 1 if it has exited
      */

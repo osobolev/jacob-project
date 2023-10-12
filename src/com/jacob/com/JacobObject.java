@@ -93,7 +93,7 @@ public class JacobObject {
 
     /**
      * Very basic debugging function.
-     * 
+     *
      * @param istrMessage
      */
     protected static void debug(String istrMessage) {

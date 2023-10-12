@@ -24,15 +24,14 @@ import java.util.Date;
 
 /**
  * java / windows date conversion utilities
- * 
+ *
  * @author joe
- * 
  */
 public class DateUtilities {
 
     /**
      * converts a windows time to a Java Date Object
-     * 
+     *
      * @param comTime
      * @return Date object representing the windows time as specified in comTime
      */
@@ -49,9 +48,8 @@ public class DateUtilities {
      * day percentage fraction&gt;, e.g. "38100.6453" means: 38100 days since
      * 30.12.1899 plus (24 hours * 0.6453). Example usage:
      * <code>Date javaDate = new Date(toMilliseconds (vbDate));</code>.
-     * 
-     * @param comTime
-     *            COM time.
+     *
+     * @param comTime COM time.
      * @return Java time.
      */
     static public long convertWindowsTimeToMilliseconds(double comTime) {
@@ -70,9 +68,8 @@ public class DateUtilities {
 
     /**
      * converts a java date to a windows time object (is this timezone safe?)
-     * 
-     * @param javaDate
-     *            the java date to be converted to windows time
+     *
+     * @param javaDate the java date to be converted to windows time
      * @return the double representing the date in a form windows understands
      */
     static public double convertDateToWindowsTime(Date javaDate) {
@@ -84,9 +81,8 @@ public class DateUtilities {
 
     /**
      * Convert a Java time to a COM time.
-     * 
-     * @param milliseconds
-     *            Java time.
+     *
+     * @param milliseconds Java time.
      * @return COM time.
      */
     static public double convertMillisecondsToWindowsTime(long milliseconds) {

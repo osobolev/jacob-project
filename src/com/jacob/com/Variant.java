@@ -60,54 +60,86 @@ public class Variant extends JacobObject {
      */
     public final static com.jacob.com.Variant VT_FALSE = new com.jacob.com.Variant(false);
 
-    /** variant's type is empty : equivalent to VB Nothing and VT_EMPTY */
+    /**
+     * variant's type is empty : equivalent to VB Nothing and VT_EMPTY
+     */
     public static final short VariantEmpty = 0;
 
-    /** variant's type is null : equivalent to VB Null and VT_NULL */
+    /**
+     * variant's type is null : equivalent to VB Null and VT_NULL
+     */
     public static final short VariantNull = 1;
 
-    /** variant's type is short VT_I2 */
+    /**
+     * variant's type is short VT_I2
+     */
     public static final short VariantShort = 2;
 
-    /** variant's type is int VT_I4, a Long in VC */
+    /**
+     * variant's type is int VT_I4, a Long in VC
+     */
     public static final short VariantInt = 3;
 
-    /** variant's type is float VT_R4 */
+    /**
+     * variant's type is float VT_R4
+     */
     public static final short VariantFloat = 4;
 
-    /** variant's type is double VT_R8 */
+    /**
+     * variant's type is double VT_R8
+     */
     public static final short VariantDouble = 5;
 
-    /** variant's type is currency VT_CY */
+    /**
+     * variant's type is currency VT_CY
+     */
     public static final short VariantCurrency = 6;
 
-    /** variant's type is date VT_DATE */
+    /**
+     * variant's type is date VT_DATE
+     */
     public static final short VariantDate = 7;
 
-    /** variant's type is string also known as VT_BSTR */
+    /**
+     * variant's type is string also known as VT_BSTR
+     */
     public static final short VariantString = 8;
 
-    /** variant's type is dispatch VT_DISPATCH */
+    /**
+     * variant's type is dispatch VT_DISPATCH
+     */
     public static final short VariantDispatch = 9;
 
-    /** variant's type is error VT_ERROR */
+    /**
+     * variant's type is error VT_ERROR
+     */
     public static final short VariantError = 10;
 
-    /** variant's type is boolean VT_BOOL */
+    /**
+     * variant's type is boolean VT_BOOL
+     */
     public static final short VariantBoolean = 11;
 
-    /** variant's type is variant it encapsulate another variant VT_VARIANT */
+    /**
+     * variant's type is variant it encapsulate another variant VT_VARIANT
+     */
     public static final short VariantVariant = 12;
 
-    /** variant's type is object VT_UNKNOWN */
+    /**
+     * variant's type is object VT_UNKNOWN
+     */
     public static final short VariantObject = 13;
 
-    /** variant's type is object VT_DECIMAL */
+    /**
+     * variant's type is object VT_DECIMAL
+     */
     public static final short VariantDecimal = 14;
 
     // VT_I1 = 16
 
-    /** variant's type is byte VT_UI1 This is an UNSIGNED byte */
+    /**
+     * variant's type is byte VT_UI1 This is an UNSIGNED byte
+     */
     public static final short VariantByte = 17;
 
     // VT_UI2 = 18
@@ -135,13 +167,19 @@ public class Variant extends JacobObject {
     // VT_CARRARY = 28
     // VT_USERDEFINED = 29
 
-    /** what is this? VT_TYPEMASK &amp;&amp; VT_BSTR_BLOB 0xfff */
+    /**
+     * what is this? VT_TYPEMASK &amp;&amp; VT_BSTR_BLOB 0xfff
+     */
     public static final short VariantTypeMask = 4095;
 
-    /** variant's type is array VT_ARRAY 0x2000 */
+    /**
+     * variant's type is array VT_ARRAY 0x2000
+     */
     public static final short VariantArray = 8192;
 
-    /** variant's type is a reference (to IDispatch?) VT_BYREF 0x4000 */
+    /**
+     * variant's type is a reference (to IDispatch?) VT_BYREF 0x4000
+     */
     public static final short VariantByref = 16384;
 
     /*
@@ -170,7 +208,7 @@ public class Variant extends JacobObject {
 
     /**
      * Constructor that accepts a primitive rather than an object
-     * 
+     *
      * @param in
      */
     public Variant(boolean in) {
@@ -179,7 +217,7 @@ public class Variant extends JacobObject {
 
     /**
      * Constructor that accepts a primitive rather than an object
-     * 
+     *
      * @param in
      */
     public Variant(byte in) {
@@ -188,7 +226,7 @@ public class Variant extends JacobObject {
 
     /**
      * Constructor that accepts a primitive rather than an object
-     * 
+     *
      * @param in
      */
     public Variant(double in) {
@@ -197,7 +235,7 @@ public class Variant extends JacobObject {
 
     /**
      * Constructor that accepts a primitive rather than an object
-     * 
+     *
      * @param in
      */
     public Variant(float in) {
@@ -206,7 +244,7 @@ public class Variant extends JacobObject {
 
     /**
      * Constructor that accepts a primitive rather than an object
-     * 
+     *
      * @param in
      */
     public Variant(int in) {
@@ -215,7 +253,7 @@ public class Variant extends JacobObject {
 
     /**
      * Constructor that accepts a primitive rather than an object
-     * 
+     *
      * @param in
      */
     public Variant(long in) {
@@ -225,9 +263,8 @@ public class Variant extends JacobObject {
     /**
      * Convenience constructor that calls the main one with a byRef value of
      * false
-     * 
-     * @param in
-     *            object to be made into variant
+     *
+     * @param in object to be made into variant
      */
     public Variant(Object in) {
         this(in, false);
@@ -237,10 +274,9 @@ public class Variant extends JacobObject {
      * Constructor that accepts the data object and information about whether
      * this is by reference or not. It calls the JavaVariantConverter to
      * actually push the data into the newly created Variant.
-     * 
-     * @param pValueObject
-     *            The value object that will pushed down into windows memory. A
-     *            null object sets this to "empty"
+     *
+     * @param pValueObject The value object that will pushed down into windows memory. A
+     *                     null object sets this to "empty"
      * @param fByRef
      */
     public Variant(Object pValueObject, boolean fByRef) {
@@ -250,7 +286,7 @@ public class Variant extends JacobObject {
 
     /**
      * Constructor that accepts a primitive rather than an object
-     * 
+     *
      * @param in
      */
     public Variant(short in) {
@@ -262,9 +298,8 @@ public class Variant extends JacobObject {
      * <p>
      * This cannot convert an object to a byRef. It can convert from byref to
      * not byref
-     * 
-     * @param in
-     *            type to convert this variant too
+     *
+     * @param in type to convert this variant too
      * @return Variant returns this same object so folks can change when
      *         replacing calls toXXX() with changeType().getXXX()
      */
@@ -276,30 +311,29 @@ public class Variant extends JacobObject {
     /**
      * Converts variant to the passed in type by converting the underlying
      * windows variant structure. private so folks use public java method
-     * 
-     * @param in
-     *            the desired resulting type
+     *
+     * @param in the desired resulting type
      */
     private native void changeVariantType(short in);
 
     /**
      * this returns null
-     * 
+     *
      * @return ?? comment says null?
      */
     @Override
     public native Object clone();
 
     /**
-     * @deprecated No longer used
      * @return null !
+     * @deprecated No longer used
      */
     @Deprecated
     public native Variant cloneIndirect();
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see java.lang.Object#finalize()
      */
     @Override
@@ -308,10 +342,8 @@ public class Variant extends JacobObject {
     }
 
     /**
-     * 
      * @return returns the value as a boolean, throws an exception if its not.
-     * @throws IllegalStateException
-     *             if variant is not of the requested type
+     * @throws IllegalStateException if variant is not of the requested type
      */
     public boolean getBoolean() {
         if (this.getvt() == VariantBoolean) {
@@ -323,10 +355,9 @@ public class Variant extends JacobObject {
 
     /**
      * public cover for native method
-     * 
+     *
      * @return the boolean from a booleanRef
-     * @throws IllegalStateException
-     *             if variant is not of the requested type
+     * @throws IllegalStateException if variant is not of the requested type
      */
     public boolean getBooleanRef() {
         if ((this.getvt() & VariantTypeMask) == VariantBoolean
@@ -338,10 +369,8 @@ public class Variant extends JacobObject {
     }
 
     /**
-     * 
      * @return returns the value as a boolean, throws an exception if its not.
-     * @throws IllegalStateException
-     *             if variant is not of the requested type
+     * @throws IllegalStateException if variant is not of the requested type
      */
     public byte getByte() {
         if (this.getvt() == VariantByte) {
@@ -353,10 +382,9 @@ public class Variant extends JacobObject {
 
     /**
      * public cover for native method
-     * 
+     *
      * @return the byte from a booleanRef
-     * @throws IllegalStateException
-     *             if variant is not of the requested type
+     * @throws IllegalStateException if variant is not of the requested type
      */
     public byte getByteRef() {
         if ((this.getvt() & VariantTypeMask) == VariantByte
@@ -370,7 +398,7 @@ public class Variant extends JacobObject {
     /**
      * MS Currency objects are 64 bit fixed point numbers with 15 digits to the
      * left and 4 to the right of the decimal place.
-     * 
+     *
      * @return returns the currency value as a long, throws exception if not a
      *         currency type..
      * @throws IllegalStateException
@@ -387,7 +415,7 @@ public class Variant extends JacobObject {
     /**
      * MS Currency objects are 64 bit fixed point numbers with 15 digits to the
      * left and 4 to the right of the decimal place.
-     * 
+     *
      * @return returns the currency value as a long, throws exception if not a
      *         currency type
      * @throws IllegalStateException
@@ -434,10 +462,9 @@ public class Variant extends JacobObject {
 
     /**
      * return the BigDecimal value held in this variant (fails on other types)
-     * 
+     *
      * @return BigDecimal
-     * @throws IllegalStateException
-     *             if variant is not of the requested type
+     * @throws IllegalStateException if variant is not of the requested type
      */
     public BigDecimal getDecimal() {
         if (this.getvt() == VariantDecimal) {
@@ -449,10 +476,9 @@ public class Variant extends JacobObject {
 
     /**
      * return the BigDecimal value held in this variant (fails on other types)
-     * 
+     *
      * @return BigDecimal
-     * @throws IllegalStateException
-     *             if variant is not of the requested type
+     * @throws IllegalStateException if variant is not of the requested type
      */
     public BigDecimal getDecimalRef() {
         if ((this.getvt() & VariantTypeMask) == VariantDecimal
@@ -467,10 +493,9 @@ public class Variant extends JacobObject {
      * cover for {@link #toDispatch()} This method now matches other getXXX()
      * methods. It throws an IllegalStateException if the object is not of type
      * VariantDispatch
-     * 
+     *
      * @return this object as a dispatch
-     * @throws IllegalStateException
-     *             if wrong variant type
+     * @throws IllegalStateException if wrong variant type
      */
     public Dispatch getDispatch() {
         if (this.getvt() == VariantDispatch) {
@@ -483,10 +508,9 @@ public class Variant extends JacobObject {
     /**
      * Dispatch and dispatchRef are treated the same This is just a cover for
      * toDispatch() with a flag check
-     * 
+     *
      * @return the results of toDispatch()
-     * @throws IllegalStateException
-     *             if variant is not of the requested type
+     * @throws IllegalStateException if variant is not of the requested type
      */
     public Dispatch getDispatchRef() {
         if ((this.getvt() & VariantTypeMask) == VariantDispatch
@@ -512,10 +536,8 @@ public class Variant extends JacobObject {
     }
 
     /**
-     * 
      * @return returns the double value, throws exception if not a Double type
-     * @throws IllegalStateException
-     *             if variant is not of the requested type
+     * @throws IllegalStateException if variant is not of the requested type
      */
     public double getDoubleRef() {
         if ((this.getvt() & VariantTypeMask) == VariantDouble
@@ -530,7 +552,7 @@ public class Variant extends JacobObject {
      * Pointless method that was put here so that putEmpty() has a get method.
      * This would have returned null if the value was VT_EMPTY or if it wasn't
      * so it would have always returned the same value.
-     * 
+     *
      * @deprecated method never did anything
      */
     @Deprecated
@@ -569,8 +591,7 @@ public class Variant extends JacobObject {
 
     /**
      * @return returns the value as a float if the type is of type float
-     * @throws IllegalStateException
-     *             if variant is not of the requested type
+     * @throws IllegalStateException if variant is not of the requested type
      */
     public float getFloat() {
         if (this.getvt() == VariantFloat) {
@@ -581,10 +602,8 @@ public class Variant extends JacobObject {
     }
 
     /**
-     * 
      * @return returns the float value, throws exception if not a Float type
-     * @throws IllegalStateException
-     *             if variant is not of the requested type
+     * @throws IllegalStateException if variant is not of the requested type
      */
     public float getFloatRef() {
         if ((this.getvt() & VariantTypeMask) == VariantFloat
@@ -598,10 +617,9 @@ public class Variant extends JacobObject {
     /**
      * return the int value held in this variant if it is an int or a short.
      * Throws for other types.
-     * 
+     *
      * @return int contents of the windows memory
-     * @throws IllegalStateException
-     *             if variant is not of the requested type
+     * @throws IllegalStateException if variant is not of the requested type
      */
     public int getInt() {
         if (this.getvt() == VariantInt) {
@@ -615,10 +633,9 @@ public class Variant extends JacobObject {
 
     /**
      * get the content of this variant as an int
-     * 
+     *
      * @return int
-     * @throws IllegalStateException
-     *             if variant is not of the requested type
+     * @throws IllegalStateException if variant is not of the requested type
      */
     public int getIntRef() {
         if ((this.getvt() & VariantTypeMask) == VariantInt
@@ -632,7 +649,7 @@ public class Variant extends JacobObject {
     /**
      * returns the windows time contained in this Variant to a Java Date. should
      * return null if this is not a date Variant SF 959382
-     * 
+     *
      * @return java.util.Date returns the date if this is a VariantDate != 0,
      *         null if it is a VariantDate == 0 and throws an
      *         IllegalStateException if this isn't a date.
@@ -655,7 +672,7 @@ public class Variant extends JacobObject {
     /**
      * returns the windows time contained in this Variant to a Java Date should
      * return null if this is not a date reference Variant SF 959382
-     * 
+     *
      * @return java.util.Date
      */
     public Date getJavaDateRef() {
@@ -669,7 +686,7 @@ public class Variant extends JacobObject {
 
     /**
      * 64 bit Longs only available on x64. 64 bit long support added 1.14
-     * 
+     *
      * @return returns the value as a long, throws exception if not a Long
      *         type..
      * @throws IllegalStateException
@@ -685,10 +702,9 @@ public class Variant extends JacobObject {
 
     /**
      * 64 bit Longs only available on x64. 64 bit long support added 1.14
-     * 
+     *
      * @return returns the value as a long, throws exception if not a long type
-     * @throws IllegalStateException
-     *             if variant is not of the requested type
+     * @throws IllegalStateException if variant is not of the requested type
      */
     public long getLongRef() {
         if ((this.getvt() & VariantTypeMask) == VariantLongInt
@@ -703,7 +719,7 @@ public class Variant extends JacobObject {
      * This method would have returned null if the type was VT_NULL. But because
      * we return null if the data is not of the right type, this method should
      * have always returned null
-     * 
+     *
      * @deprecated method never did anything
      */
     @Deprecated
@@ -712,10 +728,9 @@ public class Variant extends JacobObject {
 
     /**
      * return the int value held in this variant (fails on other types?)
-     * 
+     *
      * @return int
-     * @throws IllegalStateException
-     *             if variant is not of the requested type
+     * @throws IllegalStateException if variant is not of the requested type
      */
     public short getShort() {
         if (this.getvt() == VariantShort) {
@@ -727,10 +742,9 @@ public class Variant extends JacobObject {
 
     /**
      * get the content of this variant as an int
-     * 
+     *
      * @return int
-     * @throws IllegalStateException
-     *             if variant is not of the requested type
+     * @throws IllegalStateException if variant is not of the requested type
      */
     public short getShortRef() {
         if ((this.getvt() & VariantTypeMask) == VariantShort
@@ -742,10 +756,8 @@ public class Variant extends JacobObject {
     }
 
     /**
-     * 
      * @return string contents of the variant, null if is of type null or empty
-     * @throws IllegalStateException
-     *             if this variant is not of type String
+     * @throws IllegalStateException if this variant is not of type String
      */
     public String getString() {
         if (getvt() == Variant.VariantString) {
@@ -761,10 +773,9 @@ public class Variant extends JacobObject {
 
     /**
      * gets the content of the variant as a string ref
-     * 
+     *
      * @return String retrieved from the COM area.
-     * @throws IllegalStateException
-     *             if variant is not of the requested type
+     * @throws IllegalStateException if variant is not of the requested type
      */
     public String getStringRef() {
         if ((this.getvt() & VariantTypeMask) == VariantString
@@ -779,7 +790,7 @@ public class Variant extends JacobObject {
      * Used to get the value from a windows type of VT_VARIANT or a jacob
      * Variant type of VariantVariant. Added 1.12 pre 6 - VT_VARIANT support is
      * at an alpha level
-     * 
+     *
      * @return Object a java Object that represents the content of the enclosed
      *         Variant
      */
@@ -809,9 +820,9 @@ public class Variant extends JacobObject {
     }
 
     /**
-     * @deprecated superseded by SafeArray
      * @return never returns anything
      * @throws com.jacob.com.NotImplementedException
+     * @deprecated superseded by SafeArray
      */
     @Deprecated
     public Variant[] getVariantArray() {
@@ -820,8 +831,8 @@ public class Variant extends JacobObject {
 
     /**
      * @return the Variant Array that represents the data in the Variant
-     * @deprecated superseded by SafeArray
      * @throws com.jacob.com.NotImplementedException
+     * @deprecated superseded by SafeArray
      */
     @Deprecated
     public Variant[] getVariantArrayRef() {
@@ -829,7 +840,6 @@ public class Variant extends JacobObject {
     }
 
     /**
-     * 
      * @return the value in this Variant as a boolean, null if not a boolean
      */
     private native boolean getVariantBoolean();
@@ -864,7 +874,7 @@ public class Variant extends JacobObject {
 
     /**
      * get the content of this variant as a double representing a date
-     * 
+     *
      * @return double
      */
     private native double getVariantDateRef();
@@ -926,7 +936,7 @@ public class Variant extends JacobObject {
 
     /**
      * get the content of this variant as a short
-     * 
+     *
      * @return short
      */
     private native short getVariantShort();
@@ -938,7 +948,7 @@ public class Variant extends JacobObject {
 
     /**
      * Native method that actually extracts a string value from the variant
-     * 
+     *
      * @return
      */
     private native String getVariantString();
@@ -950,7 +960,7 @@ public class Variant extends JacobObject {
 
     /**
      * Returns the variant type via a native method call
-     * 
+     *
      * @return short one of the VT_xx types
      */
     private native short getVariantType();
@@ -958,7 +968,7 @@ public class Variant extends JacobObject {
     /**
      * Returns the variant type via a native method call. Added 1.12 pre 6 -
      * VT_VARIANT support is at an alpha level
-     * 
+     *
      * @return Variant one of the VT_Variant types
      */
     private native long getVariantVariant();
@@ -986,10 +996,8 @@ public class Variant extends JacobObject {
     protected native void init();
 
     /**
-     * 
      * @return returns true if the variant is considered null
-     * @throws IllegalStateException
-     *             if there is no underlying windows memory
+     * @throws IllegalStateException if there is no underlying windows memory
      */
     public boolean isNull() {
         getvt();
@@ -998,14 +1006,14 @@ public class Variant extends JacobObject {
 
     /**
      * is the variant null or empty or error or null dispatch
-     * 
+     *
      * @return true if it is null or false if not
      */
     private native boolean isVariantConsideredNull();
 
     /**
      * sets the type to VT_ERROR and the error message to DISP_E_PARAMNOTFOIUND
-     * 
+     *
      * @deprecated replaced by putNoParam()
      */
     @Deprecated
@@ -1016,7 +1024,7 @@ public class Variant extends JacobObject {
     /**
      * returns true if the passed in Variant is a constant that should not be
      * freed
-     * 
+     *
      * @param pVariant
      * @return boolean that is true if Variant is a type of constant, VT_FALSE,
      *         VT_TRUE, VT_MISSING, DEFAULT
@@ -1033,9 +1041,8 @@ public class Variant extends JacobObject {
 
     /**
      * puts a boolean into the variant and sets it's type
-     * 
-     * @param in
-     *            the new value
+     *
+     * @param in the new value
      */
     public void putBoolean(boolean in) {
         // verify we aren't released yet
@@ -1046,7 +1053,7 @@ public class Variant extends JacobObject {
     /**
      * pushes a boolean into the variant by ref and sets the type of the variant
      * to boolean
-     * 
+     *
      * @param in
      */
     public void putBooleanRef(boolean in) {
@@ -1057,7 +1064,7 @@ public class Variant extends JacobObject {
 
     /**
      * pushes a byte into the varaint and sets the type
-     * 
+     *
      * @param in
      */
     public void putByte(byte in) {
@@ -1067,10 +1074,9 @@ public class Variant extends JacobObject {
     };
 
     /**
-     * @deprecated superseded by SafeArray
-     * @param in
-     *            doesn't matter because this method does nothing
+     * @param in doesn't matter because this method does nothing
      * @throws com.jacob.com.NotImplementedException
+     * @deprecated superseded by SafeArray
      */
     @Deprecated
     public void putByteArray(Object in) {
@@ -1079,7 +1085,7 @@ public class Variant extends JacobObject {
 
     /**
      * pushes a byte into the variant by ref and sets the type
-     * 
+     *
      * @param in
      */
     public void putByteRef(byte in) {
@@ -1089,11 +1095,10 @@ public class Variant extends JacobObject {
     }
 
     /**
-     * @param in
-     *            the object that would be wrapped by the Variant if this method
-     *            was implemented
-     * @deprecated superseded by SafeArray
+     * @param in the object that would be wrapped by the Variant if this method
+     *           was implemented
      * @throws com.jacob.com.NotImplementedException
+     * @deprecated superseded by SafeArray
      */
     @Deprecated
     public void putCharArray(Object in) {
@@ -1104,9 +1109,8 @@ public class Variant extends JacobObject {
      * Puts a value in as a currency and sets the variant type. MS Currency
      * objects are 64 bit fixed point numbers with 15 digits to the left and 4
      * to the right of the decimal place.
-     * 
-     * @param in
-     *            the long that will be put into the 64 bit currency object.
+     *
+     * @param in the long that will be put into the 64 bit currency object.
      */
     public void putCurrency(Currency in) {
         // verify we aren't released yet
@@ -1118,9 +1122,8 @@ public class Variant extends JacobObject {
      * Pushes a long into the variant as currency and sets the type. MS Currency
      * objects are 64 bit fixed point numbers with 15 digits to the left and 4
      * to the right of the decimal place.
-     * 
-     * @param in
-     *            the long that will be put into the 64 bit currency object
+     *
+     * @param in the long that will be put into the 64 bit currency object
      */
     public void putCurrencyRef(Currency in) {
         // verify we aren't released yet
@@ -1131,11 +1134,9 @@ public class Variant extends JacobObject {
     /**
      * converts a java date to a windows time and calls putDate(double) SF
      * 959382
-     * 
-     * @param inDate
-     *            a Java date to be converted
-     * @throws IllegalArgumentException
-     *             if inDate = null
+     *
+     * @param inDate a Java date to be converted
+     * @throws IllegalArgumentException if inDate = null
      */
     public void putDate(Date inDate) {
         if (inDate == null) {
@@ -1147,7 +1148,7 @@ public class Variant extends JacobObject {
 
     /**
      * puts a windows date double into the variant and sets the type
-     * 
+     *
      * @param in
      */
     public void putDate(double in) {
@@ -1159,11 +1160,9 @@ public class Variant extends JacobObject {
     /**
      * converts a java date to a windows time and calls putDateRef(double) SF
      * 959382
-     * 
-     * @param inDate
-     *            a Java date to be converted
-     * @throws IllegalArgumentException
-     *             if inDate = null
+     *
+     * @param inDate a Java date to be converted
+     * @throws IllegalArgumentException if inDate = null
      */
     public void putDateRef(Date inDate) {
         if (inDate == null) {
@@ -1175,7 +1174,7 @@ public class Variant extends JacobObject {
 
     /**
      * set the content of this variant to a date (VT_DATE|VT_BYREF)
-     * 
+     *
      * @param in
      */
     public void putDateRef(double in) {
@@ -1241,12 +1240,10 @@ public class Variant extends JacobObject {
      * There are 12 bytes available for the integer number.
      * <p>
      * There is 1 byte for the scale.
-     * 
-     * @param in
-     *            the BigDecimal that will be converted to VT_DECIMAL
-     * @throws IllegalArgumentException
-     *             if the scale is > 28, the maximum for VT_DECIMAL or if there
-     *             are more than 12 bytes worth the digits
+     *
+     * @param in the BigDecimal that will be converted to VT_DECIMAL
+     * @throws IllegalArgumentException if the scale is > 28, the maximum for VT_DECIMAL or if there
+     *                                  are more than 12 bytes worth the digits
      */
     public void putDecimal(BigDecimal in) {
         putDecimal(in, false);
@@ -1263,12 +1260,10 @@ public class Variant extends JacobObject {
      * There are 12 bytes available for the integer number.
      * <p>
      * There is 1 byte for the scale.
-     * 
-     * @param in
-     *            the BigDecimal that will be converted to VT_DECIMAL
-     * @throws IllegalArgumentException
-     *             if the scale is > 28, the maximum for VT_DECIMAL or if there
-     *             are more than 12 bytes worth the digits
+     *
+     * @param in the BigDecimal that will be converted to VT_DECIMAL
+     * @throws IllegalArgumentException if the scale is > 28, the maximum for VT_DECIMAL or if there
+     *                                  are more than 12 bytes worth the digits
      */
     public void putDecimalRef(BigDecimal in) {
         putDecimal(in, true);
@@ -1276,9 +1271,8 @@ public class Variant extends JacobObject {
 
     /**
      * This acts a cover for putVariant Dispatch.
-     * 
-     * @param in
-     *            the Dispatch we're putting down in the COM variant space.
+     *
+     * @param in the Dispatch we're putting down in the COM variant space.
      */
     public void putDispatch(Dispatch in) {
         putVariantDispatch(in);
@@ -1288,9 +1282,8 @@ public class Variant extends JacobObject {
      * Dispatch and dispatchRef are treated the same This is a cover for
      * putVariantDispatch(). putDispatch and putDispatchRef are treated the same
      * because no one has written the COM code for putDispatchRef.
-     * 
-     * @param in
-     *            the Dispatch we're putting down in the COM variant space.
+     *
+     * @param in the Dispatch we're putting down in the COM variant space.
      */
     public void putDispatchRef(Dispatch in) {
         putVariantDispatch(in);
@@ -1298,7 +1291,7 @@ public class Variant extends JacobObject {
 
     /**
      * wraps this Variant around the passed in double.
-     * 
+     *
      * @param in
      */
     public void putDouble(double in) {
@@ -1309,7 +1302,7 @@ public class Variant extends JacobObject {
 
     /**
      * set the content of this variant to a double (VT_R8|VT_BYREF)
-     * 
+     *
      * @param in
      */
     public void putDoubleRef(double in) {
@@ -1320,7 +1313,6 @@ public class Variant extends JacobObject {
 
     /**
      * sets the type to VariantEmpty
-     * 
      */
     public void putEmpty() {
         // verify we aren't released yet
@@ -1330,7 +1322,7 @@ public class Variant extends JacobObject {
 
     /**
      * puts an error code (I think) into the variant and sets the type
-     * 
+     *
      * @param in
      */
     public void putError(int in) {
@@ -1341,7 +1333,7 @@ public class Variant extends JacobObject {
 
     /**
      * pushes an error code into the variant by ref and sets the type
-     * 
+     *
      * @param in
      */
     public void putErrorRef(int in) {
@@ -1352,7 +1344,7 @@ public class Variant extends JacobObject {
 
     /**
      * fills the Variant with a float and sets the type to float
-     * 
+     *
      * @param in
      */
     public void putFloat(float in) {
@@ -1363,7 +1355,7 @@ public class Variant extends JacobObject {
 
     /**
      * pushes a float into the variant and sets the type
-     * 
+     *
      * @param in
      */
     public void putFloatRef(float in) {
@@ -1374,7 +1366,7 @@ public class Variant extends JacobObject {
 
     /**
      * set the value of this variant and set the type
-     * 
+     *
      * @param in
      */
     public void putInt(int in) {
@@ -1385,7 +1377,7 @@ public class Variant extends JacobObject {
 
     /**
      * set the content of this variant to an int (VT_I4|VT_BYREF)
-     * 
+     *
      * @param in
      */
     public void putIntRef(int in) {
@@ -1397,9 +1389,8 @@ public class Variant extends JacobObject {
     /**
      * Puts a 64 bit Java Long into a 64 bit Variant Long. Only works on x64
      * systems otherwise throws an error. 64 bit long support added 1.14
-     * 
-     * @param in
-     *            the long that will be put into the 64 bit Long object.
+     *
+     * @param in the long that will be put into the 64 bit Long object.
      */
     public void putLong(long in) {
         // verify we aren't released yet
@@ -1410,9 +1401,8 @@ public class Variant extends JacobObject {
     /**
      * Puts a 64 bit Java Long into a 64 bit Variant Long. Only works on x64
      * systems otherwise throws an error. 64 bit long support added 1.14
-     * 
-     * @param in
-     *            the long that will be put into the 64 bit Long object.
+     *
+     * @param in the long that will be put into the 64 bit Long object.
      */
     public void putLongRef(long in) {
         // verify we aren't released yet
@@ -1452,9 +1442,8 @@ public class Variant extends JacobObject {
      * Puts an object into the Variant -- converts to Dispatch. Acts as a cover
      * for putVariantDispatch(); This primarily exists to support jacobgen. This
      * should be deprecated.
-     * 
-     * @param in
-     *            the object we are putting into the Variant, assumes a
+     *
+     * @param in the object we are putting into the Variant, assumes a
      * @see Variant#putDispatch(Dispatch)
      * @deprecated should use putDispatch()
      */
@@ -1467,7 +1456,7 @@ public class Variant extends JacobObject {
     /**
      * Just a cover for putObject(). We shouldn't accept any old random object.
      * This has been left in to support jacobgen. This should be deprecated.
-     * 
+     *
      * @param in
      * @deprecated
      */
@@ -1478,7 +1467,7 @@ public class Variant extends JacobObject {
 
     /**
      * have no idea...
-     * 
+     *
      * @param in
      */
     public void putSafeArray(SafeArray in) {
@@ -1489,7 +1478,7 @@ public class Variant extends JacobObject {
 
     /**
      * have no idea...
-     * 
+     *
      * @param in
      */
     public void putSafeArrayRef(SafeArray in) {
@@ -1500,7 +1489,7 @@ public class Variant extends JacobObject {
 
     /**
      * set the content of this variant to a short (VT_I2)
-     * 
+     *
      * @param in
      */
     public void putShort(short in) {
@@ -1511,7 +1500,7 @@ public class Variant extends JacobObject {
 
     /**
      * set the content of this variant to a short (VT_I2|VT_BYREF)
-     * 
+     *
      * @param in
      */
     public void putShortRef(short in) {
@@ -1522,7 +1511,7 @@ public class Variant extends JacobObject {
 
     /**
      * put a string into the variant and set its type
-     * 
+     *
      * @param in
      */
     public void putString(String in) {
@@ -1533,7 +1522,7 @@ public class Variant extends JacobObject {
 
     /**
      * set the content of this variant to a string (VT_BSTR|VT_BYREF)
-     * 
+     *
      * @param in
      */
     public void putStringRef(String in) {
@@ -1545,15 +1534,13 @@ public class Variant extends JacobObject {
     /**
      * Puts a variant into this variant making it type VT_VARIANT. Added 1.12
      * pre 6
-     * 
-     * @param objectToBeWrapped
-     *            A object that is to be referenced by this variant. If
-     *            objectToBeWrapped is already of type Variant, then it is used.
-     *            If objectToBeWrapped is not Variant then
-     *            <code>new Variant(objectToBeWrapped)</code> is called and the
-     *            result is passed into the com layer
-     * @throws IllegalArgumentException
-     *             if inVariant = null or if inVariant is a Varint
+     *
+     * @param objectToBeWrapped A object that is to be referenced by this variant. If
+     *                          objectToBeWrapped is already of type Variant, then it is used.
+     *                          If objectToBeWrapped is not Variant then
+     *                          <code>new Variant(objectToBeWrapped)</code> is called and the
+     *                          result is passed into the com layer
+     * @throws IllegalArgumentException if inVariant = null or if inVariant is a Varint
      */
     public void putVariant(Object objectToBeWrapped) {
         if (objectToBeWrapped == null) {
@@ -1572,10 +1559,9 @@ public class Variant extends JacobObject {
     }
 
     /**
-     * @deprecated superseded by SafeArray
-     * @param in
-     *            doesn't matter because this method does nothing
+     * @param in doesn't matter because this method does nothing
      * @throws com.jacob.com.NotImplementedException
+     * @deprecated superseded by SafeArray
      */
     @Deprecated
     public void putVariantArray(Variant[] in) {
@@ -1583,11 +1569,10 @@ public class Variant extends JacobObject {
     }
 
     /**
-     * @param in
-     *            the thing that would be come an array if this method was
-     *            implemented
-     * @deprecated superseded by SafeArray
+     * @param in the thing that would be come an array if this method was
+     *           implemented
      * @throws com.jacob.com.NotImplementedException
+     * @deprecated superseded by SafeArray
      */
     @Deprecated
     public void putVariantArrayRef(Variant[] in) {
@@ -1596,96 +1581,80 @@ public class Variant extends JacobObject {
 
     /**
      * puts a boolean into the variant and sets it's type
-     * 
-     * @param in
-     *            the new value
+     *
+     * @param in the new value
      */
     private native void putVariantBoolean(boolean in);
 
     /**
      * puts a boolean into the variant and sets it's type
-     * 
-     * @param in
-     *            the new value
+     *
+     * @param in the new value
      */
     private native void putVariantBooleanRef(boolean in);
 
     /**
      * puts a byte into the variant and sets it's type
-     * 
-     * @param in
-     *            the new value
+     *
+     * @param in the new value
      */
     private native void putVariantByte(byte in);
 
     /**
      * puts a byte into the variant and sets it's type
-     * 
-     * @param in
-     *            the new value
+     *
+     * @param in the new value
      */
     private native void putVariantByteRef(byte in);
 
     /**
      * puts a Currency into the variant and sets it's type
-     * 
-     * @param in
-     *            the new value
+     *
+     * @param in the new value
      */
     private native void putVariantCurrency(long in);
 
     /**
      * puts a Currency into the variant and sets it's type
-     * 
-     * @param in
-     *            the new value
+     *
+     * @param in the new value
      */
     private native void putVariantCurrencyRef(long in);
 
     /**
      * set the value of this variant
-     * 
+     *
      * @param in
      */
     private native void putVariantDate(double in);
 
     /**
      * set the content of this variant to a date (VT_DATE|VT_BYREF)
-     * 
+     *
      * @param in
      */
     private native void putVariantDateRef(double in);
 
     /**
      * private JNI method called by putDecimal
-     * 
-     * @param signum
-     *            sign
-     * @param scale
-     *            BigDecimal's scale
-     * @param lo
-     *            low 32 bits
-     * @param mid
-     *            middle 32 bits
-     * @param hi
-     *            high 32 bits
+     *
+     * @param signum sign
+     * @param scale  BigDecimal's scale
+     * @param lo     low 32 bits
+     * @param mid    middle 32 bits
+     * @param hi     high 32 bits
      */
     private native void putVariantDec(int signum, byte scale, int lo, int mid,
             int hi);
 
     /**
      * private JNI method called by putDecimalRef
-     * 
-     * @param signum
-     *            sign
-     * @param scale
-     *            BigDecimal's scale
-     * @param lo
-     *            low 32 bits
-     * @param mid
-     *            middle 32 bits
-     * @param hi
-     *            high 32 bits
+     *
+     * @param signum sign
+     * @param scale  BigDecimal's scale
+     * @param lo     low 32 bits
+     * @param mid    middle 32 bits
+     * @param hi     high 32 bits
      */
     private native void putVariantDecRef(int signum, byte scale, int lo,
             int mid, int hi);
@@ -1693,9 +1662,8 @@ public class Variant extends JacobObject {
     /**
      * the JNI implementation for putDispatch() so that we can screen the
      * incoming dispatches in putDispatch() before this is invoked
-     * 
-     * @param in
-     *            should be a dispatch object
+     *
+     * @param in should be a dispatch object
      */
     private native void putVariantDispatch(Object in);
 
@@ -1703,7 +1671,7 @@ public class Variant extends JacobObject {
 
     /**
      * set the content of this variant to a double (VT_R8|VT_BYREF)
-     * 
+     *
      * @param in
      */
     private native void putVariantDoubleRef(double in);
@@ -1719,7 +1687,7 @@ public class Variant extends JacobObject {
 
     /**
      * fills the Variant with a float and sets the type to float
-     * 
+     *
      * @param in
      */
     private native void putVariantFloat(float in);
@@ -1728,14 +1696,14 @@ public class Variant extends JacobObject {
 
     /**
      * set the value of this variant and set the type
-     * 
+     *
      * @param in
      */
     private native void putVariantInt(int in);
 
     /**
      * set the content of this variant to an int (VT_I4|VT_BYREF)
-     * 
+     *
      * @param in
      */
     private native void putVariantIntRef(int in);
@@ -1766,14 +1734,14 @@ public class Variant extends JacobObject {
 
     /**
      * set the content of this variant to a short (VT_I2)
-     * 
+     *
      * @param in
      */
     private native void putVariantShort(short in);
 
     /**
      * set the content of this variant to a short (VT_I2|VT_BYREF)
-     * 
+     *
      * @param in
      */
     private native void putVariantShortRef(short in);
@@ -1782,7 +1750,7 @@ public class Variant extends JacobObject {
 
     /**
      * set the content of this variant to a string (VT_BSTR|VT_BYREF)
-     * 
+     *
      * @param in
      */
     private native void putVariantStringRef(String in);
@@ -1793,17 +1761,14 @@ public class Variant extends JacobObject {
      * Set the content of this variant to a string (VT_VARIANT|VT_BYREF).
      * 
      * Added 1.12 pre 6 - VT_VARIANT support is at an alpha level
-     * 
-     * @param in
-     *            variant to be wrapped
-     * 
+     *
+     * @param in variant to be wrapped
      */
     private native void putVariantVariant(Variant in);
 
     /**
      * now private so only this object can access was: call this to explicitly
      * release the com object before gc
-     * 
      */
     private native void release();
 
@@ -1811,7 +1776,7 @@ public class Variant extends JacobObject {
      * This will release the "C" memory for the Variant unless this Variant is
      * one of the constants in which case we don't want to release the memory.
      * <p>
-     * 
+     *
      * @see com.jacob.com.JacobObject#safeRelease()
      */
     @Override
@@ -1853,7 +1818,7 @@ public class Variant extends JacobObject {
     /**
      * this is supposed to cause the underlying variant object struct to be
      * rebuilt from a previously serialized byte array.
-     * 
+     *
      * @param ba
      */
     protected native void SerializationReadFromBytes(byte[] ba);
@@ -1865,8 +1830,8 @@ public class Variant extends JacobObject {
     protected native byte[] SerializationWriteToBytes();
 
     /**
-     * @deprecated should be replaced by changeType() followed by getBoolean()
      * @return the value of this variant as boolean (after possible conversion)
+     * @deprecated should be replaced by changeType() followed by getBoolean()
      */
     @Deprecated
     public boolean toBoolean() {
@@ -1877,9 +1842,9 @@ public class Variant extends JacobObject {
     /**
      * attempts to return the content of this variant as a double (after
      * possible conversion)
-     * 
-     * @deprecated should be replaced by changeType() followed by getByte()
+     *
      * @return byte
+     * @deprecated should be replaced by changeType() followed by getByte()
      */
     @Deprecated
     public byte toByte() {
@@ -1888,9 +1853,9 @@ public class Variant extends JacobObject {
     }
 
     /**
-     * @deprecated superseded by SafeArray
      * @return nothing because this method is not implemented
      * @throws com.jacob.com.NotImplementedException
+     * @deprecated superseded by SafeArray
      */
     @Deprecated
     public Object toByteArray() {
@@ -1898,9 +1863,9 @@ public class Variant extends JacobObject {
     }
 
     /**
-     * @deprecated superseded by SafeArray
      * @return never returns anything
      * @throws com.jacob.com.NotImplementedException
+     * @deprecated superseded by SafeArray
      */
     @Deprecated
     public Object toCharArray() {
@@ -1908,9 +1873,9 @@ public class Variant extends JacobObject {
     }
 
     /**
-     * @deprecated should be replaced by changeType() followed by getCurrency
      * @return the content of this variant as a long representing a monetary
-     *         amount
+     * amount
+     * @deprecated should be replaced by changeType() followed by getCurrency
      */
     @Deprecated
     public Currency toCurrency() {
@@ -1919,8 +1884,8 @@ public class Variant extends JacobObject {
     }
 
     /**
-     * @deprecated should use changeType() followed by getDate()
      * @return the value of this variant as a date (after possible conversion)
+     * @deprecated should use changeType() followed by getDate()
      */
     @Deprecated
     public double toDate() {
@@ -1948,14 +1913,16 @@ public class Variant extends JacobObject {
         return getDouble();
     }
 
-    /** @return the value of this variant as an enumeration (java style) */
+    /**
+     * @return the value of this variant as an enumeration (java style)
+     */
     public native EnumVariant toEnumVariant();
 
     /**
      * converts to an error type and returns the error
-     * 
-     * @deprecated should use changeType() followed by getError()
+     *
      * @return the error as an int (after conversion)
+     * @deprecated should use changeType() followed by getError()
      */
     @Deprecated
     public int toError() {
@@ -1966,9 +1933,9 @@ public class Variant extends JacobObject {
     /**
      * attempts to return the contents of this variant as a float (after
      * possible conversion)
-     * 
-     * @deprecated should use changeType() and getFloat() instead
+     *
      * @return float
+     * @deprecated should use changeType() and getFloat() instead
      */
     @Deprecated
     public float toFloat() {
@@ -1977,8 +1944,8 @@ public class Variant extends JacobObject {
     }
 
     /**
-     * @deprecated should use changeType() followed by getInt()
      * @return the value of this variant as an int (after possible conversion)
+     * @deprecated should use changeType() followed by getInt()
      */
     @Deprecated
     public int toInt() {
@@ -1994,11 +1961,10 @@ public class Variant extends JacobObject {
      * conversion code
      * <p>
      * This does not convert the data
-     * 
-     * @deprecated callers should use getDate()
+     *
      * @return java.util.Date version of this variant if it is a date, otherwise
-     *         null
-     * 
+     * null
+     * @deprecated callers should use getDate()
      */
     @Deprecated
     public Date toJavaDate() {
@@ -2011,15 +1977,12 @@ public class Variant extends JacobObject {
      * provided in Sourceforge feature request 959381. See
      * JavaVariantConverter..convertVariantTJavaObject(Variant) for more
      * information.
-     * 
+     *
      * @return Corresponding Java object of the type matching the Variant type.
-     * @throws IllegalStateException
-     *             if no underlying windows data structure
-     * @throws NotImplementedException
-     *             if unsupported conversion is requested
-     * @throws JacobException
-     *             if the calculated result was a JacobObject usually as a
-     *             result of error
+     * @throws IllegalStateException   if no underlying windows data structure
+     * @throws NotImplementedException if unsupported conversion is requested
+     * @throws JacobException          if the calculated result was a JacobObject usually as a
+     *                                 result of error
      */
     public Object toJavaObject() throws JacobException {
         return VariantUtilities.variantToObject(this);
@@ -2027,10 +1990,10 @@ public class Variant extends JacobObject {
 
     /**
      * Acts a a cover for toDispatch. This primarily exists to support jacobgen.
-     * 
-     * @deprecated this is a cover for toDispatch();
+     *
      * @return Object returned by toDispatch()
      * @see Variant#toDispatch() instead
+     * @deprecated this is a cover for toDispatch();
      */
     @Deprecated
     public Object toObject() {
@@ -2041,7 +2004,7 @@ public class Variant extends JacobObject {
      * By default toSafeArray makes a deep copy due to the fact that this
      * Variant owns the embedded SafeArray and will destroy it when it gc's
      * calls toSafeArray(true).
-     * 
+     *
      * @return the object converted to a SafeArray
      */
     public SafeArray toSafeArray() {
@@ -2053,7 +2016,7 @@ public class Variant extends JacobObject {
     /**
      * This lets folk turn into a safe array without a deep copy. Should this
      * API be public?
-     * 
+     *
      * @param deepCopy
      * @return SafeArray constructed
      */
@@ -2065,9 +2028,9 @@ public class Variant extends JacobObject {
 
     /**
      * I don't know what this is. Is it some legacy (pre 1.8) thing?
-     * 
-     * @deprecated
+     *
      * @return this object as a dispatch object by calling toDispatch()
+     * @deprecated
      */
     @Deprecated
     public Object toScriptObject() {
@@ -2077,9 +2040,9 @@ public class Variant extends JacobObject {
     /**
      * attempts to return the contents of this Variant as a short (after
      * possible conversion)
-     * 
-     * @deprecated callers should use changeType() followed by getShort()
+     *
      * @return short
+     * @deprecated callers should use changeType() followed by getShort()
      */
     @Deprecated
     public short toShort() {
@@ -2099,10 +2062,9 @@ public class Variant extends JacobObject {
      * conversions where the returned value was 0.
      * <li>the value if we know how to describe one of that type
      * <li>three question marks if can't convert
-     * 
+     *
      * @return String value conversion,
-     * @throws IllegalStateException
-     *             if there is no underlying windows data structure
+     * @throws IllegalStateException if there is no underlying windows data structure
      */
     @Override
     public String toString() {
@@ -2136,9 +2098,9 @@ public class Variant extends JacobObject {
     /**
      * Exists to support jacobgen. This would be deprecated if it weren't for
      * jacobgen
-     * 
-     * @deprecated superseded by "this"
+     *
      * @return this same object
+     * @deprecated superseded by "this"
      */
     @Deprecated
     public Variant toVariant() {
@@ -2146,9 +2108,9 @@ public class Variant extends JacobObject {
     }
 
     /**
-     * @deprecated superseded by SafeArray
      * @return nothing because this method is not implemented
      * @throws com.jacob.com.NotImplementedException
+     * @deprecated superseded by SafeArray
      */
     @Deprecated
     public Variant[] toVariantArray() {
@@ -2157,7 +2119,7 @@ public class Variant extends JacobObject {
 
     /**
      * native method used by toDispatch()
-     * 
+     *
      * @return
      */
     private native Dispatch toVariantDispatch();
@@ -2166,8 +2128,8 @@ public class Variant extends JacobObject {
 
     /*
      * =====================================================================
-     * 
-     * 
+     *
+     *
      * =====================================================================
      */
 

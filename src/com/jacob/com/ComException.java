@@ -47,14 +47,13 @@ public abstract class ComException extends JacobException {
 
     /**
      * constructor
-     * 
      */
     public ComException() {
     }
 
     /**
      * constructor with error code?
-     * 
+     *
      * @param newHr ??
      */
     public ComException(int newHr) {
