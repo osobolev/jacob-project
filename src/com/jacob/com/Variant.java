@@ -249,7 +249,7 @@ public class Variant extends JacobObject {
      */
     public Variant(int in) {
         this(Integer.valueOf(in));
-    };
+    }
 
     /**
      * Constructor that accepts a primitive rather than an object
@@ -1058,7 +1058,7 @@ public class Variant extends JacobObject {
         // verify we aren't released yet
         getvt();
         putVariantByte(in);
-    };
+    }
 
     /**
      * @param in doesn't matter because this method does nothing
