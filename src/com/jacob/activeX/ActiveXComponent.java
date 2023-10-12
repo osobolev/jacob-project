@@ -127,7 +127,7 @@ public class ActiveXComponent extends Dispatch {
      *
      * @param pRequestedProgramId
      * @return Dispatch pointer to a COM object or null if wasn't already
-     *         running
+     * running
      */
     public static ActiveXComponent connectToActiveInstance(String pRequestedProgramId) {
         ActiveXComponent mCreatedDispatch = null;

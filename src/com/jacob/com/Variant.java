@@ -301,7 +301,7 @@ public class Variant extends JacobObject {
      *
      * @param in type to convert this variant too
      * @return Variant returns this same object so folks can change when
-     *         replacing calls toXXX() with changeType().getXXX()
+     * replacing calls toXXX() with changeType().getXXX()
      */
     public Variant changeType(short in) {
         changeVariantType(in);
@@ -400,9 +400,8 @@ public class Variant extends JacobObject {
      * left and 4 to the right of the decimal place.
      *
      * @return returns the currency value as a long, throws exception if not a
-     *         currency type..
-     * @throws IllegalStateException
-     *             if variant is not of the requested type
+     * currency type..
+     * @throws IllegalStateException if variant is not of the requested type
      */
     public Currency getCurrency() {
         if (this.getvt() == VariantCurrency) {
@@ -417,9 +416,8 @@ public class Variant extends JacobObject {
      * left and 4 to the right of the decimal place.
      *
      * @return returns the currency value as a long, throws exception if not a
-     *         currency type
-     * @throws IllegalStateException
-     *             if variant is not of the requested type
+     * currency type
+     * @throws IllegalStateException if variant is not of the requested type
      */
     public Currency getCurrencyRef() {
         if ((this.getvt() & VariantTypeMask) == VariantCurrency
@@ -432,9 +430,8 @@ public class Variant extends JacobObject {
 
     /**
      * @return double return the date (as a double) value held in this variant
-     *         (fails on other types?)
-     * @throws IllegalStateException
-     *             if variant is not of the requested type
+     * (fails on other types?)
+     * @throws IllegalStateException if variant is not of the requested type
      */
     public double getDate() {
         if (this.getvt() == VariantDate) {
@@ -445,11 +442,9 @@ public class Variant extends JacobObject {
     }
 
     /**
-     * 
      * @return returns the date value as a double, throws exception if not a
-     *         date type
-     * @throws IllegalStateException
-     *             if variant is not of the requested type
+     * date type
+     * @throws IllegalStateException if variant is not of the requested type
      */
     public double getDateRef() {
         if ((this.getvt() & VariantTypeMask) == VariantDate
@@ -523,9 +518,8 @@ public class Variant extends JacobObject {
 
     /**
      * @return double return the double value held in this variant (fails on
-     *         other types?)
-     * @throws IllegalStateException
-     *             if variant is not of the requested type
+     * other types?)
+     * @throws IllegalStateException if variant is not of the requested type
      */
     public double getDouble() {
         if (this.getvt() == VariantDouble) {
@@ -561,9 +555,8 @@ public class Variant extends JacobObject {
 
     /**
      * @return double return the error value held in this variant (fails on
-     *         other types?)
-     * @throws IllegalStateException
-     *             if variant is not of the requested type
+     * other types?)
+     * @throws IllegalStateException if variant is not of the requested type
      */
     public int getError() {
         if (this.getvt() == VariantError) {
@@ -574,11 +567,9 @@ public class Variant extends JacobObject {
     }
 
     /**
-     * 
      * @return returns the error value as an int, throws exception if not a
-     *         Error type
-     * @throws IllegalStateException
-     *             if variant is not of the requested type
+     * Error type
+     * @throws IllegalStateException if variant is not of the requested type
      */
     public int getErrorRef() {
         if ((this.getvt() & VariantTypeMask) == VariantError
@@ -651,10 +642,9 @@ public class Variant extends JacobObject {
      * return null if this is not a date Variant SF 959382
      *
      * @return java.util.Date returns the date if this is a VariantDate != 0,
-     *         null if it is a VariantDate == 0 and throws an
-     *         IllegalStateException if this isn't a date.
-     * @throws IllegalStateException
-     *             if variant is not of the requested type
+     * null if it is a VariantDate == 0 and throws an
+     * IllegalStateException if this isn't a date.
+     * @throws IllegalStateException if variant is not of the requested type
      */
     public Date getJavaDate() {
         Date returnDate = null;
@@ -688,9 +678,8 @@ public class Variant extends JacobObject {
      * 64 bit Longs only available on x64. 64 bit long support added 1.14
      *
      * @return returns the value as a long, throws exception if not a Long
-     *         type..
-     * @throws IllegalStateException
-     *             if variant is not of the requested type
+     * type..
+     * @throws IllegalStateException if variant is not of the requested type
      */
     public long getLong() {
         if (this.getvt() == VariantLongInt) {
@@ -792,7 +781,7 @@ public class Variant extends JacobObject {
      * at an alpha level
      *
      * @return Object a java Object that represents the content of the enclosed
-     *         Variant
+     * Variant
      */
     public Object getVariant() {
         if ((this.getvt() & VariantTypeMask) == VariantVariant
@@ -868,7 +857,7 @@ public class Variant extends JacobObject {
 
     /**
      * @return double return the date (as a double) value held in this variant
-     *         (fails on other types?)
+     * (fails on other types?)
      */
     private native double getVariantDate();
 
@@ -886,7 +875,7 @@ public class Variant extends JacobObject {
 
     /**
      * @return the value in this Variant (byref) as a decimal, null if not a
-     *         decimal
+     * decimal
      */
     private native Object getVariantDecRef();
 
@@ -975,12 +964,11 @@ public class Variant extends JacobObject {
 
     /**
      * Reports the type of the underlying Variant object
-     * 
+     *
      * @return returns the variant type as a short, one of the Variantxxx values
-     *         defined as statics in this class. returns VariantNull if not
-     *         initialized
-     * @throws IllegalStateException
-     *             if there is no underlying windows data structure
+     * defined as statics in this class. returns VariantNull if not
+     * initialized
+     * @throws IllegalStateException if there is no underlying windows data structure
      */
     public short getvt() {
         if (m_pVariant != 0) {
@@ -1027,7 +1015,7 @@ public class Variant extends JacobObject {
      *
      * @param pVariant
      * @return boolean that is true if Variant is a type of constant, VT_FALSE,
-     *         VT_TRUE, VT_MISSING, DEFAULT
+     * VT_TRUE, VT_MISSING, DEFAULT
      */
     protected boolean objectIsAConstant(Variant pVariant) {
         if (pVariant == VT_FALSE || pVariant == VT_TRUE
@@ -1895,7 +1883,7 @@ public class Variant extends JacobObject {
 
     /**
      * @return the content of this variant as a Dispatch object (after possible
-     *         conversion)
+     * conversion)
      */
     public Dispatch toDispatch() {
         // now make the native call
@@ -1903,9 +1891,9 @@ public class Variant extends JacobObject {
     }
 
     /**
-     * @deprecated should call changeType() then getDouble()
      * @return the content of this variant as a double (after possible
-     *         conversion)
+     * conversion)
+     * @deprecated should call changeType() then getDouble()
      */
     @Deprecated
     public double toDouble() {

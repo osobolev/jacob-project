@@ -140,7 +140,7 @@ public class DispatchEvents extends JacobObject {
      *
      * @param pTargetObject
      * @return InvocationProxy an instance of the proxy this DispatchEvents will
-     *         send to the COM layer
+     * send to the COM layer
      */
     protected InvocationProxy getInvocationProxy(Object pTargetObject) {
         InvocationProxy newProxy = new InvocationProxyAllVariants();

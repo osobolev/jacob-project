@@ -107,7 +107,7 @@ public abstract class ROT {
      *
      * @param createIfDoesNotExist
      * @return Map the collection that holds the objects created in the current
-     *         thread
+     * thread
      */
     protected synchronized static Map<JacobObject, String> getThreadObjects(boolean createIfDoesNotExist) {
         Map<JacobObject, String> tab = rot.get();
@@ -178,15 +178,15 @@ public abstract class ROT {
     }
 
     /**
-     * @deprecated the java model leave the responsibility of clearing up
-     *             objects to the Garbage Collector. Our programming model
-     *             should not require that the user specifically remove object
-     *             from the thread. <br>
-     *             This will remove an object from the ROT <br>
-     *             This does not need to be synchronized because only the rot
-     *             modification related methods need to synchronized. Each
-     *             individual map is only modified in a single thread.
      * @param o
+     * @deprecated the java model leave the responsibility of clearing up
+     * objects to the Garbage Collector. Our programming model
+     * should not require that the user specifically remove object
+     * from the thread. <br>
+     * This will remove an object from the ROT <br>
+     * This does not need to be synchronized because only the rot
+     * modification related methods need to synchronized. Each
+     * individual map is only modified in a single thread.
      */
     @Deprecated
     protected static void removeObject(JacobObject o) {

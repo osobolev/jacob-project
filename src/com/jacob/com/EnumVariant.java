@@ -109,7 +109,7 @@ public class EnumVariant extends JacobObject implements
      *
      * @param receiverArray
      * @return Returns the next variant object pointer as an int from windows
-     *         layer
+     * layer
      */
     public native int Next(Variant[] receiverArray);
 

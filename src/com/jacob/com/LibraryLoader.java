@@ -38,13 +38,13 @@ import java.util.Set;
  * <ol>
  * <li> If system property {@link #JACOB_DLL_PATH} is defined, the file located
  * there will be loaded as the jacob dll using System.load(). </li>
- * 
+ *
  * <li> If system property {@link #JACOB_DLL_NAME} is defined, the file located
  * there will be loaded as the jacob dll. </li>
  * <li> If system property {@link #JACOB_DLL_NAME_X86} and
  * {@link #JACOB_DLL_NAME_X64} are defined, the file located there will be
  * loaded as the jacob dll, depending on the version of Windows. </li>
- * 
+ *
  * <li> If {@link #JACOB_DLL_NAME} is defined in the
  * {@code com.jacob.com.JacobLibraryLoader} resource file, the specified dll
  * will be loaded from the {@code java.library.path}. </li>
@@ -52,7 +52,7 @@ import java.util.Set;
  * defined in the {@code com.jacob.com.JacobLibraryLoader} resource file, the
  * specified dll will be loaded from the {@code java.library.path}, depending
  * on the version of Windows. </li>
- * 
+ *
  * <li> If none of the above are true, the default is to load the library named
  * "jacob-&lt;version&gt;-&lt;arch&gt;" (or
  * "jacob-&lt;version&gt;-&lt;arch&gt;.dll") from the {@code java.library.path}.
@@ -192,7 +192,7 @@ public final class LibraryLoader {
      * The DLL name is "jacob&lt;PLATFORM&gt;.release"
      *
      * @return the preferred name of the DLL adjusted for this platform and
-     *         version without the ".dll" extension
+     * version without the ".dll" extension
      */
     public static String getPreferredDLLName() {
         if (shouldLoad32Bit()) {

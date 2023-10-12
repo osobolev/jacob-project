@@ -234,13 +234,10 @@ public final class VariantUtilities {
      * Converts Variant.VariantArray types to SafeArrays
      *
      * @return Corresponding Java object of the type matching the Variant type.
-     * @throws IllegalStateException
-     *             if no underlying windows data structure
-     * @throws NotImplementedException
-     *             if unsupported conversion is requested
-     * @throws JacobException
-     *             if the calculated result was a JacobObject usually as a
-     *             result of error
+     * @throws IllegalStateException   if no underlying windows data structure
+     * @throws NotImplementedException if unsupported conversion is requested
+     * @throws JacobException          if the calculated result was a JacobObject usually as a
+     *                                 result of error
      */
     protected static Object variantToObject(Variant sourceData) {
         Object result = null;
@@ -379,8 +376,7 @@ public final class VariantUtilities {
      * pass this set of tests
      *
      * @param in
-     * @throws IllegalArgumentException
-     *             if out of bounds
+     * @throws IllegalArgumentException if out of bounds
      */
     protected static void validateDecimalScaleAndBits(BigDecimal in) {
         BigInteger allWordBigInt = in.unscaledValue();
@@ -413,10 +409,8 @@ public final class VariantUtilities {
      * Does any validation that couldn't have been fixed by rounding or scale
      * modification.
      *
-     * @param in
-     *            The BigDecimal to be validated
-     * @throws IllegalArgumentException
-     *             if the number is too large or too small or null
+     * @param in The BigDecimal to be validated
+     * @throws IllegalArgumentException if the number is too large or too small or null
      */
     protected static void validateDecimalMinMax(BigDecimal in) {
         if (in == null) {
@@ -444,7 +438,7 @@ public final class VariantUtilities {
      *
      * @param sourceDecimal
      * @return BigDecimal a new big decimal that was rounded to fit in an MS
-     *         VT_DECIMAL
+     * VT_DECIMAL
      */
     public static BigDecimal roundToMSDecimal(BigDecimal sourceDecimal) {
         BigInteger sourceDecimalIntComponent = sourceDecimal.unscaledValue();
