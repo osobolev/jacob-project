@@ -77,25 +77,24 @@ public class ActiveXInvocationProxy extends InvocationProxy {
      * creates a method signature compatible array of classes from an array of
      * parameters
      *
-     * @param parametersAsJavaObjects
+     * @param args
      * @return
      */
-    private Class<?>[] getParametersAsJavaClasses(Object[] parametersAsJavaObjects) {
-        if (parametersAsJavaObjects == null) {
+    private Class<?>[] getParametersAsJavaClasses(Object[] args) {
+        if (args == null) {
             throw new IllegalArgumentException("This only works with an array of parameters");
         }
-        int numParameters = parametersAsJavaObjects.length;
-        Class<?>[] parametersAsJavaClasses = new Class[numParameters];
-        for (int parameterIndex = 0; parameterIndex < numParameters; parameterIndex++) {
-            Object oneParameterObject = parametersAsJavaObjects[parameterIndex];
-            if (oneParameterObject == null) {
-                parametersAsJavaClasses[parameterIndex] = null;
+        int numParameters = args.length;
+        Class<?>[] types = new Class[numParameters];
+        for (int i = 0; i < numParameters; i++) {
+            Object arg = args[i];
+            if (arg == null) {
+                types[i] = null;
             } else {
-                Class<?> oneParameterClass = oneParameterObject.getClass();
-                parametersAsJavaClasses[parameterIndex] = oneParameterClass;
+                types[i] = arg.getClass();
             }
         }
-        return parametersAsJavaClasses;
+        return types;
     }
 
     /**
@@ -109,21 +108,21 @@ public class ActiveXInvocationProxy extends InvocationProxy {
             throw new IllegalArgumentException("This only works with an array of parameters");
         }
         int numParameters = targetParameters.length;
-        Object[] parametersAsJavaObjects = new Object[numParameters];
-        for (int parameterIndex = 0; parameterIndex < numParameters; parameterIndex++) {
-            Variant oneParameterObject = targetParameters[parameterIndex];
-            if (oneParameterObject == null) {
-                parametersAsJavaObjects[parameterIndex] = null;
+        Object[] args = new Object[numParameters];
+        for (int i = 0; i < numParameters; i++) {
+            Variant param = targetParameters[i];
+            if (param == null) {
+                args[i] = null;
             } else {
                 try {
-                    parametersAsJavaObjects[parameterIndex] = oneParameterObject.toJavaObject();
+                    args[i] = param.toJavaObject();
                 } catch (NotImplementedException nie) {
                     throw new IllegalArgumentException(
-                        "Can't convert parameter " + parameterIndex + " type " + oneParameterObject.getvt() + " to java object: " + nie.getMessage()
+                        "Can't convert parameter " + i + " type " + param.getvt() + " to java object: " + nie.getMessage()
                     );
                 }
             }
         }
-        return parametersAsJavaObjects;
+        return args;
     }
 }
