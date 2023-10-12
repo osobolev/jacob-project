@@ -222,7 +222,7 @@ public final class LibraryLoader {
 
 		// this works for jRocket
 		String arch = System.getProperty("java.vm.name", "?");
-		if (arch.toLowerCase().indexOf("64-bit") >= 0)
+		if (arch.toLowerCase().contains("64-bit"))
 			return false;
 
 		return true;
