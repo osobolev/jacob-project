@@ -42,7 +42,6 @@ public class InvocationProxyAllVariants extends InvocationProxy {
      * @see com.jacob.com.InvocationProxy#invoke(java.lang.String,
      *      com.jacob.com.Variant[])
      */
-    @SuppressWarnings("unchecked")
     public Variant invoke(String methodName, Variant[] targetParameters) {
         Variant mVariantToBeReturned = null;
         if (mTargetObject == null) {

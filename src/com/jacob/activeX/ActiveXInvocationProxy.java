@@ -59,7 +59,6 @@ public class ActiveXInvocationProxy extends InvocationProxy {
      * @see com.jacob.com.InvocationProxy#invoke(java.lang.String,
      *      com.jacob.com.Variant[])
      */
-    @SuppressWarnings("unchecked")
     public Variant invoke(String methodName, Variant[] targetParameters) {
         Variant mVariantToBeReturned = null;
         if (mTargetObject == null) {
@@ -125,7 +124,6 @@ public class ActiveXInvocationProxy extends InvocationProxy {
      * @param parametersAsJavaObjects
      * @return
      */
-    @SuppressWarnings("unchecked")
     private Class<?>[] getParametersAsJavaClasses(Object[] parametersAsJavaObjects) {
         if (parametersAsJavaObjects == null) {
             throw new IllegalArgumentException("This only works with an array of parameters");
