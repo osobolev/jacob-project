@@ -86,4 +86,11 @@ public class Currency {
             return false;
         }
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    public int hashCode() {
+        return embeddedValue.intValue();
+    }
 }
