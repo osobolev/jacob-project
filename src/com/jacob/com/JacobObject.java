@@ -98,8 +98,12 @@ public class JacobObject {
      */
     protected static void debug(String istrMessage) {
         if (isDebugEnabled()) {
-            System.out.println(Thread.currentThread().getName() + ": " + istrMessage);
+            out(Thread.currentThread().getName() + ": " + istrMessage);
         }
+    }
+
+    protected static void out(String message) {
+        System.out.println(message);
     }
 
     /**

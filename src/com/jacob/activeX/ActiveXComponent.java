@@ -336,7 +336,7 @@ public class ActiveXComponent extends Dispatch {
                     buf.append(args[i].toString());
                 }
             }
-            System.out.println(description + buf);
+            JacobObject.out(description + buf);
         }
     }
 
