@@ -103,7 +103,7 @@ public class Dispatch extends JacobObject {
      */
     public Dispatch(String requestedProgramId) {
         programId = requestedProgramId;
-        if (programId != null && !"".equals(programId)) {
+        if (programId != null && !programId.isEmpty()) {
             createInstanceNative(requestedProgramId);
         } else {
             throw new IllegalArgumentException("Dispatch(String) does not accept null or an empty string as a parameter");
@@ -145,7 +145,7 @@ public class Dispatch extends JacobObject {
      * @param pProgramIdentifier name of the program you wish to connect to
      */
     protected void getActiveInstance(String pProgramIdentifier) {
-        if (pProgramIdentifier == null || "".equals(pProgramIdentifier)) {
+        if (pProgramIdentifier == null || pProgramIdentifier.isEmpty()) {
             throw new IllegalArgumentException("program id is required");
         }
         this.programId = pProgramIdentifier;
@@ -172,7 +172,7 @@ public class Dispatch extends JacobObject {
      * @param pProgramIdentifier
      */
     protected void coCreateInstance(String pProgramIdentifier) {
-        if (pProgramIdentifier == null || "".equals(pProgramIdentifier)) {
+        if (pProgramIdentifier == null || pProgramIdentifier.isEmpty()) {
             throw new IllegalArgumentException("program id is required");
         }
         this.programId = pProgramIdentifier;

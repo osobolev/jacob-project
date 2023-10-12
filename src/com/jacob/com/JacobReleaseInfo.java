@@ -70,7 +70,7 @@ public class JacobReleaseInfo {
      * @return String value of version in PROPERT_FILE_NAME or "" if none
      */
     public static String getBuildDate() {
-        if (buildDate.equals("")) {
+        if (buildDate.isEmpty()) {
             loadVersionProperties();
         }
         return buildDate;
@@ -82,7 +82,7 @@ public class JacobReleaseInfo {
      * @return String value of version in PROPERT_FILE_NAME or "" if none
      */
     public static String getBuildVersion() {
-        if (buildVersion.equals("")) {
+        if (buildVersion.isEmpty()) {
             loadVersionProperties();
         }
         return buildVersion;
