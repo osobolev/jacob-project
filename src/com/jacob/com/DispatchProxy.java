@@ -68,7 +68,7 @@ public class DispatchProxy extends JacobObject {
 	 * @see java.lang.Object#finalize()
 	 */
 	@Override
-	public void finalize() {
+    protected void finalize() {
 		safeRelease();
 	}
 
