@@ -214,7 +214,7 @@ public abstract class ROT {
         // the ROT. This lets us run with standard Jacob behavior in Applets
         // without the security exception raised by System.getProperty in the
         // flow
-        if (!INCLUDE_ALL_CLASSES_IN_ROT) {
+        if (!INCLUDE_ALL_CLASSES_IN_ROT.booleanValue()) {
             shouldIncludeClassInROT = System.getProperty(o.getClass().getName() + PUT_IN_ROT_SUFFIX, "true");
         }
         if ("false".equalsIgnoreCase(shouldIncludeClassInROT)) {
