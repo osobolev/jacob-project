@@ -53,18 +53,14 @@ public class DateUtilities {
      * @return Java time.
      */
     static public long convertWindowsTimeToMilliseconds(double comTime) {
-        long result = 0;
-
         // code from jacobgen:
-        comTime = comTime - 25569D;
+        comTime -= 25569D;
         Calendar cal = Calendar.getInstance();
-        result = Math.round(86400000L * comTime)
-                - cal.get(Calendar.ZONE_OFFSET);
+        long result = Math.round(86400000L * comTime) - cal.get(Calendar.ZONE_OFFSET);
         cal.setTime(new Date(result));
         result -= cal.get(Calendar.DST_OFFSET);
-
         return result;
-    }// convertWindowsTimeToMilliseconds()
+    }
 
     /**
      * converts a java date to a windows time object (is this timezone safe?)
@@ -86,15 +82,10 @@ public class DateUtilities {
      * @return COM time.
      */
     static public double convertMillisecondsToWindowsTime(long milliseconds) {
-        double result = 0.0;
-
         // code from jacobgen:
         Calendar cal = Calendar.getInstance();
         cal.setTimeInMillis(milliseconds);
-        milliseconds += (cal.get(Calendar.ZONE_OFFSET) + cal
-                .get(Calendar.DST_OFFSET)); // add GMT offset
-        result = (milliseconds / 86400000D) + 25569D;
-
-        return result;
-    }// convertMillisecondsToWindowsTime()
+        milliseconds += cal.get(Calendar.ZONE_OFFSET) + cal.get(Calendar.DST_OFFSET); // add GMT offset
+        return (milliseconds / 86400000D) + 25569D;
+    }
 }
