@@ -278,9 +278,7 @@ public class Dispatch extends JacobObject {
     private static void throwIfUnattachedDispatch(Dispatch theOneInQuestion) {
         if (theOneInQuestion == null) {
             throw new IllegalArgumentException("Can't pass in null Dispatch object");
-        } else if (theOneInQuestion.isAttached()) {
-            return;
-        } else {
+        } else if (!theOneInQuestion.isAttached()) {
             throw new IllegalStateException("Dispatch not hooked to windows memory");
         }
     }
