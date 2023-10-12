@@ -75,8 +75,7 @@ public abstract class ComException extends JacobException {
      * @param helpFile
      * @param helpContext
      */
-    public ComException(int newHr, String source, String helpFile,
-                        int helpContext) {
+    public ComException(int newHr, String source, String helpFile, int helpContext) {
         this.hr = newHr;
         m_source = source;
         m_helpFile = helpFile;
@@ -90,8 +89,7 @@ public abstract class ComException extends JacobException {
      * @param helpFile
      * @param helpContext
      */
-    public ComException(int newHr, String description, String source,
-                        String helpFile, int helpContext) {
+    public ComException(int newHr, String description, String source, String helpFile, int helpContext) {
         super(description);
         this.hr = newHr;
         m_source = source;
