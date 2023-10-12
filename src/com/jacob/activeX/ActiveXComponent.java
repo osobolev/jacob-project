@@ -174,9 +174,7 @@ public class ActiveXComponent extends Dispatch {
      * @return Dispatch representing the object under the property name
      */
     public ActiveXComponent getPropertyAsComponent(String propertyName) {
-        return new ActiveXComponent(Dispatch.get(this, propertyName)
-                .toDispatch());
-
+        return new ActiveXComponent(Dispatch.get(this, propertyName).toDispatch());
     }
 
     /**
@@ -431,8 +429,7 @@ public class ActiveXComponent extends Dispatch {
      * @return a Variant but that may be null for some calls
      */
     public Variant invoke(String actionCommand, int parameter1, int parameter2) {
-        return Dispatch.call(this, actionCommand, new Variant(parameter1),
-                new Variant(parameter2));
+        return Dispatch.call(this, actionCommand, new Variant(parameter1), new Variant(parameter2));
     }
 
     /**

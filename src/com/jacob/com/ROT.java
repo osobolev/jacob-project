@@ -216,8 +216,7 @@ public abstract class ROT {
         // without the security exception raised by System.getProperty in the
         // flow
         if (!ROT.INCLUDE_ALL_CLASSES_IN_ROT) {
-            shouldIncludeClassInROT = System.getProperty(o.getClass().getName()
-                    + PUT_IN_ROT_SUFFIX, "true");
+            shouldIncludeClassInROT = System.getProperty(o.getClass().getName() + PUT_IN_ROT_SUFFIX, "true");
         }
         if (shouldIncludeClassInROT.equalsIgnoreCase("false")) {
             if (JacobObject.isDebugEnabled()) {

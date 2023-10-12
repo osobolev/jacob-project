@@ -162,8 +162,7 @@ public class ActiveXInvocationProxy extends InvocationProxy {
                 parametersAsJavaObjects[parameterIndex] = null;
             } else {
                 try {
-                    parametersAsJavaObjects[parameterIndex] = oneParameterObject
-                            .toJavaObject();
+                    parametersAsJavaObjects[parameterIndex] = oneParameterObject.toJavaObject();
                 } catch (NotImplementedException nie) {
                     throw new IllegalArgumentException(
                         "Can't convert parameter " + parameterIndex + " type " + oneParameterObject.getvt() + " to java object: " + nie.getMessage()

@@ -91,8 +91,7 @@ public abstract class InvocationProxy {
             // JNI code apparently bypasses this check and could operate against
             // protected classes. This seems like a security issue...
             // maybe it was because JNI code isn't in a package?
-            if (!java.lang.reflect.Modifier.isPublic(pTargetObject.getClass()
-                    .getModifiers())) {
+            if (!java.lang.reflect.Modifier.isPublic(pTargetObject.getClass().getModifiers())) {
                 throw new IllegalArgumentException("InvocationProxy only public classes can receive event notifications");
             }
         }

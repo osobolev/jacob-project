@@ -1110,8 +1110,7 @@ public class SafeArray extends JacobObject {
             for (int i = ldim; i <= udim; i++) {
                 Variant v = getVariant(i);
 
-                if (((v.getvt() & Variant.VariantTypeMask) | Variant.VariantArray) == v
-                        .getvt()) {
+                if (((v.getvt() & Variant.VariantTypeMask) | Variant.VariantArray) == v.getvt()) {
                     return s + "[" + v.toSafeArray().toString() + "]";
                 } else {
                     s += " " + v.toString();
