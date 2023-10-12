@@ -86,7 +86,14 @@ public class InvocationProxyAllVariants extends InvocationProxy {
             throw new JacobException(e);
         } catch (InvocationTargetException e) {
             // invocation of target method failed
-            e.printStackTrace();
+            Throwable target = e.getTargetException();
+            if (target instanceof RuntimeException) {
+                throw (RuntimeException) target;
+            } else if (target instanceof Error) {
+                throw (Error) target;
+            } else {
+                throw new JacobException(target);
+            }
         }
         return null;
     }
