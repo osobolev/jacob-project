@@ -83,6 +83,7 @@ public class InvocationProxyAllVariants extends InvocationProxy {
             if (JacobObject.isDebugEnabled()) {
                 JacobObject.debug("InvocationProxy: listener (" + mTargetObject + ") doesn't implement " + methodName);
             }
+            return null;
         } catch (IllegalAccessException e) {
             // can't access the method on the target instance for some reason
             throw new JacobException(e);
@@ -97,6 +98,5 @@ public class InvocationProxyAllVariants extends InvocationProxy {
                 throw new JacobException(target);
             }
         }
-        return null;
     }
 }

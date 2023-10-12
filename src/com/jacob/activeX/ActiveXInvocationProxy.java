@@ -92,6 +92,7 @@ public class ActiveXInvocationProxy extends InvocationProxy {
         } catch (NoSuchMethodException e) {
             // this happens whenever the listener doesn't implement all the
             // methods
+            return null;
         } catch (IllegalAccessException e) {
             // can't access the method on the target instance for some reason
             throw new JacobException(e);
@@ -106,7 +107,6 @@ public class ActiveXInvocationProxy extends InvocationProxy {
                 throw new JacobException(target);
             }
         }
-        return null;
     }
 
     /**
