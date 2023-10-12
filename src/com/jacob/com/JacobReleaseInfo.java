@@ -55,8 +55,8 @@ public class JacobReleaseInfo {
                 Properties versionProps = new Properties();
                 versionProps.load(stream);
                 stream.close();
-                buildVersion = (String) versionProps.get("version");
-                buildDate = (String) versionProps.get("build.date");
+                buildVersion = versionProps.getProperty("version");
+                buildDate = versionProps.getProperty("build.date");
             } catch (IOException ioe) {
                 ioe.printStackTrace();
                 System.err.println("Warning! Couldn't load props " + ioe);
