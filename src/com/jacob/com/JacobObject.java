@@ -62,7 +62,6 @@ public class JacobObject {
      * https://sourceforge.net/p/jacob-project/bugs/116/
      */
     private static final boolean DEBUG =
-        // true;
         "true".equalsIgnoreCase(System.getProperty("com.jacob.debug"));
 
     protected static boolean isDebugEnabled() {
