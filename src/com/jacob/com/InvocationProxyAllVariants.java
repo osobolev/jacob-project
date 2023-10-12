@@ -110,6 +110,5 @@ public class InvocationProxyAllVariants extends InvocationProxy {
             e.printStackTrace();
         }
         return mVariantToBeReturned;
-
     }
 }

@@ -116,7 +116,6 @@ public class ActiveXInvocationProxy extends InvocationProxy {
             e.printStackTrace();
         }
         return mVariantToBeReturned;
-
     }
 
     /**

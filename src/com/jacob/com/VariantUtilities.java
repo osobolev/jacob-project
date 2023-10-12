@@ -388,11 +388,9 @@ public final class VariantUtilities {
             throw new IllegalArgumentException("VT_DECIMAL only supports a minimum scale of 0 and the passed in value has a scale of " + in.scale());
         } else if (allWordBigInt.bitLength() > 12 * 8) {
             throw new IllegalArgumentException("VT_DECIMAL supports a maximum of " + (12 * 8) + " bits not counting scale and the number passed in has " + allWordBigInt.bitLength());
-
         } else {
             // no bounds problem to be handled
         }
-
     }
 
     /**
@@ -424,7 +422,6 @@ public final class VariantUtilities {
                 "Value too small for VT_DECIMAL data type:" + in.toString() + " integer: " + in.toBigInteger().toString(16) + " scale: " + in.scale()
             );
         }
-
     }
 
     /**

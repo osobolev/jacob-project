@@ -101,7 +101,6 @@ public class SafeArray extends JacobObject {
         byte[] ba = s.getBytes();
         init(Variant.VariantByte, new int[] { 0 }, new int[] { ba.length });
         fromByteArray(ba);
-
     }
 
     /**

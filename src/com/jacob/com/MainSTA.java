@@ -26,4 +26,5 @@ package com.jacob.com;
  * side of the app.
  */
 public class MainSTA extends STA {
+
 }

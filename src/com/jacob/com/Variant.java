@@ -1024,7 +1024,6 @@ public class Variant extends JacobObject {
         } else {
             return false;
         }
-
     }
 
     /**
