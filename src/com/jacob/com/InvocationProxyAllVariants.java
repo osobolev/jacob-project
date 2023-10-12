@@ -51,7 +51,6 @@ public class InvocationProxyAllVariants extends InvocationProxy {
             // here
             return null;
         }
-        Class<?> targetClass = mTargetObject.getClass();
         if (methodName == null) {
             throw new IllegalArgumentException("InvocationProxy: missing method name");
         }
@@ -64,6 +63,7 @@ public class InvocationProxyAllVariants extends InvocationProxy {
         Class<?>[] types = {Variant[].class};
         Object[] args = {targetParameters};
         try {
+            Class<?> targetClass = mTargetObject.getClass();
             Method targetMethod = targetClass.getMethod(methodName, types);
             // protected classes can't be invoked against even if they
             // let you grab the method. you could do
