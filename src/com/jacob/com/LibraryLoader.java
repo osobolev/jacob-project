@@ -154,19 +154,15 @@ public final class LibraryLoader {
 
             if (System.getProperty(JACOB_DLL_NAME) != null) {
                 name = System.getProperty(JACOB_DLL_NAME);
-            } else if (System.getProperty(JACOB_DLL_NAME_X86) != null
-                    && shouldLoad32Bit()) {
+            } else if (System.getProperty(JACOB_DLL_NAME_X86) != null && shouldLoad32Bit()) {
                 name = System.getProperty(JACOB_DLL_NAME_X86);
-            } else if (System.getProperty(JACOB_DLL_NAME_X64) != null
-                    && !shouldLoad32Bit()) {
+            } else if (System.getProperty(JACOB_DLL_NAME_X64) != null && !shouldLoad32Bit()) {
                 name = System.getProperty(JACOB_DLL_NAME_X64);
             } else if (resources != null && keys.contains(JACOB_DLL_NAME)) {
                 name = resources.getString(JACOB_DLL_NAME);
-            } else if (resources != null && keys.contains(JACOB_DLL_NAME_X86)
-                    && shouldLoad32Bit()) {
+            } else if (resources != null && keys.contains(JACOB_DLL_NAME_X86) && shouldLoad32Bit()) {
                 name = resources.getString(JACOB_DLL_NAME_X86);
-            } else if (resources != null && keys.contains(JACOB_DLL_NAME_X64)
-                    && !shouldLoad32Bit()) {
+            } else if (resources != null && keys.contains(JACOB_DLL_NAME_X64) && !shouldLoad32Bit()) {
                 name = resources.getString(JACOB_DLL_NAME_X64);
             } else {
                 // No alternate NAME or PATH was defined, so use the default.

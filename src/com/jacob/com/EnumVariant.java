@@ -19,12 +19,13 @@
  */
 package com.jacob.com;
 
+import java.util.Enumeration;
+
 /**
  * An implementation of IEnumVariant based on code submitted by Thomas Hallgren
  * (mailto:Thomas.Hallgren@eoncompany.com)
  */
-public class EnumVariant extends JacobObject implements
-        java.util.Enumeration<Variant> {
+public class EnumVariant extends JacobObject implements Enumeration<Variant> {
 
     /**
      * pointer to windows memory
