@@ -43,22 +43,22 @@ public class Variant extends JacobObject {
     /**
      * Use this constant for optional parameters
      */
-    public static final com.jacob.com.Variant DEFAULT;
+    public static final Variant DEFAULT;
 
     /**
      * Same than {@link #DEFAULT}
      */
-    public static final com.jacob.com.Variant VT_MISSING;
+    public static final Variant VT_MISSING;
 
     /**
      * Use for true/false variant parameters
      */
-    public static final com.jacob.com.Variant VT_TRUE = new com.jacob.com.Variant(true);
+    public static final Variant VT_TRUE = new Variant(true);
 
     /**
      * Use for true/false variant parameters
      */
-    public static final com.jacob.com.Variant VT_FALSE = new com.jacob.com.Variant(false);
+    public static final Variant VT_FALSE = new Variant(false);
 
     /**
      * variant's type is empty : equivalent to VB Nothing and VT_EMPTY
@@ -188,7 +188,7 @@ public class Variant extends JacobObject {
      * of just a constructor for this type.
      */
     static {
-        com.jacob.com.Variant vtMissing = new com.jacob.com.Variant();
+        Variant vtMissing = new Variant();
         vtMissing.putVariantNoParam();
         DEFAULT = vtMissing;
         VT_MISSING = vtMissing;
@@ -810,7 +810,7 @@ public class Variant extends JacobObject {
 
     /**
      * @return never returns anything
-     * @throws com.jacob.com.NotImplementedException
+     * @throws NotImplementedException
      * @deprecated superseded by SafeArray
      */
     @Deprecated
@@ -820,7 +820,7 @@ public class Variant extends JacobObject {
 
     /**
      * @return the Variant Array that represents the data in the Variant
-     * @throws com.jacob.com.NotImplementedException
+     * @throws NotImplementedException
      * @deprecated superseded by SafeArray
      */
     @Deprecated
@@ -1062,7 +1062,7 @@ public class Variant extends JacobObject {
 
     /**
      * @param in doesn't matter because this method does nothing
-     * @throws com.jacob.com.NotImplementedException
+     * @throws NotImplementedException
      * @deprecated superseded by SafeArray
      */
     @Deprecated
@@ -1084,7 +1084,7 @@ public class Variant extends JacobObject {
     /**
      * @param in the object that would be wrapped by the Variant if this method
      *           was implemented
-     * @throws com.jacob.com.NotImplementedException
+     * @throws NotImplementedException
      * @deprecated superseded by SafeArray
      */
     @Deprecated
@@ -1542,7 +1542,7 @@ public class Variant extends JacobObject {
 
     /**
      * @param in doesn't matter because this method does nothing
-     * @throws com.jacob.com.NotImplementedException
+     * @throws NotImplementedException
      * @deprecated superseded by SafeArray
      */
     @Deprecated
@@ -1553,7 +1553,7 @@ public class Variant extends JacobObject {
     /**
      * @param in the thing that would be come an array if this method was
      *           implemented
-     * @throws com.jacob.com.NotImplementedException
+     * @throws NotImplementedException
      * @deprecated superseded by SafeArray
      */
     @Deprecated
@@ -1757,7 +1757,7 @@ public class Variant extends JacobObject {
      * one of the constants in which case we don't want to release the memory.
      * <p>
      *
-     * @see com.jacob.com.JacobObject#safeRelease()
+     * @see JacobObject#safeRelease()
      */
     @Override
     public void safeRelease() {
@@ -1833,7 +1833,7 @@ public class Variant extends JacobObject {
 
     /**
      * @return nothing because this method is not implemented
-     * @throws com.jacob.com.NotImplementedException
+     * @throws NotImplementedException
      * @deprecated superseded by SafeArray
      */
     @Deprecated
@@ -1843,7 +1843,7 @@ public class Variant extends JacobObject {
 
     /**
      * @return never returns anything
-     * @throws com.jacob.com.NotImplementedException
+     * @throws NotImplementedException
      * @deprecated superseded by SafeArray
      */
     @Deprecated
@@ -2087,7 +2087,7 @@ public class Variant extends JacobObject {
 
     /**
      * @return nothing because this method is not implemented
-     * @throws com.jacob.com.NotImplementedException
+     * @throws NotImplementedException
      * @deprecated superseded by SafeArray
      */
     @Deprecated

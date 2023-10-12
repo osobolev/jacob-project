@@ -143,7 +143,7 @@ public class ActiveXComponent extends Dispatch {
     }
 
     /**
-     * @see com.jacob.com.Dispatch#finalize()
+     * @see Dispatch#finalize()
      */
     @Override
     protected void finalize() {

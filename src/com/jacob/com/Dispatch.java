@@ -301,7 +301,7 @@ public class Dispatch extends JacobObject {
      * @param dispatchTarget
      * @param name
      * @param val
-     * @throws com.jacob.com.NotImplementedException
+     * @throws NotImplementedException
      */
     public static void put_Casesensitive(Dispatch dispatchTarget, String name,
                                          Object val) {
@@ -363,7 +363,7 @@ public class Dispatch extends JacobObject {
      * @param name
      * @param values
      * @return never returns anything because
-     * @throws com.jacob.com.NotImplementedException
+     * @throws NotImplementedException
      */
     public static Variant callN_CaseSensitive(Dispatch dispatchTarget,
                                               String name, Object[] values) {
@@ -819,7 +819,7 @@ public class Dispatch extends JacobObject {
      * @param dispatchTarget
      * @param name
      * @return Variant never returned
-     * @throws com.jacob.com.NotImplementedException
+     * @throws NotImplementedException
      */
     public static Variant get_CaseSensitive(Dispatch dispatchTarget, String name) {
         throw new NotImplementedException("not implemented yet");

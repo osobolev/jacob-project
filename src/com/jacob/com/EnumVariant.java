@@ -20,6 +20,7 @@
 package com.jacob.com;
 
 import java.util.Enumeration;
+import java.util.NoSuchElementException;
 
 /**
  * An implementation of IEnumVariant based on code submitted by Thomas Hallgren
@@ -84,7 +85,7 @@ public class EnumVariant extends JacobObject implements Enumeration<Variant> {
         Variant last = m_recBuf[0];
         if (last == null) {
             if (this.Next(m_recBuf) <= 0)
-                throw new java.util.NoSuchElementException();
+                throw new NoSuchElementException();
             last = m_recBuf[0];
         }
         m_recBuf[0] = null;

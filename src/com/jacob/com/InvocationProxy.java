@@ -19,6 +19,8 @@
  */
 package com.jacob.com;
 
+import java.lang.reflect.Modifier;
+
 /**
  * DispatchEvents wraps this class around any event handlers before making the
  * JNI call that sets up the link with EventProxy. This means that
@@ -88,7 +90,7 @@ public abstract class InvocationProxy {
             // JNI code apparently bypasses this check and could operate against
             // protected classes. This seems like a security issue...
             // maybe it was because JNI code isn't in a package?
-            if (!java.lang.reflect.Modifier.isPublic(pTargetObject.getClass().getModifiers())) {
+            if (!Modifier.isPublic(pTargetObject.getClass().getModifiers())) {
                 throw new IllegalArgumentException("InvocationProxy only public classes can receive event notifications");
             }
         }
