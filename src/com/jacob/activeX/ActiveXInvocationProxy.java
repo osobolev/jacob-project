@@ -57,17 +57,6 @@ public class ActiveXInvocationProxy extends InvocationProxy {
      *      com.jacob.com.Variant[])
      */
     public Variant invoke(String methodName, Variant[] targetParameters) {
-        if (mTargetObject == null) {
-            // structured programming guidlines say this return should not be up
-            // here
-            return null;
-        }
-        if (methodName == null) {
-            throw new IllegalArgumentException("InvocationProxy: missing method name");
-        }
-        if (targetParameters == null) {
-            throw new IllegalArgumentException("InvocationProxy: missing Variant parameters");
-        }
         Object[] args = getParametersAsJavaObjects(targetParameters);
         Class<?>[] types = getParametersAsJavaClasses(args);
         return doInvoke(methodName, types, args);

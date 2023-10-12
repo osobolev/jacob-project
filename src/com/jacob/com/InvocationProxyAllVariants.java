@@ -40,22 +40,8 @@ public class InvocationProxyAllVariants extends InvocationProxy {
      *      com.jacob.com.Variant[])
      */
     public Variant invoke(String methodName, Variant[] targetParameters) {
-        if (mTargetObject == null) {
-            if (JacobObject.isDebugEnabled()) {
-                JacobObject.debug("InvocationProxy: received notification (" + methodName + ") with no target set");
-            }
-            // structured programming guidlines say this return should not be up
-            // here
-            return null;
-        }
-        if (methodName == null) {
-            throw new IllegalArgumentException("InvocationProxy: missing method name");
-        }
         if (targetParameters == null) {
             throw new IllegalArgumentException("InvocationProxy: missing Variant parameters");
-        }
-        if (JacobObject.isDebugEnabled()) {
-            JacobObject.debug("InvocationProxy: trying to invoke " + methodName + " on " + mTargetObject);
         }
         Class<?>[] types = {Variant[].class};
         Object[] args = {targetParameters};

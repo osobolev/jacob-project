@@ -100,6 +100,20 @@ public abstract class InvocationProxy {
     }
 
     protected Variant doInvoke(String methodName, Class<?>[] types, Object[] args) {
+        if (mTargetObject == null) {
+            if (JacobObject.isDebugEnabled()) {
+                JacobObject.debug("InvocationProxy: received notification (" + methodName + ") with no target set");
+            }
+            // structured programming guidlines say this return should not be up
+            // here
+            return null;
+        }
+        if (methodName == null) {
+            throw new IllegalArgumentException("InvocationProxy: missing method name");
+        }
+        if (JacobObject.isDebugEnabled()) {
+            JacobObject.debug("InvocationProxy: trying to invoke " + methodName + " on " + mTargetObject);
+        }
         try {
             Class<?> targetClass = mTargetObject.getClass();
             Method targetMethod = targetClass.getMethod(methodName, types);
