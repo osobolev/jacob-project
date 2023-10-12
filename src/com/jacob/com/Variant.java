@@ -360,8 +360,8 @@ public class Variant extends JacobObject {
      * @throws IllegalStateException if variant is not of the requested type
      */
     public boolean getBooleanRef() {
-        if ((this.getvt() & VariantTypeMask) == VariantBoolean
-                && (this.getvt() & VariantByref) == VariantByref) {
+        if ((this.getvt() & VariantTypeMask) == VariantBoolean &&
+            (this.getvt() & VariantByref) == VariantByref) {
             return getVariantBooleanRef();
         } else {
             throw new IllegalStateException("getBooleanRef() only legal on byRef Variants of type VariantBoolean, not " + this.getvt());
@@ -387,8 +387,8 @@ public class Variant extends JacobObject {
      * @throws IllegalStateException if variant is not of the requested type
      */
     public byte getByteRef() {
-        if ((this.getvt() & VariantTypeMask) == VariantByte
-                && (this.getvt() & VariantByref) == VariantByref) {
+        if ((this.getvt() & VariantTypeMask) == VariantByte &&
+            (this.getvt() & VariantByref) == VariantByref) {
             return getVariantByteRef();
         } else {
             throw new IllegalStateException("getByteRef() only legal on byRef Variants of type VariantByte, not " + this.getvt());
@@ -420,8 +420,8 @@ public class Variant extends JacobObject {
      * @throws IllegalStateException if variant is not of the requested type
      */
     public Currency getCurrencyRef() {
-        if ((this.getvt() & VariantTypeMask) == VariantCurrency
-                && (this.getvt() & VariantByref) == VariantByref) {
+        if ((this.getvt() & VariantTypeMask) == VariantCurrency &&
+            (this.getvt() & VariantByref) == VariantByref) {
             return new Currency(getVariantCurrencyRef());
         } else {
             throw new IllegalStateException("getCurrencyRef() only legal on byRef Variants of type VariantCurrency, not " + this.getvt());
@@ -447,8 +447,8 @@ public class Variant extends JacobObject {
      * @throws IllegalStateException if variant is not of the requested type
      */
     public double getDateRef() {
-        if ((this.getvt() & VariantTypeMask) == VariantDate
-                && (this.getvt() & VariantByref) == VariantByref) {
+        if ((this.getvt() & VariantTypeMask) == VariantDate &&
+            (this.getvt() & VariantByref) == VariantByref) {
             return getVariantDateRef();
         } else {
             throw new IllegalStateException("getDateRef() only legal on byRef Variants of type VariantDate, not " + this.getvt());
@@ -476,8 +476,8 @@ public class Variant extends JacobObject {
      * @throws IllegalStateException if variant is not of the requested type
      */
     public BigDecimal getDecimalRef() {
-        if ((this.getvt() & VariantTypeMask) == VariantDecimal
-                && (this.getvt() & VariantByref) == VariantByref) {
+        if ((this.getvt() & VariantTypeMask) == VariantDecimal &&
+            (this.getvt() & VariantByref) == VariantByref) {
             return (BigDecimal) (getVariantDecRef());
         } else {
             throw new IllegalStateException("getDecimalRef() only legal on byRef Variants of type VariantDecimal, not " + this.getvt());
@@ -508,8 +508,8 @@ public class Variant extends JacobObject {
      * @throws IllegalStateException if variant is not of the requested type
      */
     public Dispatch getDispatchRef() {
-        if ((this.getvt() & VariantTypeMask) == VariantDispatch
-                && (this.getvt() & VariantByref) == VariantByref) {
+        if ((this.getvt() & VariantTypeMask) == VariantDispatch &&
+            (this.getvt() & VariantByref) == VariantByref) {
             return toDispatch();
         } else {
             throw new IllegalStateException("getDispatchRef() only legal on byRef Variants of type VariantDispatch, not " + this.getvt());
@@ -534,8 +534,8 @@ public class Variant extends JacobObject {
      * @throws IllegalStateException if variant is not of the requested type
      */
     public double getDoubleRef() {
-        if ((this.getvt() & VariantTypeMask) == VariantDouble
-                && (this.getvt() & VariantByref) == VariantByref) {
+        if ((this.getvt() & VariantTypeMask) == VariantDouble &&
+            (this.getvt() & VariantByref) == VariantByref) {
             return getVariantDoubleRef();
         } else {
             throw new IllegalStateException("getDoubleRef() only legal on byRef Variants of type VariantDouble, not " + this.getvt());
@@ -572,8 +572,8 @@ public class Variant extends JacobObject {
      * @throws IllegalStateException if variant is not of the requested type
      */
     public int getErrorRef() {
-        if ((this.getvt() & VariantTypeMask) == VariantError
-                && (this.getvt() & VariantByref) == VariantByref) {
+        if ((this.getvt() & VariantTypeMask) == VariantError &&
+            (this.getvt() & VariantByref) == VariantByref) {
             return getVariantErrorRef();
         } else {
             throw new IllegalStateException("getErrorRef() only legal on byRef Variants of type VariantError, not " + this.getvt());
@@ -597,8 +597,8 @@ public class Variant extends JacobObject {
      * @throws IllegalStateException if variant is not of the requested type
      */
     public float getFloatRef() {
-        if ((this.getvt() & VariantTypeMask) == VariantFloat
-                && (this.getvt() & VariantByref) == VariantByref) {
+        if ((this.getvt() & VariantTypeMask) == VariantFloat &&
+            (this.getvt() & VariantByref) == VariantByref) {
             return getVariantFloatRef();
         } else {
             throw new IllegalStateException("getFloatRef() only legal on byRef Variants of type VariantFloat, not " + this.getvt());
@@ -629,8 +629,8 @@ public class Variant extends JacobObject {
      * @throws IllegalStateException if variant is not of the requested type
      */
     public int getIntRef() {
-        if ((this.getvt() & VariantTypeMask) == VariantInt
-                && (this.getvt() & VariantByref) == VariantByref) {
+        if ((this.getvt() & VariantTypeMask) == VariantInt &&
+            (this.getvt() & VariantByref) == VariantByref) {
             return getVariantIntRef();
         } else {
             throw new IllegalStateException("getIntRef() only legal on byRef Variants of type VariantInt, not " + this.getvt());
@@ -696,8 +696,8 @@ public class Variant extends JacobObject {
      * @throws IllegalStateException if variant is not of the requested type
      */
     public long getLongRef() {
-        if ((this.getvt() & VariantTypeMask) == VariantLongInt
-                && (this.getvt() & VariantByref) == VariantByref) {
+        if ((this.getvt() & VariantTypeMask) == VariantLongInt &&
+            (this.getvt() & VariantByref) == VariantByref) {
             return getVariantLongRef();
         } else {
             throw new IllegalStateException("getLongRef() only legal on byRef Variants of type VariantLongInt, not " + this.getvt());
@@ -736,8 +736,8 @@ public class Variant extends JacobObject {
      * @throws IllegalStateException if variant is not of the requested type
      */
     public short getShortRef() {
-        if ((this.getvt() & VariantTypeMask) == VariantShort
-                && (this.getvt() & VariantByref) == VariantByref) {
+        if ((this.getvt() & VariantTypeMask) == VariantShort &&
+            (this.getvt() & VariantByref) == VariantByref) {
             return getVariantShortRef();
         } else {
             throw new IllegalStateException("getShortRef() only legal on byRef Variants of type VariantShort, not " + this.getvt());
@@ -767,8 +767,8 @@ public class Variant extends JacobObject {
      * @throws IllegalStateException if variant is not of the requested type
      */
     public String getStringRef() {
-        if ((this.getvt() & VariantTypeMask) == VariantString
-                && (this.getvt() & VariantByref) == VariantByref) {
+        if ((this.getvt() & VariantTypeMask) == VariantString &&
+            (this.getvt() & VariantByref) == VariantByref) {
             return getVariantStringRef();
         } else {
             throw new IllegalStateException("getStringRef() only legal on byRef Variants of type VariantString, not " + this.getvt());
@@ -784,8 +784,8 @@ public class Variant extends JacobObject {
      * Variant
      */
     public Object getVariant() {
-        if ((this.getvt() & VariantTypeMask) == VariantVariant
-                && (this.getvt() & VariantByref) == VariantByref) {
+        if ((this.getvt() & VariantTypeMask) == VariantVariant &&
+            (this.getvt() & VariantByref) == VariantByref) {
             if (JacobObject.isDebugEnabled()) {
                 JacobObject.debug("About to call getVariantVariant()");
             }
@@ -1018,8 +1018,8 @@ public class Variant extends JacobObject {
      * VT_TRUE, VT_MISSING, DEFAULT
      */
     protected boolean objectIsAConstant(Variant pVariant) {
-        if (pVariant == VT_FALSE || pVariant == VT_TRUE
-                || pVariant == VT_MISSING || pVariant == DEFAULT) {
+        if (pVariant == VT_FALSE || pVariant == VT_TRUE ||
+            pVariant == VT_MISSING || pVariant == DEFAULT) {
             return true;
         } else {
             return false;
@@ -2053,8 +2053,7 @@ public class Variant extends JacobObject {
         } catch (IllegalStateException ise) {
             return "";
         }
-        if (getvt() == VariantEmpty || getvt() == VariantError
-                || getvt() == VariantNull) {
+        if (getvt() == VariantEmpty || getvt() == VariantError || getvt() == VariantNull) {
             return "null";
         }
         if (getvt() == VariantString) {
