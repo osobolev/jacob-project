@@ -154,7 +154,7 @@ public abstract class ROT {
             // empty the collection
             tab.clear();
             // remove the collection from rot
-            ROT.removeThread();
+            removeThread();
             if (JacobObject.isDebugEnabled()) {
                 JacobObject.debug("ROT: thread table cleared and removed");
             }
@@ -185,7 +185,7 @@ public abstract class ROT {
      */
     @Deprecated
     protected static void removeObject(JacobObject o) {
-        Map<JacobObject, String> tab = ROT.getThreadObjects(false);
+        Map<JacobObject, String> tab = getThreadObjects(false);
         if (tab != null) {
             tab.remove(o);
         }
@@ -214,7 +214,7 @@ public abstract class ROT {
         // the ROT. This lets us run with standard Jacob behavior in Applets
         // without the security exception raised by System.getProperty in the
         // flow
-        if (!ROT.INCLUDE_ALL_CLASSES_IN_ROT) {
+        if (!INCLUDE_ALL_CLASSES_IN_ROT) {
             shouldIncludeClassInROT = System.getProperty(o.getClass().getName() + PUT_IN_ROT_SUFFIX, "true");
         }
         if (shouldIncludeClassInROT.equalsIgnoreCase("false")) {

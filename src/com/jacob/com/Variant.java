@@ -749,11 +749,11 @@ public class Variant extends JacobObject {
      * @throws IllegalStateException if this variant is not of type String
      */
     public String getString() {
-        if (getvt() == Variant.VariantString) {
+        if (getvt() == VariantString) {
             return getVariantString();
-        } else if (getvt() == Variant.VariantEmpty) {
+        } else if (getvt() == VariantEmpty) {
             return null;
-        } else if (getvt() == Variant.VariantNull) {
+        } else if (getvt() == VariantNull) {
             return null;
         } else {
             throw new IllegalStateException("getString() only legal on Variants of type VariantString, not " + this.getvt());
@@ -1814,7 +1814,7 @@ public class Variant extends JacobObject {
      */
     @Deprecated
     public boolean toBoolean() {
-        changeType(Variant.VariantBoolean);
+        changeType(VariantBoolean);
         return getBoolean();
     }
 
@@ -1827,7 +1827,7 @@ public class Variant extends JacobObject {
      */
     @Deprecated
     public byte toByte() {
-        changeType(Variant.VariantByte);
+        changeType(VariantByte);
         return getByte();
     }
 
@@ -1858,7 +1858,7 @@ public class Variant extends JacobObject {
      */
     @Deprecated
     public Currency toCurrency() {
-        changeType(Variant.VariantCurrency);
+        changeType(VariantCurrency);
         return getCurrency();
     }
 
@@ -1888,7 +1888,7 @@ public class Variant extends JacobObject {
      */
     @Deprecated
     public double toDouble() {
-        changeType(Variant.VariantDouble);
+        changeType(VariantDouble);
         return getDouble();
     }
 
@@ -1905,7 +1905,7 @@ public class Variant extends JacobObject {
      */
     @Deprecated
     public int toError() {
-        changeType(Variant.VariantError);
+        changeType(VariantError);
         return getError();
     }
 
@@ -1918,7 +1918,7 @@ public class Variant extends JacobObject {
      */
     @Deprecated
     public float toFloat() {
-        changeType(Variant.VariantFloat);
+        changeType(VariantFloat);
         return getFloat();
     }
 
@@ -1947,7 +1947,7 @@ public class Variant extends JacobObject {
      */
     @Deprecated
     public Date toJavaDate() {
-        changeType(Variant.VariantDate);
+        changeType(VariantDate);
         return getJavaDate();
     }
 
@@ -2025,7 +2025,7 @@ public class Variant extends JacobObject {
      */
     @Deprecated
     public short toShort() {
-        this.changeType(Variant.VariantShort);
+        this.changeType(VariantShort);
         return getShort();
     }
 

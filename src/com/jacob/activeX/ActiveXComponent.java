@@ -295,7 +295,7 @@ public class ActiveXComponent extends Dispatch {
      */
     public void logCallbackEvent(String description, Variant[] args) {
         String argString = "";
-        if (args != null && ActiveXComponent.shouldLogEvents) {
+        if (args != null && shouldLogEvents) {
             if (args.length > 0) {
                 argString += " args: ";
             }
