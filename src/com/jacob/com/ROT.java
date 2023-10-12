@@ -109,8 +109,7 @@ public abstract class ROT {
      * @return Map the collection that holds the objects created in the current
      *         thread
      */
-    protected synchronized static Map<JacobObject, String> getThreadObjects(
-            boolean createIfDoesNotExist) {
+    protected synchronized static Map<JacobObject, String> getThreadObjects(boolean createIfDoesNotExist) {
         Map<JacobObject, String> tab = rot.get();
         if (tab == null && createIfDoesNotExist) {
             tab = addThread();

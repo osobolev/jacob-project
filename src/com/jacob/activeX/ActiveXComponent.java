@@ -130,8 +130,7 @@ public class ActiveXComponent extends Dispatch {
      * @return Dispatch pointer to a COM object or null if wasn't already
      *         running
      */
-    public static ActiveXComponent connectToActiveInstance(
-            String pRequestedProgramId) {
+    public static ActiveXComponent connectToActiveInstance(String pRequestedProgramId) {
         ActiveXComponent mCreatedDispatch = null;
         try {
             mCreatedDispatch = new ActiveXComponent();
@@ -435,8 +434,7 @@ public class ActiveXComponent extends Dispatch {
      */
     public Variant invoke(String actionCommand, String parameter1,
             int parameter2) {
-        return Dispatch.call(this, actionCommand, parameter1, new Variant(
-                parameter2));
+        return Dispatch.call(this, actionCommand, parameter1, new Variant(parameter2));
     }
 
     /**

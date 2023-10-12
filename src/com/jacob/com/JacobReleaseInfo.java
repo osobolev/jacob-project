@@ -52,10 +52,7 @@ public class JacobReleaseInfo {
         // A report came in that WebSphere had trouble finding the file
         // so lets trap it. Plus, it's a good idea anyway.
         if (stream == null) {
-            throw new IllegalStateException(
-                    "Can't find "
-                            + PROPERTY_FILE_NAME
-                            + " using JacobReleaseInfo.class.getClassLoader().getResourceAsStream()");
+            throw new IllegalStateException("Can't find " + PROPERTY_FILE_NAME + " using JacobReleaseInfo.class.getClassLoader().getResourceAsStream()");
         } else {
             try {
                 versionProps.load(stream);

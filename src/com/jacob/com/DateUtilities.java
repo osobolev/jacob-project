@@ -77,8 +77,7 @@ public class DateUtilities {
      */
     static public double convertDateToWindowsTime(Date javaDate) {
         if (javaDate == null) {
-            throw new IllegalArgumentException(
-                    "cannot convert null to windows time");
+            throw new IllegalArgumentException("cannot convert null to windows time");
         }
         return convertMillisecondsToWindowsTime(javaDate.getTime());
     }

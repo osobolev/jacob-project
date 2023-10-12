@@ -140,8 +140,7 @@ public class DispatchEvents extends JacobObject {
             if (JacobObject.isDebugEnabled()) {
                 JacobObject.debug("Cannot register null event sink for events");
             }
-            throw new IllegalArgumentException(
-                    "Cannot register null event sink for events");
+            throw new IllegalArgumentException("Cannot register null event sink for events");
         }
     }
 

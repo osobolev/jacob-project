@@ -47,8 +47,7 @@ public class InvocationProxyAllVariants extends InvocationProxy {
         Variant mVariantToBeReturned = null;
         if (mTargetObject == null) {
             if (JacobObject.isDebugEnabled()) {
-                JacobObject.debug("InvocationProxy: received notification ("
-                        + methodName + ") with no target set");
+                JacobObject.debug("InvocationProxy: received notification (" + methodName + ") with no target set");
             }
             // structured programming guidlines say this return should not be up
             // here
@@ -56,12 +55,10 @@ public class InvocationProxyAllVariants extends InvocationProxy {
         }
         Class<?> targetClass = mTargetObject.getClass();
         if (methodName == null) {
-            throw new IllegalArgumentException(
-                    "InvocationProxy: missing method name");
+            throw new IllegalArgumentException("InvocationProxy: missing method name");
         }
         if (targetParameters == null) {
-            throw new IllegalArgumentException(
-                    "InvocationProxy: missing Variant parameters");
+            throw new IllegalArgumentException("InvocationProxy: missing Variant parameters");
         }
         try {
             if (JacobObject.isDebugEnabled()) {
@@ -84,9 +81,8 @@ public class InvocationProxyAllVariants extends InvocationProxy {
                 } else if (!(mReturnedByInvocation instanceof Variant)) {
                     // could try and convert to Variant here.
                     throw new IllegalArgumentException(
-                            "InvocationProxy: invokation of target method returned "
-                                    + "non-null non-variant object: "
-                                    + mReturnedByInvocation);
+                        "InvocationProxy: invokation of target method returned " + "non-null non-variant object: " + mReturnedByInvocation
+                    );
                 } else {
                     mVariantToBeReturned = (Variant) mReturnedByInvocation;
                 }
@@ -108,9 +104,7 @@ public class InvocationProxyAllVariants extends InvocationProxy {
         } catch (IllegalAccessException e) {
             // can't access the method on the target instance for some reason
             if (JacobObject.isDebugEnabled()) {
-                JacobObject
-                        .debug("InvocationProxy: probably tried to access public method on non public class"
-                                + methodName);
+                JacobObject.debug("InvocationProxy: probably tried to access public method on non public class" + methodName);
             }
             e.printStackTrace();
         } catch (InvocationTargetException e) {

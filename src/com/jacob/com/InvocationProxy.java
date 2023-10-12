@@ -97,8 +97,7 @@ public abstract class InvocationProxy {
             // maybe it was because JNI code isn't in a package?
             if (!java.lang.reflect.Modifier.isPublic(pTargetObject.getClass()
                     .getModifiers())) {
-                throw new IllegalArgumentException(
-                        "InvocationProxy only public classes can receive event notifications");
+                throw new IllegalArgumentException("InvocationProxy only public classes can receive event notifications");
             }
         }
         mTargetObject = pTargetObject;

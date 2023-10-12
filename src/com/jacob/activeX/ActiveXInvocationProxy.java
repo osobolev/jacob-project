@@ -69,12 +69,10 @@ public class ActiveXInvocationProxy extends InvocationProxy {
         }
         Class<?> targetClass = mTargetObject.getClass();
         if (methodName == null) {
-            throw new IllegalArgumentException(
-                    "InvocationProxy: missing method name");
+            throw new IllegalArgumentException("InvocationProxy: missing method name");
         }
         if (targetParameters == null) {
-            throw new IllegalArgumentException(
-                    "InvocationProxy: missing Variant parameters");
+            throw new IllegalArgumentException("InvocationProxy: missing Variant parameters");
         }
         try {
             Method targetMethod;
@@ -107,8 +105,8 @@ public class ActiveXInvocationProxy extends InvocationProxy {
         } catch (IllegalArgumentException e) {
             // we can throw these inside the catch block so need to re-throw it
             Exception oneWeShouldToss = new IllegalArgumentException(
-                    "Unable to map parameters for method " + methodName + ": "
-                            + e.toString());
+                "Unable to map parameters for method " + methodName + ": " + e
+            );
             oneWeShouldToss.printStackTrace();
         } catch (IllegalAccessException e) {
             // can't access the method on the target instance for some reason
@@ -131,8 +129,7 @@ public class ActiveXInvocationProxy extends InvocationProxy {
     @SuppressWarnings("unchecked")
     private Class<?>[] getParametersAsJavaClasses(Object[] parametersAsJavaObjects) {
         if (parametersAsJavaObjects == null) {
-            throw new IllegalArgumentException(
-                    "This only works with an array of parameters");
+            throw new IllegalArgumentException("This only works with an array of parameters");
         }
         int numParameters = parametersAsJavaObjects.length;
         Class<?>[] parametersAsJavaClasses = new Class[numParameters];
@@ -156,8 +153,7 @@ public class ActiveXInvocationProxy extends InvocationProxy {
      */
     private Object[] getParametersAsJavaObjects(Variant[] targetParameters) {
         if (targetParameters == null) {
-            throw new IllegalArgumentException(
-                    "This only works with an array of parameters");
+            throw new IllegalArgumentException("This only works with an array of parameters");
         }
         int numParameters = targetParameters.length;
         Object[] parametersAsJavaObjects = new Object[numParameters];
@@ -171,9 +167,8 @@ public class ActiveXInvocationProxy extends InvocationProxy {
                             .toJavaObject();
                 } catch (NotImplementedException nie) {
                     throw new IllegalArgumentException(
-                            "Can't convert parameter " + parameterIndex
-                                    + " type " + oneParameterObject.getvt()
-                                    + " to java object: " + nie.getMessage());
+                        "Can't convert parameter " + parameterIndex + " type " + oneParameterObject.getvt() + " to java object: " + nie.getMessage()
+                    );
                 }
             }
         }

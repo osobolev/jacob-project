@@ -71,10 +71,9 @@ public class Currency {
             return compareTo((Currency) o);
         } else if (o instanceof Long) {
             return embeddedValue.compareTo((Long) o);
-        } else
-            throw new IllegalArgumentException(
-                    "Can only compare to Long and Currency not "
-                            + o.getClass().getName());
+        } else {
+            throw new IllegalArgumentException("Can only compare to Long and Currency not " + o.getClass().getName());
+        }
     }
 
     /**

@@ -98,8 +98,7 @@ public class Dispatch extends JacobObject {
         if (programId != null && !"".equals(programId)) {
             createInstanceNative(requestedProgramId);
         } else {
-            throw new IllegalArgumentException(
-                    "Dispatch(String) does not accept null or an empty string as a parameter");
+            throw new IllegalArgumentException("Dispatch(String) does not accept null or an empty string as a parameter");
         }
     }
 
@@ -280,13 +279,11 @@ public class Dispatch extends JacobObject {
      */
     private static void throwIfUnattachedDispatch(Dispatch theOneInQuestion) {
         if (theOneInQuestion == null) {
-            throw new IllegalArgumentException(
-                    "Can't pass in null Dispatch object");
+            throw new IllegalArgumentException("Can't pass in null Dispatch object");
         } else if (theOneInQuestion.isAttached()) {
             return;
         } else {
-            throw new IllegalStateException(
-                    "Dispatch not hooked to windows memory");
+            throw new IllegalStateException("Dispatch not hooked to windows memory");
         }
     }
 

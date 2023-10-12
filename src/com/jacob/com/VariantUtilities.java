@@ -118,9 +118,7 @@ public final class VariantUtilities {
         } else {
             // sourceforge patch 2171967
             // used to rely on coercion but sometimes crashed VM
-            throw new NotImplementedException(
-                    "populateVariant() not implemented for "
-                            + pValueObject.getClass());
+            throw new NotImplementedException("populateVariant() not implemented for " + pValueObject.getClass());
         }
     }
 
@@ -190,8 +188,7 @@ public final class VariantUtilities {
                 // array of object
                 sa = new SafeArray(Variant.VariantVariant, len1);
                 for (int i = 0; i < len1; i++) {
-                    sa.setVariant(i, objectToVariant(Array.get(
-                            objectToBeMadeIntoVariant, i)));
+                    sa.setVariant(i, objectToVariant(Array.get(objectToBeMadeIntoVariant, i)));
                 }
             }
             Variant returnVariant = new Variant();
@@ -213,8 +210,7 @@ public final class VariantUtilities {
      * @param arrayOfObjectsToBeConverted
      * @return Variant[]
      */
-    protected static Variant[] objectsToVariants(
-            Object[] arrayOfObjectsToBeConverted) {
+    protected static Variant[] objectsToVariants(Object[] arrayOfObjectsToBeConverted) {
         if (arrayOfObjectsToBeConverted instanceof Variant[]) {
             // just return the passed in array if it is a Variant array
             return (Variant[]) arrayOfObjectsToBeConverted;
@@ -318,8 +314,7 @@ public final class VariantUtilities {
                 // be byRef?
                 break;
             case Variant.VariantError: // 10
-                result = new NotImplementedException(
-                        "toJavaObject() Not implemented for VariantError");
+                result = new NotImplementedException("toJavaObject() Not implemented for VariantError");
                 break;
             case Variant.VariantBoolean: // 11
                 result = sourceData.getBoolean();
@@ -328,15 +323,13 @@ public final class VariantUtilities {
                 result = sourceData.getBooleanRef();
                 break;
             case Variant.VariantVariant: // 12 they are always by ref
-                result = new NotImplementedException(
-                        "toJavaObject() Not implemented for VariantVariant without ByRef");
+                result = new NotImplementedException("toJavaObject() Not implemented for VariantVariant without ByRef");
                 break;
             case Variant.VariantVariant | Variant.VariantByref: // 12
                 result = sourceData.getVariant();
                 break;
             case Variant.VariantObject: // 13
-                result = new NotImplementedException(
-                        "toJavaObject() Not implemented for VariantObject");
+                result = new NotImplementedException("toJavaObject() Not implemented for VariantObject");
                 break;
             case Variant.VariantDecimal: // 14
                 result = sourceData.getDecimal();
@@ -357,20 +350,16 @@ public final class VariantUtilities {
                 result = sourceData.getLongRef();
                 break;
             case Variant.VariantTypeMask: // 4095
-                result = new NotImplementedException(
-                        "toJavaObject() Not implemented for VariantBstrBlob/VariantTypeMask");
+                result = new NotImplementedException("toJavaObject() Not implemented for VariantBstrBlob/VariantTypeMask");
                 break;
             case Variant.VariantArray: // 8192
-                result = new NotImplementedException(
-                        "toJavaObject() Not implemented for VariantArray");
+                result = new NotImplementedException("toJavaObject() Not implemented for VariantArray");
                 break;
             case Variant.VariantByref: // 16384
-                result = new NotImplementedException(
-                        "toJavaObject() Not implemented for VariantByref");
+                result = new NotImplementedException("toJavaObject() Not implemented for VariantByref");
                 break;
             default:
-                result = new NotImplementedException("Unknown return type: "
-                        + type);
+                result = new NotImplementedException("Unknown return type: " + type);
                 // there was a "return result" here that caused defect 1602118
                 // so it was removed
                 break;
@@ -397,21 +386,12 @@ public final class VariantUtilities {
         BigInteger allWordBigInt = in.unscaledValue();
         if (in.scale() > 28) {
             // should this cast to a string and call putStringRef()?
-            throw new IllegalArgumentException(
-                    "VT_DECIMAL only supports a maximum scale of 28 and the passed"
-                            + " in value has a scale of " + in.scale());
+            throw new IllegalArgumentException("VT_DECIMAL only supports a maximum scale of 28 and the passed in value has a scale of " + in.scale());
         } else if (in.scale() < 0) {
             // should this cast to a string and call putStringRef()?
-            throw new IllegalArgumentException(
-                    "VT_DECIMAL only supports a minimum scale of 0 and the passed"
-                            + " in value has a scale of " + in.scale());
+            throw new IllegalArgumentException("VT_DECIMAL only supports a minimum scale of 0 and the passed in value has a scale of " + in.scale());
         } else if (allWordBigInt.bitLength() > 12 * 8) {
-            throw new IllegalArgumentException(
-                    "VT_DECIMAL supports a maximum of "
-                            + 12
-                            * 8
-                            + " bits not counting scale and the number passed in has "
-                            + allWordBigInt.bitLength());
+            throw new IllegalArgumentException("VT_DECIMAL supports a maximum of " + (12 * 8) + " bits not counting scale and the number passed in has " + allWordBigInt.bitLength());
 
         } else {
             // no bounds problem to be handled
@@ -422,14 +402,12 @@ public final class VariantUtilities {
     /**
      * Largest possible number with scale set to 0
      */
-    private static final BigDecimal LARGEST_DECIMAL = new BigDecimal(
-            new BigInteger("ffffffffffffffffffffffff", 16));
+    private static final BigDecimal LARGEST_DECIMAL = new BigDecimal(new BigInteger("ffffffffffffffffffffffff", 16));
     /**
      * Smallest possible number with scale set to 0. MS doesn't support negative
      * scales like BigDecimal.
      */
-    private static final BigDecimal SMALLEST_DECIMAL = new BigDecimal(
-            new BigInteger("ffffffffffffffffffffffff", 16).negate());
+    private static final BigDecimal SMALLEST_DECIMAL = new BigDecimal(new BigInteger("ffffffffffffffffffffffff", 16).negate());
 
     /**
      * Does any validation that couldn't have been fixed by rounding or scale
@@ -442,18 +420,15 @@ public final class VariantUtilities {
      */
     protected static void validateDecimalMinMax(BigDecimal in) {
         if (in == null) {
-            throw new IllegalArgumentException(
-                    "null is not a supported Decimal value.");
+            throw new IllegalArgumentException("null is not a supported Decimal value.");
         } else if (LARGEST_DECIMAL.compareTo(in) < 0) {
             throw new IllegalArgumentException(
-                    "Value too large for VT_DECIMAL data type:" + in.toString()
-                            + " integer: " + in.toBigInteger().toString(16)
-                            + " scale: " + in.scale());
+                "Value too large for VT_DECIMAL data type:" + in.toString() + " integer: " + in.toBigInteger().toString(16) + " scale: " + in.scale()
+            );
         } else if (SMALLEST_DECIMAL.compareTo(in) > 0) {
             throw new IllegalArgumentException(
-                    "Value too small for VT_DECIMAL data type:" + in.toString()
-                            + " integer: " + in.toBigInteger().toString(16)
-                            + " scale: " + in.scale());
+                "Value too small for VT_DECIMAL data type:" + in.toString() + " integer: " + in.toBigInteger().toString(16) + " scale: " + in.scale()
+            );
         }
 
     }
@@ -473,8 +448,7 @@ public final class VariantUtilities {
      */
     public static BigDecimal roundToMSDecimal(BigDecimal sourceDecimal) {
         BigInteger sourceDecimalIntComponent = sourceDecimal.unscaledValue();
-        BigDecimal destinationDecimal = new BigDecimal(
-                sourceDecimalIntComponent, sourceDecimal.scale());
+        BigDecimal destinationDecimal = new BigDecimal(sourceDecimalIntComponent, sourceDecimal.scale());
         RoundingMode roundingModel = RoundingMode.HALF_UP;
         validateDecimalMinMax(destinationDecimal);
         // First limit the number of digits and then the precision.
@@ -487,8 +461,7 @@ public final class VariantUtilities {
             if (allWordBigInt.bitLength() > 96) {
                 // Dang. It was over 97 bits so shorten it one more digit to
                 // stay <= 96 bits
-                destinationDecimal = destinationDecimal.round(new MathContext(
-                        28));
+                destinationDecimal = destinationDecimal.round(new MathContext(28));
             }
         }
         // the bit manipulations above may change the scale so do it afterwards
