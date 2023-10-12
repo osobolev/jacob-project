@@ -20,12 +20,8 @@
 package com.jacob.activeX;
 
 import com.jacob.com.InvocationProxy;
-import com.jacob.com.JacobException;
 import com.jacob.com.NotImplementedException;
 import com.jacob.com.Variant;
-
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 
 /**
  * RELEASE 1.12 EXPERIMENTAL.
@@ -74,39 +70,7 @@ public class ActiveXInvocationProxy extends InvocationProxy {
         }
         Object[] args = getParametersAsJavaObjects(targetParameters);
         Class<?>[] types = getParametersAsJavaClasses(args);
-        try {
-            Class<?> targetClass = mTargetObject.getClass();
-            Method targetMethod = targetClass.getMethod(methodName, types);
-            // protected classes can't be invoked against even if they
-            // let you grab the method. you could do
-            // targetMethod.setAccessible(true);
-            // but that should be stopped by the security manager
-            Object mReturnedByInvocation = targetMethod.invoke(mTargetObject, args);
-            if (mReturnedByInvocation == null) {
-                return null;
-            } else if (mReturnedByInvocation instanceof Variant) {
-                return (Variant) mReturnedByInvocation;
-            } else {
-                return new Variant(mReturnedByInvocation);
-            }
-        } catch (NoSuchMethodException e) {
-            // this happens whenever the listener doesn't implement all the
-            // methods
-            return null;
-        } catch (IllegalAccessException e) {
-            // can't access the method on the target instance for some reason
-            throw new JacobException(e);
-        } catch (InvocationTargetException e) {
-            // invocation of target method failed
-            Throwable target = e.getTargetException();
-            if (target instanceof RuntimeException) {
-                throw (RuntimeException) target;
-            } else if (target instanceof Error) {
-                throw (Error) target;
-            } else {
-                throw new JacobException(target);
-            }
-        }
+        return doInvoke(methodName, types, args);
     }
 
     /**

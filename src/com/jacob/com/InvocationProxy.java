@@ -19,6 +19,8 @@
  */
 package com.jacob.com;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 
 /**
@@ -95,5 +97,44 @@ public abstract class InvocationProxy {
             }
         }
         mTargetObject = pTargetObject;
+    }
+
+    protected Variant doInvoke(String methodName, Class<?>[] types, Object[] args) {
+        try {
+            Class<?> targetClass = mTargetObject.getClass();
+            Method targetMethod = targetClass.getMethod(methodName, types);
+            // protected classes can't be invoked against even if they
+            // let you grab the method. you could do
+            // targetMethod.setAccessible(true);
+            // but that should be stopped by the security manager
+            Object mReturnedByInvocation = targetMethod.invoke(mTargetObject, args);
+            if (mReturnedByInvocation == null) {
+                return null;
+            } else if (mReturnedByInvocation instanceof Variant) {
+                return (Variant) mReturnedByInvocation;
+            } else {
+                return new Variant(mReturnedByInvocation);
+            }
+        } catch (NoSuchMethodException e) {
+            // this happens whenever the listener doesn't implement all the
+            // methods
+            if (JacobObject.isDebugEnabled()) {
+                JacobObject.debug("InvocationProxy: listener (" + mTargetObject + ") doesn't implement " + methodName);
+            }
+            return null;
+        } catch (IllegalAccessException e) {
+            // can't access the method on the target instance for some reason
+            throw new JacobException(e);
+        } catch (InvocationTargetException e) {
+            // invocation of target method failed
+            Throwable target = e.getTargetException();
+            if (target instanceof RuntimeException) {
+                throw (RuntimeException) target;
+            } else if (target instanceof Error) {
+                throw (Error) target;
+            } else {
+                throw new JacobException(target);
+            }
+        }
     }
 }
