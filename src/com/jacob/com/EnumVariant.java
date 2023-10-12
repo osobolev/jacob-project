@@ -69,8 +69,7 @@ public class EnumVariant extends JacobObject implements Enumeration<Variant> {
     public boolean hasMoreElements() {
         {
             if (m_recBuf[0] == null) {
-                if (this.Next(m_recBuf) <= 0)
-                    return false;
+                return this.Next(m_recBuf) > 0;
             }
             return true;
         }

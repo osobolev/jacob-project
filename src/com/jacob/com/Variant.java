@@ -1018,12 +1018,7 @@ public class Variant extends JacobObject {
      * VT_TRUE, VT_MISSING, DEFAULT
      */
     protected boolean objectIsAConstant(Variant pVariant) {
-        if (pVariant == VT_FALSE || pVariant == VT_TRUE ||
-            pVariant == VT_MISSING || pVariant == DEFAULT) {
-            return true;
-        } else {
-            return false;
-        }
+        return pVariant == VT_FALSE || pVariant == VT_TRUE || pVariant == VT_MISSING || pVariant == DEFAULT;
     }
 
     /**
