@@ -72,7 +72,6 @@ public class ActiveXInvocationProxy extends InvocationProxy {
         if (targetParameters == null) {
             throw new IllegalArgumentException("InvocationProxy: missing Variant parameters");
         }
-        Variant mVariantToBeReturned = null;
         try {
             Object[] parametersAsJavaObjects = getParametersAsJavaObjects(targetParameters);
             Class<?>[] parametersAsJavaClasses = getParametersAsJavaClasses(parametersAsJavaObjects);
@@ -83,11 +82,11 @@ public class ActiveXInvocationProxy extends InvocationProxy {
             // but that should be stopped by the security manager
             Object mReturnedByInvocation = targetMethod.invoke(mTargetObject, parametersAsJavaObjects);
             if (mReturnedByInvocation == null) {
-                mVariantToBeReturned = null;
-            } else if (!(mReturnedByInvocation instanceof Variant)) {
-                mVariantToBeReturned = new Variant(mReturnedByInvocation);
+                return null;
+            } else if (mReturnedByInvocation instanceof Variant) {
+                return (Variant) mReturnedByInvocation;
             } else {
-                mVariantToBeReturned = (Variant) mReturnedByInvocation;
+                return new Variant(mReturnedByInvocation);
             }
         } catch (SecurityException e) {
             // what causes this exception?
@@ -108,7 +107,7 @@ public class ActiveXInvocationProxy extends InvocationProxy {
             // invocation of target method failed
             e.printStackTrace();
         }
-        return mVariantToBeReturned;
+        return null;
     }
 
     /**

@@ -58,7 +58,6 @@ public class InvocationProxyAllVariants extends InvocationProxy {
         if (targetParameters == null) {
             throw new IllegalArgumentException("InvocationProxy: missing Variant parameters");
         }
-        Variant mVariantToBeReturned = null;
         try {
             if (JacobObject.isDebugEnabled()) {
                 JacobObject.debug("InvocationProxy: trying to invoke " + methodName + " on " + mTargetObject);
@@ -70,14 +69,14 @@ public class InvocationProxyAllVariants extends InvocationProxy {
             // but that should be stopped by the security manager
             Object mReturnedByInvocation = targetMethod.invoke(mTargetObject, new Object[] {targetParameters});
             if (mReturnedByInvocation == null) {
-                mVariantToBeReturned = null;
-            } else if (!(mReturnedByInvocation instanceof Variant)) {
+                return null;
+            } else if (mReturnedByInvocation instanceof Variant) {
+                return (Variant) mReturnedByInvocation;
+            } else {
                 // could try and convert to Variant here.
                 throw new IllegalArgumentException(
-                    "InvocationProxy: invokation of target method returned " + "non-null non-variant object: " + mReturnedByInvocation
+                    "InvocationProxy: invokation of target method returned non-null non-variant object: " + mReturnedByInvocation
                 );
-            } else {
-                mVariantToBeReturned = (Variant) mReturnedByInvocation;
             }
         } catch (SecurityException e) {
             // what causes this exception?
@@ -102,6 +101,6 @@ public class InvocationProxyAllVariants extends InvocationProxy {
             // invocation of target method failed
             e.printStackTrace();
         }
-        return mVariantToBeReturned;
+        return null;
     }
 }
