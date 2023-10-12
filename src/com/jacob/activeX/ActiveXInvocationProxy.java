@@ -60,7 +60,6 @@ public class ActiveXInvocationProxy extends InvocationProxy {
      *      com.jacob.com.Variant[])
      */
     public Variant invoke(String methodName, Variant[] targetParameters) {
-        Variant mVariantToBeReturned = null;
         if (mTargetObject == null) {
             // structured programming guidlines say this return should not be up
             // here
@@ -73,20 +72,23 @@ public class ActiveXInvocationProxy extends InvocationProxy {
         if (targetParameters == null) {
             throw new IllegalArgumentException("InvocationProxy: missing Variant parameters");
         }
+        Variant mVariantToBeReturned = null;
         try {
-            Method targetMethod;
             Object[] parametersAsJavaObjects = getParametersAsJavaObjects(targetParameters);
             Class<?>[] parametersAsJavaClasses = getParametersAsJavaClasses(parametersAsJavaObjects);
-            targetMethod = targetClass.getMethod(methodName,
-                    parametersAsJavaClasses);
+            Method targetMethod = targetClass.getMethod(
+                methodName,
+                parametersAsJavaClasses
+            );
             if (targetMethod != null) {
                 // protected classes can't be invoked against even if they
                 // let you grab the method. you could do
                 // targetMethod.setAccessible(true);
                 // but that should be stopped by the security manager
-                Object mReturnedByInvocation = null;
-                mReturnedByInvocation = targetMethod.invoke(mTargetObject,
-                        parametersAsJavaObjects);
+                Object mReturnedByInvocation = targetMethod.invoke(
+                    mTargetObject,
+                    parametersAsJavaObjects
+                );
                 if (mReturnedByInvocation == null) {
                     mVariantToBeReturned = null;
                 } else if (!(mReturnedByInvocation instanceof Variant)) {

@@ -242,7 +242,6 @@ public final class VariantUtilities {
 
         if ((type & Variant.VariantArray) == Variant.VariantArray) { // array
             // returned?
-            SafeArray array = null;
             type = (short) (type - Variant.VariantArray);
             // From SF Bug 1840487
             // This did call toSafeArray(false) but that meant
@@ -250,7 +249,7 @@ public final class VariantUtilities {
             // copy of the data so you would end up with weird run time
             // errors after some GC. So now we just get stupid about it and
             // always make a copy just like toSafeArray() does.
-            array = sourceData.toSafeArray();
+            SafeArray array = sourceData.toSafeArray();
             result = array;
         } else { // non-array object returned
             switch (type) {
@@ -436,12 +435,10 @@ public final class VariantUtilities {
     public static BigDecimal roundToMSDecimal(BigDecimal sourceDecimal) {
         BigInteger sourceDecimalIntComponent = sourceDecimal.unscaledValue();
         BigDecimal destinationDecimal = new BigDecimal(sourceDecimalIntComponent, sourceDecimal.scale());
-        RoundingMode roundingModel = RoundingMode.HALF_UP;
         validateDecimalMinMax(destinationDecimal);
         // First limit the number of digits and then the precision.
         // Try and round to 29 digits because we can sometimes do that
-        BigInteger allWordBigInt;
-        allWordBigInt = destinationDecimal.unscaledValue();
+        BigInteger allWordBigInt = destinationDecimal.unscaledValue();
         if (allWordBigInt.bitLength() > 96) {
             destinationDecimal = destinationDecimal.round(new MathContext(29));
             // see if 29 digits uses more than 96 bits
@@ -453,6 +450,7 @@ public final class VariantUtilities {
         }
         // the bit manipulations above may change the scale so do it afterwards
         // round the scale to the max MS can support
+        RoundingMode roundingModel = RoundingMode.HALF_UP;
         if (destinationDecimal.scale() > 28) {
             destinationDecimal = destinationDecimal.setScale(28, roundingModel);
         }

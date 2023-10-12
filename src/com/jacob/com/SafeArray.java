@@ -1016,9 +1016,9 @@ public class SafeArray extends JacobObject {
      * @throws IllegalStateException if array is not of the requested type
      */
     public Date getJavaDate(int sa_idx1) {
-        Date returnDate = null;
         if (this.getvt() == Variant.VariantDate) {
             double windowsDate = this.getDate(sa_idx1);
+            Date returnDate = null;
             if (windowsDate != 0.0D) {
                 returnDate = DateUtilities.convertWindowsTimeToDate(windowsDate);
             }

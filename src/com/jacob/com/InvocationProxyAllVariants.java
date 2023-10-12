@@ -43,7 +43,6 @@ public class InvocationProxyAllVariants extends InvocationProxy {
      *      com.jacob.com.Variant[])
      */
     public Variant invoke(String methodName, Variant[] targetParameters) {
-        Variant mVariantToBeReturned = null;
         if (mTargetObject == null) {
             if (JacobObject.isDebugEnabled()) {
                 JacobObject.debug("InvocationProxy: received notification (" + methodName + ") with no target set");
@@ -59,6 +58,7 @@ public class InvocationProxyAllVariants extends InvocationProxy {
         if (targetParameters == null) {
             throw new IllegalArgumentException("InvocationProxy: missing Variant parameters");
         }
+        Variant mVariantToBeReturned = null;
         try {
             if (JacobObject.isDebugEnabled()) {
                 JacobObject.debug("InvocationProxy: trying to invoke " + methodName + " on " + mTargetObject);
@@ -69,9 +69,10 @@ public class InvocationProxyAllVariants extends InvocationProxy {
                 // let you grab the method. you could do
                 // targetMethod.setAccessible(true);
                 // but that should be stopped by the security manager
-                Object mReturnedByInvocation = null;
-                mReturnedByInvocation = targetMethod.invoke(mTargetObject,
-                        new Object[] { targetParameters });
+                Object mReturnedByInvocation = targetMethod.invoke(
+                    mTargetObject,
+                    new Object[] {targetParameters}
+                );
                 if (mReturnedByInvocation == null) {
                     mVariantToBeReturned = null;
                 } else if (!(mReturnedByInvocation instanceof Variant)) {

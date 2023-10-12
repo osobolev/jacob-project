@@ -1182,8 +1182,7 @@ public class Variant extends JacobObject {
         getvt();
         // first validate the min and max
         VariantUtilities.validateDecimalMinMax(in);
-        BigInteger allWordBigInt;
-        allWordBigInt = in.unscaledValue();
+        BigInteger allWordBigInt = in.unscaledValue();
         // Assume any required rounding has been done.
         VariantUtilities.validateDecimalScaleAndBits(in);
         // finally we can do what we actually came here to do

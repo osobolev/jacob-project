@@ -38,7 +38,6 @@ public class JacobReleaseInfo {
      * @throws IllegalStateException when it can't find the version properties file
      */
     private static void loadVersionProperties() {
-        Properties versionProps = new Properties();
         // can't use system class loader cause won't work in JavaWebStart
         InputStream stream = JacobReleaseInfo.class.getClassLoader().getResourceAsStream(PROPERTY_FILE_NAME);
         // This should never happen. This is an attempt to make something work
@@ -53,6 +52,7 @@ public class JacobReleaseInfo {
             throw new IllegalStateException("Can't find " + PROPERTY_FILE_NAME + " using JacobReleaseInfo.class.getClassLoader().getResourceAsStream()");
         } else {
             try {
+                Properties versionProps = new Properties();
                 versionProps.load(stream);
                 stream.close();
                 buildVersion = (String) versionProps.get("version");

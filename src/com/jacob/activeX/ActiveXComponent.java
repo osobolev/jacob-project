@@ -294,8 +294,8 @@ public class ActiveXComponent extends Dispatch {
      * @param args        args passed in (variants)
      */
     public void logCallbackEvent(String description, Variant[] args) {
-        String argString = "";
         if (args != null && shouldLogEvents) {
+            String argString = "";
             if (args.length > 0) {
                 argString += " args: ";
             }
