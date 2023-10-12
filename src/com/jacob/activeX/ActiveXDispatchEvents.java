@@ -59,7 +59,7 @@ public class ActiveXDispatchEvents extends DispatchEvents {
      * @param progId        ???
      */
     public ActiveXDispatchEvents(Dispatch sourceOfEvent, Object eventSink,
-            String progId) {
+                                 String progId) {
         super(sourceOfEvent, eventSink, progId, null);
     }
 
@@ -80,7 +80,7 @@ public class ActiveXDispatchEvents extends DispatchEvents {
      * @param typeLib The location of the typelib to use
      */
     public ActiveXDispatchEvents(Dispatch sourceOfEvent, Object eventSink,
-            String progId, String typeLib) {
+                                 String progId, String typeLib) {
         super(sourceOfEvent, eventSink, progId, typeLib);
     }
 

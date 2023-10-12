@@ -306,7 +306,7 @@ public class Dispatch extends JacobObject {
      * @throws com.jacob.com.NotImplementedException
      */
     public static void put_Casesensitive(Dispatch dispatchTarget, String name,
-            Object val) {
+                                         Object val) {
         throw new NotImplementedException("not implemented yet");
     }
 
@@ -316,6 +316,7 @@ public class Dispatch extends JacobObject {
      * ===========================================================
      */
     // eliminate _Guid arg
+
     /**
      * @param dispatchTarget
      * @param name
@@ -326,7 +327,7 @@ public class Dispatch extends JacobObject {
      * @param uArgErr
      */
     public static void invokeSubv(Dispatch dispatchTarget, String name,
-            int dispID, int lcid, int wFlags, Variant[] vArg, int[] uArgErr) {
+                                  int dispID, int lcid, int wFlags, Variant[] vArg, int[] uArgErr) {
         throwIfUnattachedDispatch(dispatchTarget);
         invokev(dispatchTarget, name, dispID, lcid, wFlags, vArg, uArgErr);
     }
@@ -339,7 +340,7 @@ public class Dispatch extends JacobObject {
      * @param uArgErr
      */
     public static void invokeSubv(Dispatch dispatchTarget, String name,
-            int wFlags, Variant[] vArg, int[] uArgErr) {
+                                  int wFlags, Variant[] vArg, int[] uArgErr) {
         throwIfUnattachedDispatch(dispatchTarget);
         invokev(dispatchTarget, name, 0, Dispatch.LOCALE_SYSTEM_DEFAULT,
                 wFlags, vArg, uArgErr);
@@ -353,7 +354,7 @@ public class Dispatch extends JacobObject {
      * @param uArgErr
      */
     public static void invokeSubv(Dispatch dispatchTarget, int dispID,
-            int wFlags, Variant[] vArg, int[] uArgErr) {
+                                  int wFlags, Variant[] vArg, int[] uArgErr) {
         throwIfUnattachedDispatch(dispatchTarget);
         invokev(dispatchTarget, null, dispID, Dispatch.LOCALE_SYSTEM_DEFAULT,
                 wFlags, vArg, uArgErr);
@@ -369,7 +370,7 @@ public class Dispatch extends JacobObject {
      * @throws com.jacob.com.NotImplementedException
      */
     public static Variant callN_CaseSensitive(Dispatch dispatchTarget,
-            String name, Object[] values) {
+                                              String name, Object[] values) {
         throw new NotImplementedException("not implemented yet");
     }
 
@@ -379,7 +380,7 @@ public class Dispatch extends JacobObject {
      * @param args           an array of argument objects
      */
     public static void callSubN(Dispatch dispatchTarget, String name,
-            Object... args) {
+                                Object... args) {
         throwIfUnattachedDispatch(dispatchTarget);
         invokeSubv(dispatchTarget, name, Dispatch.Method | Dispatch.Get,
                 VariantUtilities.objectsToVariants(args), new int[args.length]);
@@ -391,7 +392,7 @@ public class Dispatch extends JacobObject {
      * @param args           an array of argument objects
      */
     public static void callSubN(Dispatch dispatchTarget, int dispID,
-            Object... args) {
+                                Object... args) {
         throwIfUnattachedDispatch(dispatchTarget);
         invokeSubv(dispatchTarget, dispID, Dispatch.Method | Dispatch.Get,
                 VariantUtilities.objectsToVariants(args), new int[args.length]);
@@ -402,6 +403,7 @@ public class Dispatch extends JacobObject {
      * getIdsOfNames section
      * ===========================================================
      */
+
     /**
      * @param dispatchTarget
      * @param name
@@ -421,7 +423,7 @@ public class Dispatch extends JacobObject {
      */
     // eliminated _Guid argument
     public static native int[] getIDsOfNames(Dispatch dispatchTarget, int lcid,
-            String[] names);
+                                             String[] names);
 
     /**
      * @param dispatchTarget
@@ -439,6 +441,7 @@ public class Dispatch extends JacobObject {
      * invokev section
      * ===========================================================
      */
+
     /**
      * @param dispatchTarget
      * @param name
@@ -446,7 +449,7 @@ public class Dispatch extends JacobObject {
      * @return Variant returned by call
      */
     public static Variant callN(Dispatch dispatchTarget, String name,
-            Object... args) {
+                                Object... args) {
         throwIfUnattachedDispatch(dispatchTarget);
         return invokev(dispatchTarget, name, Dispatch.Method | Dispatch.Get,
                 VariantUtilities.objectsToVariants(args), new int[args.length]);
@@ -459,7 +462,7 @@ public class Dispatch extends JacobObject {
      * @return Variant returned by call
      */
     public static Variant callN(Dispatch dispatchTarget, int dispID,
-            Object... args) {
+                                Object... args) {
         throwIfUnattachedDispatch(dispatchTarget);
         return invokev(dispatchTarget, dispID, Dispatch.Method | Dispatch.Get,
                 VariantUtilities.objectsToVariants(args), new int[args.length]);
@@ -476,7 +479,7 @@ public class Dispatch extends JacobObject {
      * @return Variant returned by invoke
      */
     public static Variant invoke(Dispatch dispatchTarget, String name,
-            int dispID, int lcid, int wFlags, Object[] oArg, int[] uArgErr) {
+                                 int dispID, int lcid, int wFlags, Object[] oArg, int[] uArgErr) {
         throwIfUnattachedDispatch(dispatchTarget);
         return invokev(dispatchTarget, name, dispID, lcid, wFlags,
                 VariantUtilities.objectsToVariants(oArg), uArgErr);
@@ -491,7 +494,7 @@ public class Dispatch extends JacobObject {
      * @return Variant returned by invoke
      */
     public static Variant invoke(Dispatch dispatchTarget, String name,
-            int wFlags, Object[] oArg, int[] uArgErr) {
+                                 int wFlags, Object[] oArg, int[] uArgErr) {
         throwIfUnattachedDispatch(dispatchTarget);
         return invokev(dispatchTarget, name, wFlags, VariantUtilities
                 .objectsToVariants(oArg), uArgErr);
@@ -506,7 +509,7 @@ public class Dispatch extends JacobObject {
      * @return Variant returned by invoke
      */
     public static Variant invoke(Dispatch dispatchTarget, int dispID,
-            int wFlags, Object[] oArg, int[] uArgErr) {
+                                 int wFlags, Object[] oArg, int[] uArgErr) {
         throwIfUnattachedDispatch(dispatchTarget);
         return invokev(dispatchTarget, dispID, wFlags, VariantUtilities
                 .objectsToVariants(oArg), uArgErr);
@@ -534,7 +537,7 @@ public class Dispatch extends JacobObject {
      * @return Variant returned by underlying callN
      */
     public static Variant call(Dispatch dispatchTarget, String name,
-            Object... attributes) {
+                               Object... attributes) {
         throwIfUnattachedDispatch(dispatchTarget);
         return callN(dispatchTarget, name, attributes);
     }
@@ -557,7 +560,7 @@ public class Dispatch extends JacobObject {
      * @return Variant returned by underlying callN
      */
     public static Variant call(Dispatch dispatchTarget, int dispid,
-            Object... attributes) {
+                               Object... attributes) {
         throwIfUnattachedDispatch(dispatchTarget);
         return callN(dispatchTarget, dispid, attributes);
     }
@@ -567,6 +570,7 @@ public class Dispatch extends JacobObject {
      * invoke section
      * ===========================================================
      */
+
     /**
      * @param dispatchTarget
      * @param name
@@ -595,6 +599,7 @@ public class Dispatch extends JacobObject {
      * ===========================================================
      */
     // removed _Guid argument
+
     /**
      * @param dispatchTarget
      * @param name
@@ -606,7 +611,7 @@ public class Dispatch extends JacobObject {
      * @return Variant returned by underlying invokev
      */
     public static native Variant invokev(Dispatch dispatchTarget, String name,
-            int dispID, int lcid, int wFlags, Variant[] vArg, int[] uArgErr);
+                                         int dispID, int lcid, int wFlags, Variant[] vArg, int[] uArgErr);
 
     /**
      * @param dispatchTarget
@@ -617,7 +622,7 @@ public class Dispatch extends JacobObject {
      * @return Variant returned by underlying invokev
      */
     public static Variant invokev(Dispatch dispatchTarget, String name,
-            int wFlags, Variant[] vArg, int[] uArgErr) {
+                                  int wFlags, Variant[] vArg, int[] uArgErr) {
         throwIfUnattachedDispatch(dispatchTarget);
         return invokev(dispatchTarget, name, 0, Dispatch.LOCALE_SYSTEM_DEFAULT,
                 wFlags, vArg, uArgErr);
@@ -633,7 +638,7 @@ public class Dispatch extends JacobObject {
      * @return Variant returned by underlying invokev
      */
     public static Variant invokev(Dispatch dispatchTarget, String name,
-            int wFlags, Variant[] vArg, int[] uArgErr, int wFlagsEx) {
+                                  int wFlags, Variant[] vArg, int[] uArgErr, int wFlagsEx) {
         throwIfUnattachedDispatch(dispatchTarget);
         // do not implement IDispatchEx for now
         return invokev(dispatchTarget, name, 0, Dispatch.LOCALE_SYSTEM_DEFAULT,
@@ -649,7 +654,7 @@ public class Dispatch extends JacobObject {
      * @return Variant returned by underlying invokev
      */
     public static Variant invokev(Dispatch dispatchTarget, int dispID,
-            int wFlags, Variant[] vArg, int[] uArgErr) {
+                                  int wFlags, Variant[] vArg, int[] uArgErr) {
         throwIfUnattachedDispatch(dispatchTarget);
         return invokev(dispatchTarget, null, dispID,
                 Dispatch.LOCALE_SYSTEM_DEFAULT, wFlags, vArg, uArgErr);
@@ -662,6 +667,7 @@ public class Dispatch extends JacobObject {
      */
 
     // removed _Guid argument
+
     /**
      * @param dispatchTarget
      * @param name
@@ -672,7 +678,7 @@ public class Dispatch extends JacobObject {
      * @param uArgErr
      */
     public static void invokeSub(Dispatch dispatchTarget, String name,
-            int dispid, int lcid, int wFlags, Object[] oArg, int[] uArgErr) {
+                                 int dispid, int lcid, int wFlags, Object[] oArg, int[] uArgErr) {
         throwIfUnattachedDispatch(dispatchTarget);
         invokeSubv(dispatchTarget, name, dispid, lcid, wFlags, VariantUtilities
                 .objectsToVariants(oArg), uArgErr);
@@ -683,6 +689,7 @@ public class Dispatch extends JacobObject {
      * invokeSub section
      * ===========================================================
      */
+
     /**
      * @param dispatchTarget
      * @param name
@@ -691,7 +698,7 @@ public class Dispatch extends JacobObject {
      * @param uArgErr
      */
     public static void invokeSub(Dispatch dispatchTarget, String name,
-            int wFlags, Object[] oArg, int[] uArgErr) {
+                                 int wFlags, Object[] oArg, int[] uArgErr) {
         throwIfUnattachedDispatch(dispatchTarget);
         invokeSub(dispatchTarget, name, 0, Dispatch.LOCALE_SYSTEM_DEFAULT,
                 wFlags, oArg, uArgErr);
@@ -705,7 +712,7 @@ public class Dispatch extends JacobObject {
      * @param uArgErr
      */
     public static void invokeSub(Dispatch dispatchTarget, int dispid,
-            int wFlags, Object[] oArg, int[] uArgErr) {
+                                 int wFlags, Object[] oArg, int[] uArgErr) {
         throwIfUnattachedDispatch(dispatchTarget);
         invokeSub(dispatchTarget, null, dispid, Dispatch.LOCALE_SYSTEM_DEFAULT,
                 wFlags, oArg, uArgErr);
@@ -716,6 +723,7 @@ public class Dispatch extends JacobObject {
      * callSubN section
      * ===========================================================
      */
+
     /**
      * makes call to native callSubN
      * 
@@ -736,7 +744,7 @@ public class Dispatch extends JacobObject {
      *                       functions
      */
     public static void callSub(Dispatch dispatchTarget, String name,
-            Object... attributes) {
+                               Object... attributes) {
         throwIfUnattachedDispatch(dispatchTarget);
         callSubN(dispatchTarget, name, attributes);
     }
@@ -761,7 +769,7 @@ public class Dispatch extends JacobObject {
      *                       function
      */
     public static void callSub(Dispatch dispatchTarget, int dispid,
-            Object... attributes) {
+                               Object... attributes) {
         throwIfUnattachedDispatch(dispatchTarget);
         callSubN(dispatchTarget, dispid, attributes);
     }
@@ -771,6 +779,7 @@ public class Dispatch extends JacobObject {
      * invokev section
      * ===========================================================
      */
+
     /**
      * Cover for call to underlying invokev()
      * 
@@ -802,6 +811,7 @@ public class Dispatch extends JacobObject {
      * invoke section
      * ===========================================================
      */
+
     /**
      * cover for underlying call to invoke
      *

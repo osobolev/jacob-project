@@ -55,7 +55,7 @@ public class ComFailException extends ComException {
      * @param helpContext
      */
     public ComFailException(int hrNew, String source, String helpFile,
-            int helpContext) {
+                            int helpContext) {
         super(hrNew, source, helpFile, helpContext);
     }
 
@@ -69,7 +69,7 @@ public class ComFailException extends ComException {
      * @param helpContext
      */
     public ComFailException(int hrNew, String description, String source,
-            String helpFile, int helpContext) {
+                            String helpFile, int helpContext) {
         super(hrNew, description, source, helpFile, helpContext);
     }
 

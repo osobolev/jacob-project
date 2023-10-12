@@ -89,7 +89,7 @@ public class DispatchEvents extends JacobObject {
      *                      key to the Typelib
      */
     public DispatchEvents(Dispatch sourceOfEvent, Object eventSink,
-            String progId) {
+                          String progId) {
         this(sourceOfEvent, eventSink, progId, null);
     }
 
@@ -114,7 +114,7 @@ public class DispatchEvents extends JacobObject {
      * @param typeLib       The location of the typelib to use
      */
     public DispatchEvents(Dispatch sourceOfEvent, Object eventSink,
-            String progId, String typeLib) {
+                          String progId, String typeLib) {
         if (JacobObject.isDebugEnabled()) {
             System.out.println("DispatchEvents: Registering " + eventSink
                     + "for events ");
@@ -161,7 +161,7 @@ public class DispatchEvents extends JacobObject {
      *                their type libs (like Excel)
      */
     private native void init3(Dispatch src, Object sink, String progId,
-            String typeLib);
+                              String typeLib);
 
     /**
      * now private so only this object can asccess was: call this to explicitly

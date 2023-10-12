@@ -370,7 +370,7 @@ public class ActiveXComponent extends Dispatch {
      * @return ActiveXComponent representing the results of the call
      */
     public ActiveXComponent invokeGetComponent(String callAction,
-            Variant... parameters) {
+                                               Variant... parameters) {
         return new ActiveXComponent(invoke(callAction, parameters).toDispatch());
     }
 
@@ -418,7 +418,7 @@ public class ActiveXComponent extends Dispatch {
      * @return Variant result
      */
     public Variant invoke(String actionCommand, String parameter1,
-            int parameter2) {
+                          int parameter2) {
         return Dispatch.call(this, actionCommand, parameter1, new Variant(parameter2));
     }
 

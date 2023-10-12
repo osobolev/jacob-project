@@ -28,7 +28,7 @@ public final class VariantUtilities {
      * @param fByRef
      */
     protected static void populateVariant(Variant targetVariant,
-            Object pValueObject, boolean fByRef) {
+                                          Object pValueObject, boolean fByRef) {
         if (pValueObject == null) {
             targetVariant.putEmpty();
         } else if (pValueObject instanceof Integer) {

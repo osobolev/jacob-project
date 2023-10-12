@@ -1632,8 +1632,7 @@ public class Variant extends JacobObject {
      * @param mid    middle 32 bits
      * @param hi     high 32 bits
      */
-    private native void putVariantDec(int signum, byte scale, int lo, int mid,
-            int hi);
+    private native void putVariantDec(int signum, byte scale, int lo, int mid, int hi);
 
     /**
      * private JNI method called by putDecimalRef
@@ -1644,8 +1643,7 @@ public class Variant extends JacobObject {
      * @param mid    middle 32 bits
      * @param hi     high 32 bits
      */
-    private native void putVariantDecRef(int signum, byte scale, int lo,
-            int mid, int hi);
+    private native void putVariantDecRef(int signum, byte scale, int lo, int mid, int hi);
 
     /**
      * the JNI implementation for putDispatch() so that we can screen the
