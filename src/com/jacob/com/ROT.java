@@ -88,8 +88,7 @@ public abstract class ROT {
         Map<JacobObject, String> tab = rot.get();
         if (tab == null) {
             if (JacobObject.isDebugEnabled()) {
-                JacobObject.debug("ROT: Automatic GC flag == "
-                        + USE_AUTOMATIC_GARBAGE_COLLECTION);
+                JacobObject.debug("ROT: Automatic GC flag == " + USE_AUTOMATIC_GARBAGE_COLLECTION);
             }
             if (!USE_AUTOMATIC_GARBAGE_COLLECTION) {
                 tab = new HashMap<>();
@@ -128,8 +127,7 @@ public abstract class ROT {
         Map<JacobObject, String> tab = getThreadObjects(false);
         if (tab != null) {
             if (JacobObject.isDebugEnabled()) {
-                JacobObject.debug("ROT: " + tab.keySet().size()
-                        + " objects to clear in this thread's ROT ");
+                JacobObject.debug("ROT: " + tab.keySet().size() + " objects to clear in this thread's ROT ");
             }
             // walk the values
             for (JacobObject o : tab.keySet()) {
@@ -145,12 +143,10 @@ public abstract class ROT {
                             // toString()
                             // which causes a concurrent modification exception
                             // in HashMap
-                            JacobObject.debug("ROT: removing "
-                                    + o.getClass().getName());
+                            JacobObject.debug("ROT: removing " + o.getClass().getName());
                         } else {
                             // Variant toString() is probably always bad in here
-                            JacobObject.debug("ROT: removing " + o.hashCode()
-                                    + "->" + o.getClass().getName());
+                            JacobObject.debug("ROT: removing " + o.hashCode() + "->" + o.getClass().getName());
                         }
                     }
                     o.safeRelease();
@@ -225,8 +221,7 @@ public abstract class ROT {
         }
         if (shouldIncludeClassInROT.equalsIgnoreCase("false")) {
             if (JacobObject.isDebugEnabled()) {
-                JacobObject.debug("JacobObject: New instance of "
-                        + o.getClass().getName() + " not added to ROT");
+                JacobObject.debug("JacobObject: New instance of " + o.getClass().getName() + " not added to ROT");
             }
         } else {
             // first see if we have a table for this thread
@@ -240,9 +235,7 @@ public abstract class ROT {
                 tab = getThreadObjects(true);
             }
             if (JacobObject.isDebugEnabled()) {
-                JacobObject.debug("ROT: adding " + o + "->"
-                        + o.getClass().getName()
-                        + " table size prior to addition:" + tab.size());
+                JacobObject.debug("ROT: adding " + o + "->" + o.getClass().getName() + " table size prior to addition:" + tab.size());
             }
             // add the object to the table that is specific to this thread
             if (tab != null) {

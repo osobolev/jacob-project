@@ -260,8 +260,7 @@ public class Dispatch extends JacobObject {
         } else {
             // looks like a double release
             if (isDebugEnabled()) {
-                debug(this.getClass().getName() + ":" + this.hashCode()
-                        + " double release");
+                debug(this.getClass().getName() + ":" + this.hashCode() + " double release");
             }
         }
     }

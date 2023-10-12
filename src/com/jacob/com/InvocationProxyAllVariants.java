@@ -62,8 +62,7 @@ public class InvocationProxyAllVariants extends InvocationProxy {
         }
         try {
             if (JacobObject.isDebugEnabled()) {
-                JacobObject.debug("InvocationProxy: trying to invoke "
-                        + methodName + " on " + mTargetObject);
+                JacobObject.debug("InvocationProxy: trying to invoke " + methodName + " on " + mTargetObject);
             }
             Method targetMethod;
             targetMethod = targetClass.getMethod(methodName,
@@ -94,8 +93,7 @@ public class InvocationProxyAllVariants extends InvocationProxy {
             // this happens whenever the listener doesn't implement all the
             // methods
             if (JacobObject.isDebugEnabled()) {
-                JacobObject.debug("InvocationProxy: listener (" + mTargetObject
-                        + ") doesn't implement " + methodName);
+                JacobObject.debug("InvocationProxy: listener (" + mTargetObject + ") doesn't implement " + methodName);
             }
         } catch (IllegalArgumentException e) {
             e.printStackTrace();

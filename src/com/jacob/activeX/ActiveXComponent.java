@@ -107,8 +107,7 @@ public class ActiveXComponent extends Dispatch {
         } catch (Exception e) {
             mCreatedDispatch = null;
             if (JacobObject.isDebugEnabled()) {
-                JacobObject.debug("Unable to co-create instance of "
-                        + pRequestedProgramId);
+                JacobObject.debug("Unable to co-create instance of " + pRequestedProgramId);
             }
         }
         return mCreatedDispatch;
@@ -137,8 +136,7 @@ public class ActiveXComponent extends Dispatch {
         } catch (Exception e) {
             mCreatedDispatch = null;
             if (JacobObject.isDebugEnabled()) {
-                JacobObject.debug("Unable to attach to running instance of "
-                        + pRequestedProgramId);
+                JacobObject.debug("Unable to attach to running instance of " + pRequestedProgramId);
             }
         }
         return mCreatedDispatch;

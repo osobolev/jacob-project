@@ -85,8 +85,7 @@ public abstract class InvocationProxy {
      */
     public void setTarget(Object pTargetObject) {
         if (JacobObject.isDebugEnabled()) {
-            JacobObject.debug("InvocationProxy: setting target "
-                    + pTargetObject);
+            JacobObject.debug("InvocationProxy: setting target " + pTargetObject);
         }
         if (pTargetObject != null) {
             // JNI code apparently bypasses this check and could operate against

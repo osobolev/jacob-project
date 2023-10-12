@@ -1797,8 +1797,7 @@ public class Variant extends JacobObject {
             }
         } else {
             if (isDebugEnabled()) {
-                debug("Variant: " + this.hashCode()
-                        + " don't want to release a constant");
+                debug("Variant: " + this.hashCode() + " don't want to release a constant");
             }
         }
     }
