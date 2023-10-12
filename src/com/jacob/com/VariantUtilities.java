@@ -410,11 +410,11 @@ public final class VariantUtilities {
             throw new IllegalArgumentException("null is not a supported Decimal value.");
         } else if (LARGEST_DECIMAL.compareTo(in) < 0) {
             throw new IllegalArgumentException(
-                "Value too large for VT_DECIMAL data type:" + in.toString() + " integer: " + in.toBigInteger().toString(16) + " scale: " + in.scale()
+                "Value too large for VT_DECIMAL data type:" + in + " integer: " + in.toBigInteger().toString(16) + " scale: " + in.scale()
             );
         } else if (SMALLEST_DECIMAL.compareTo(in) > 0) {
             throw new IllegalArgumentException(
-                "Value too small for VT_DECIMAL data type:" + in.toString() + " integer: " + in.toBigInteger().toString(16) + " scale: " + in.scale()
+                "Value too small for VT_DECIMAL data type:" + in + " integer: " + in.toBigInteger().toString(16) + " scale: " + in.scale()
             );
         }
     }
