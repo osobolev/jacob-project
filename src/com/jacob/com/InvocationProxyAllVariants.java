@@ -64,25 +64,23 @@ public class InvocationProxyAllVariants extends InvocationProxy {
                 JacobObject.debug("InvocationProxy: trying to invoke " + methodName + " on " + mTargetObject);
             }
             Method targetMethod = targetClass.getMethod(methodName, Variant[].class);
-            if (targetMethod != null) {
-                // protected classes can't be invoked against even if they
-                // let you grab the method. you could do
-                // targetMethod.setAccessible(true);
-                // but that should be stopped by the security manager
-                Object mReturnedByInvocation = targetMethod.invoke(
-                    mTargetObject,
-                    new Object[] {targetParameters}
+            // protected classes can't be invoked against even if they
+            // let you grab the method. you could do
+            // targetMethod.setAccessible(true);
+            // but that should be stopped by the security manager
+            Object mReturnedByInvocation = targetMethod.invoke(
+                mTargetObject,
+                new Object[] {targetParameters}
+            );
+            if (mReturnedByInvocation == null) {
+                mVariantToBeReturned = null;
+            } else if (!(mReturnedByInvocation instanceof Variant)) {
+                // could try and convert to Variant here.
+                throw new IllegalArgumentException(
+                    "InvocationProxy: invokation of target method returned " + "non-null non-variant object: " + mReturnedByInvocation
                 );
-                if (mReturnedByInvocation == null) {
-                    mVariantToBeReturned = null;
-                } else if (!(mReturnedByInvocation instanceof Variant)) {
-                    // could try and convert to Variant here.
-                    throw new IllegalArgumentException(
-                        "InvocationProxy: invokation of target method returned " + "non-null non-variant object: " + mReturnedByInvocation
-                    );
-                } else {
-                    mVariantToBeReturned = (Variant) mReturnedByInvocation;
-                }
+            } else {
+                mVariantToBeReturned = (Variant) mReturnedByInvocation;
             }
         } catch (SecurityException e) {
             // what causes this exception?

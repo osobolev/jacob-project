@@ -80,22 +80,20 @@ public class ActiveXInvocationProxy extends InvocationProxy {
                 methodName,
                 parametersAsJavaClasses
             );
-            if (targetMethod != null) {
-                // protected classes can't be invoked against even if they
-                // let you grab the method. you could do
-                // targetMethod.setAccessible(true);
-                // but that should be stopped by the security manager
-                Object mReturnedByInvocation = targetMethod.invoke(
-                    mTargetObject,
-                    parametersAsJavaObjects
-                );
-                if (mReturnedByInvocation == null) {
-                    mVariantToBeReturned = null;
-                } else if (!(mReturnedByInvocation instanceof Variant)) {
-                    mVariantToBeReturned = new Variant(mReturnedByInvocation);
-                } else {
-                    mVariantToBeReturned = (Variant) mReturnedByInvocation;
-                }
+            // protected classes can't be invoked against even if they
+            // let you grab the method. you could do
+            // targetMethod.setAccessible(true);
+            // but that should be stopped by the security manager
+            Object mReturnedByInvocation = targetMethod.invoke(
+                mTargetObject,
+                parametersAsJavaObjects
+            );
+            if (mReturnedByInvocation == null) {
+                mVariantToBeReturned = null;
+            } else if (!(mReturnedByInvocation instanceof Variant)) {
+                mVariantToBeReturned = new Variant(mReturnedByInvocation);
+            } else {
+                mVariantToBeReturned = (Variant) mReturnedByInvocation;
             }
         } catch (SecurityException e) {
             // what causes this exception?
