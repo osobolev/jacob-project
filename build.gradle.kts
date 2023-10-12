@@ -6,7 +6,7 @@ import java.util.Properties
 description = "JACOB (Java-COM bridge)"
 
 plugins {
-    `base-lib`
+    `module-lib`
 }
 
 group = "io.github.osobolev"
