@@ -240,9 +240,8 @@ public final class VariantUtilities {
 
         short type = sourceData.getvt(); // variant type
 
-        if ((type & Variant.VariantArray) == Variant.VariantArray) { // array
-            // returned?
-            type = (short) (type - Variant.VariantArray);
+        if ((type & Variant.VariantArray) == Variant.VariantArray) {
+            // array returned?
             // From SF Bug 1840487
             // This did call toSafeArray(false) but that meant
             // this was the only variantToObject() that didn't have its own
