@@ -74,7 +74,6 @@ public class ActiveXComponent extends Dispatch {
      * 
      */
     private ActiveXComponent() {
-        super();
     }
 
     /**

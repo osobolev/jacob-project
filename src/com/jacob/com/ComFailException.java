@@ -77,7 +77,6 @@ public class ComFailException extends ComException {
      * No argument Constructor
      */
     public ComFailException() {
-        super();
     }
 
     /**

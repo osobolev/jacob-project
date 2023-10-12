@@ -29,6 +29,5 @@ public class VariantViaEvent extends Variant {
      * Standard constructor used by JNI event handling layer
      */
     public VariantViaEvent() {
-        super();
     }
 }

@@ -50,7 +50,6 @@ public abstract class ComException extends JacobException {
      * 
      */
     public ComException() {
-        super();
     }
 
     /**
@@ -59,7 +58,6 @@ public abstract class ComException extends JacobException {
      * @param newHr ??
      */
     public ComException(int newHr) {
-        super();
         this.hr = newHr;
     }
 
@@ -80,7 +78,6 @@ public abstract class ComException extends JacobException {
      */
     public ComException(int newHr, String source, String helpFile,
             int helpContext) {
-        super();
         this.hr = newHr;
         m_source = source;
         m_helpFile = helpFile;

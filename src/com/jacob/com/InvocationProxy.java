@@ -49,7 +49,6 @@ public abstract class InvocationProxy {
      * just want to override the invoke() method
      */
     protected InvocationProxy() {
-        super();
     }
 
     /**
