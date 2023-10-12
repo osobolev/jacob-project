@@ -76,18 +76,12 @@ public class ActiveXInvocationProxy extends InvocationProxy {
         try {
             Object[] parametersAsJavaObjects = getParametersAsJavaObjects(targetParameters);
             Class<?>[] parametersAsJavaClasses = getParametersAsJavaClasses(parametersAsJavaObjects);
-            Method targetMethod = targetClass.getMethod(
-                methodName,
-                parametersAsJavaClasses
-            );
+            Method targetMethod = targetClass.getMethod(methodName, parametersAsJavaClasses);
             // protected classes can't be invoked against even if they
             // let you grab the method. you could do
             // targetMethod.setAccessible(true);
             // but that should be stopped by the security manager
-            Object mReturnedByInvocation = targetMethod.invoke(
-                mTargetObject,
-                parametersAsJavaObjects
-            );
+            Object mReturnedByInvocation = targetMethod.invoke(mTargetObject, parametersAsJavaObjects);
             if (mReturnedByInvocation == null) {
                 mVariantToBeReturned = null;
             } else if (!(mReturnedByInvocation instanceof Variant)) {

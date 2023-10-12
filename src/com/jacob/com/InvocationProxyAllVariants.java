@@ -68,10 +68,7 @@ public class InvocationProxyAllVariants extends InvocationProxy {
             // let you grab the method. you could do
             // targetMethod.setAccessible(true);
             // but that should be stopped by the security manager
-            Object mReturnedByInvocation = targetMethod.invoke(
-                mTargetObject,
-                new Object[] {targetParameters}
-            );
+            Object mReturnedByInvocation = targetMethod.invoke(mTargetObject, new Object[] {targetParameters});
             if (mReturnedByInvocation == null) {
                 mVariantToBeReturned = null;
             } else if (!(mReturnedByInvocation instanceof Variant)) {
