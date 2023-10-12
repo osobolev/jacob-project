@@ -20,6 +20,7 @@
 package com.jacob.activeX;
 
 import com.jacob.com.InvocationProxy;
+import com.jacob.com.JacobException;
 import com.jacob.com.NotImplementedException;
 import com.jacob.com.Variant;
 
@@ -93,7 +94,7 @@ public class ActiveXInvocationProxy extends InvocationProxy {
             // methods
         } catch (IllegalAccessException e) {
             // can't access the method on the target instance for some reason
-            e.printStackTrace();
+            throw new JacobException(e);
         } catch (InvocationTargetException e) {
             // invocation of target method failed
             e.printStackTrace();

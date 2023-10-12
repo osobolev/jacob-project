@@ -46,4 +46,8 @@ public class JacobException extends RuntimeException {
     public JacobException(String message) {
         super(message);
     }
+
+    public JacobException(Throwable cause) {
+        super(cause);
+    }
 }

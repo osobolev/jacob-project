@@ -83,10 +83,7 @@ public class InvocationProxyAllVariants extends InvocationProxy {
             }
         } catch (IllegalAccessException e) {
             // can't access the method on the target instance for some reason
-            if (JacobObject.isDebugEnabled()) {
-                JacobObject.debug("InvocationProxy: probably tried to access public method on non public class" + methodName);
-            }
-            e.printStackTrace();
+            throw new JacobException(e);
         } catch (InvocationTargetException e) {
             // invocation of target method failed
             e.printStackTrace();
