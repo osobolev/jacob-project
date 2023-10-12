@@ -1173,14 +1173,9 @@ public class Variant extends JacobObject {
     /**
      * This actual does all the validating and massaging of the BigDecimalValues
      * when converting them to MS Decimal types
-     * 
-     * @param in
-     *            number to be made into VT_DECIMAL
-     * @param byRef
-     *            store by reference or not
-     * @param roundingBehavior
-     *            one of the BigDecimal ROUND_xxx methods. Any method other than
-     *            ROUND_UNECESSARY means that the value will be rounded to fit
+     *
+     * @param in    number to be made into VT_DECIMAL
+     * @param byRef store by reference or not
      */
     private void putDecimal(BigDecimal in, boolean byRef) {
         // verify we aren't released
@@ -1742,9 +1737,9 @@ public class Variant extends JacobObject {
 
     /**
      * All VariantVariant type variants are BYREF.
-     * 
+     * <p>
      * Set the content of this variant to a string (VT_VARIANT|VT_BYREF).
-     * 
+     * <p>
      * Added 1.12 pre 6 - VT_VARIANT support is at an alpha level
      *
      * @param in variant to be wrapped

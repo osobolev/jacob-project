@@ -54,7 +54,7 @@ public abstract class ROT {
      * Plugin does not give full permissions to the code and thus System
      * properties cannot be accessed. They can be accessed at class
      * initialization time.
-     * 
+     * <p>
      * The default behavior is to include all classes in the ROT, setting a
      * boolean here to indicate this prevents a call to System.getProperty as
      * part of the general call flow.

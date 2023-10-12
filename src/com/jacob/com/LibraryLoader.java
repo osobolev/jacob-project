@@ -29,12 +29,11 @@ import java.util.Set;
 /**
  * Utility class to centralize the way in which the jacob JNI library is loaded.
  * <p>
- * 
  * This supports defining the path or library name using system properties or a
  * custom resource file. If desired, jacob can auto-detect the correct version
  * of the DLL for 32 or 64 bit windows, as long as you have named them
  * differently.
- * 
+ *
  * <ol>
  * <li> If system property {@link #JACOB_DLL_PATH} is defined, the file located
  * there will be loaded as the jacob dll using System.load(). </li>
@@ -58,7 +57,7 @@ import java.util.Set;
  * "jacob-&lt;version&gt;-&lt;arch&gt;.dll") from the {@code java.library.path}.
  * </li>
  * </ol>
- * 
+ * <p>
  * The standard behavior for most applications is that {@code LoadLibrary()}
  * will be called to load the dll. {@code LoadLibary()} searches directories
  * specified in the variable {@code java.library.path}. This is why most test

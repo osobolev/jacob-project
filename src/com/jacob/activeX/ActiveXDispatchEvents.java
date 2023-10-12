@@ -69,7 +69,7 @@ public class ActiveXDispatchEvents extends DispatchEvents {
      * callback.
      *
      * <pre>
-     * &gt;ActiveXDispatchEvents de = 
+     * &gt;ActiveXDispatchEvents de =
      *          new ActiveXDispatchEvents(someDispatch,someEventHAndler,
      *              &quot;Excel.Application&quot;,
      *              &quot;C:\\Program Files\\Microsoft Office\\OFFICE11\\EXCEL.EXE&quot;);

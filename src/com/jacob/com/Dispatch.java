@@ -99,9 +99,7 @@ public class Dispatch extends JacobObject {
      * <p>
      *
      * @param requestedProgramId
-     * @throws IllegalArgumentException
-     *             if null is passed in as the program id
-     *             <p>
+     * @throws IllegalArgumentException if null is passed in as the program id
      */
     public Dispatch(String requestedProgramId) {
         programId = requestedProgramId;
@@ -707,7 +705,7 @@ public class Dispatch extends JacobObject {
 
     /**
      * makes call to native callSubN
-     * 
+     *
      * @param dispatchTarget
      * @param name
      */
@@ -763,7 +761,7 @@ public class Dispatch extends JacobObject {
 
     /**
      * Cover for call to underlying invokev()
-     * 
+     *
      * @param dispatchTarget
      * @param name
      * @return Variant returned by the request for retrieval of parameter

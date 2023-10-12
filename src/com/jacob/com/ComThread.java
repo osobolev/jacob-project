@@ -136,13 +136,13 @@ public abstract class ComThread {
     }
 
     /**
-     * @deprecated the java model leave the responsibility of clearing up
-     *             objects to the Garbage Collector. Our programming model
-     *             should not require that the user specifically remove object
-     *             from the thread.
-     * 
      * This will remove an object from the ROT
+     *
      * @param o
+     * @deprecated the java model leave the responsibility of clearing up
+     * objects to the Garbage Collector. Our programming model
+     * should not require that the user specifically remove object
+     * from the thread.
      */
     @Deprecated
     public static synchronized void RemoveObject(JacobObject o) {

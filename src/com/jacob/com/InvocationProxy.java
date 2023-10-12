@@ -20,9 +20,6 @@
 package com.jacob.com;
 
 /**
- * @version $Id$
- * @author joe
- * 
  * DispatchEvents wraps this class around any event handlers before making the
  * JNI call that sets up the link with EventProxy. This means that
  * EventProxy.cpp just calls invoke(String,Variant[]) against the instance of
@@ -31,11 +28,11 @@ package com.jacob.com;
  * Variant. Any value returned will be passed back to the calling windows module
  * by the Jacob JNI layer.
  * <p>
- * 
  * The void returning signature is the standard legacy signature. The Variant
  * returning signature was added in 1.10 to support event handlers returning
  * values.
- * 
+ *
+ * @author joe
  */
 public abstract class InvocationProxy {
 
