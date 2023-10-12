@@ -295,48 +295,48 @@ public class ActiveXComponent extends Dispatch {
      */
     public void logCallbackEvent(String description, Variant[] args) {
         if (args != null && shouldLogEvents) {
-            String argString = "";
+            StringBuilder buf = new StringBuilder();
             if (args.length > 0) {
-                argString += " args: ";
+                buf.append(" args: ");
             }
             for (int i = 0; i < args.length; i++) {
                 short argType = args[i].getvt();
-                argString += ",[" + i + "]";
+                buf.append(",[" + i + "]");
                 // break out the byref bits if they are on this
                 if ((argType & Variant.VariantByref) == Variant.VariantByref) {
                     // show the type and the fact that its byref
-                    argString += "(" + (args[i].getvt() & ~Variant.VariantByref) + "/" + Variant.VariantByref + ")";
+                    buf.append("(" + (args[i].getvt() & ~Variant.VariantByref) + "/" + Variant.VariantByref + ")");
                 } else {
                     // show the type
-                    argString += "(" + argType + ")";
+                    buf.append("(" + argType + ")");
                 }
-                argString += "=";
+                buf.append("=");
                 if (argType == Variant.VariantDispatch) {
                     Dispatch foo = (args[i].getDispatch());
-                    argString += foo;
+                    buf.append(foo);
                 } else if ((argType & Variant.VariantBoolean) == Variant.VariantBoolean) {
                     // do the boolean thing
                     if ((argType & Variant.VariantByref) == Variant.VariantByref) {
                         // boolean by ref
-                        argString += args[i].getBooleanRef();
+                        buf.append(args[i].getBooleanRef());
                     } else {
                         // boolean by value
-                        argString += args[i].getBoolean();
+                        buf.append(args[i].getBoolean());
                     }
                 } else if ((argType & Variant.VariantString) == Variant.VariantString) {
                     // do the string thing
                     if ((argType & Variant.VariantByref) == Variant.VariantByref) {
                         // string by ref
-                        argString += args[i].getStringRef();
+                        buf.append(args[i].getStringRef());
                     } else {
                         // string by value
-                        argString += args[i].getString();
+                        buf.append(args[i].getString());
                     }
                 } else {
-                    argString += args[i].toString();
+                    buf.append(args[i].toString());
                 }
             }
-            System.out.println(description + argString);
+            System.out.println(description + buf);
         }
     }
 

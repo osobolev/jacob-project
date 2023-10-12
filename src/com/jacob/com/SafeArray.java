@@ -1102,18 +1102,17 @@ public class SafeArray extends JacobObject {
      */
     @Override
     public String toString() {
-        String s = "";
+        StringBuilder buf = new StringBuilder();
         int ndim = getNumDim();
         if (ndim == 1) {
             int ldim = getLBound();
             int udim = getUBound();
             for (int i = ldim; i <= udim; i++) {
                 Variant v = getVariant(i);
-
                 if (((v.getvt() & Variant.VariantTypeMask) | Variant.VariantArray) == v.getvt()) {
-                    return s + "[" + v.toSafeArray().toString() + "]";
+                    return buf + "[" + v.toSafeArray().toString() + "]";
                 } else {
-                    s += " " + v.toString();
+                    buf.append(" ").append(v);
                 }
             }
         } else if (ndim == 2) {
@@ -1126,12 +1125,12 @@ public class SafeArray extends JacobObject {
             for (int i = ldim1; i <= udim1; i++) {
                 for (int j = ldim2; j <= udim2; j++) {
                     Variant v = getVariant(i, j);
-                    s += " " + v.toString();
+                    buf.append(" ").append(v);
                 }
-                s += "\n";
+                buf.append("\n");
             }
         }
-        return s;
+        return buf.toString();
     }
 
     /**
