@@ -19,9 +19,10 @@ tasks.jar {
 val jacobProperties = tasks.register("jacobProperties") {
     val outputDir = layout.buildDirectory.dir("generated/resources")
     outputs.dir(outputDir)
+    val version = project.version
     doLast {
         val props = Properties()
-        props.setProperty("version", "${project.version}")
+        props.setProperty("version", "${version}")
         props.setProperty("build.date", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MMMM-yyyy HH:mm:ss", Locale.ROOT)))
         val dir = outputDir.get().asFile.resolve("META-INF")
         mkdir(dir)
