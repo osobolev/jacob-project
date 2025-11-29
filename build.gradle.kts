@@ -25,7 +25,7 @@ val jacobProperties = tasks.register("jacobProperties") {
         props.setProperty("version", "${version}")
         props.setProperty("build.date", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MMMM-yyyy HH:mm:ss", Locale.ROOT)))
         val dir = outputDir.get().asFile.resolve("META-INF")
-        mkdir(dir)
+        dir.mkdirs()
         dir.resolve("JacobVersion.properties").bufferedWriter().use {
             props.store(it, null)
         }
