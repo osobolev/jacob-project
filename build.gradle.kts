@@ -3,9 +3,13 @@ import java.time.format.DateTimeFormatter
 import java.util.Locale
 import java.util.Properties
 
+import com.vanniktech.maven.publish.JavaLibrary
+import com.vanniktech.maven.publish.JavadocJar
+
 description = "JACOB (Java-COM bridge)"
 
 plugins {
+    id("com.vanniktech.maven.publish") version "0.35.0"
     `module-lib`
 }
 
@@ -37,15 +41,31 @@ sourceSets {
     }
 }
 
-val pub = (publishing.publications["mavenJava"] as MavenPublication)
+mavenPublishing {
+    publishToMavenCentral()
+    signAllPublications()
 
-for (arch in listOf("x86", "x64")) {
-    pub.artifact(artifacts.add("archives", file("dll/jacob-${project.version}-${arch}.dll")) {
-        classifier = arch
-        type = "dll"
-    })
+    coordinates("${project.group}", "${project.name}", "${project.version}")
+    configure(JavaLibrary(
+        javadocJar = JavadocJar.Javadoc(),
+        sourcesJar = true
+    ))
 }
-pub.pom {
+
+publishing {
+    publications {
+        named<MavenPublication>("maven") {
+            for (arch in listOf("x86", "x64")) {
+                artifact(file("dll/jacob-${project.version}-${arch}.dll")) {
+                    classifier = arch
+                    extension = "dll"
+                }
+            }
+        }
+    }
+}
+
+mavenPublishing.pom {
     name.set("jacob")
     description.set("JACOB (Java-COM bridge)")
     url.set("https://github.com/osobolev/jacob-project")
