@@ -9,7 +9,7 @@ import com.vanniktech.maven.publish.JavadocJar
 description = "JACOB (Java-COM bridge)"
 
 plugins {
-    id("com.vanniktech.maven.publish") version "0.35.0"
+    id("com.vanniktech.maven.publish") version "0.36.0"
     `module-lib`
 }
 
