@@ -10,7 +10,7 @@ import com.vanniktech.maven.publish.SourcesJar
 description = "JACOB (Java-COM bridge)"
 
 plugins {
-    id("com.vanniktech.maven.publish") version "0.36.0"
+    id("com.vanniktech.maven.publish") version "0.37.0"
     `module-lib`
 }
 
