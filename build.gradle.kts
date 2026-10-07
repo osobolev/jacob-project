@@ -67,24 +67,24 @@ publishing {
 }
 
 mavenPublishing.pom {
-    name.set("jacob")
-    description.set("JACOB (Java-COM bridge)")
-    url.set("https://github.com/osobolev/jacob-project")
+    name = "jacob"
+    description = "JACOB (Java-COM bridge)"
+    url = "https://github.com/osobolev/jacob-project"
     licenses {
         license {
-            name.set("The Apache License, Version 2.0")
-            url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
+            name = "The Apache License, Version 2.0"
+            url = "http://www.apache.org/licenses/LICENSE-2.0.txt"
         }
     }
     developers {
         developer {
-            name.set("Oleg Sobolev")
-            organizationUrl.set("https://github.com/osobolev")
+            name = "Oleg Sobolev"
+            organizationUrl = "https://github.com/osobolev"
         }
     }
     scm {
-        connection.set("scm:git:https://github.com/osobolev/jacob-project.git")
-        developerConnection.set("scm:git:https://github.com/osobolev/jacob-project.git")
-        url.set("https://github.com/osobolev/jacob-project")
+        connection = "scm:git:https://github.com/osobolev/jacob-project.git"
+        developerConnection = "scm:git:https://github.com/osobolev/jacob-project.git"
+        url = "https://github.com/osobolev/jacob-project"
     }
 }
