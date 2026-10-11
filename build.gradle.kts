@@ -15,7 +15,6 @@ plugins {
 }
 
 group = "io.github.osobolev"
-version = "1.21"
 
 tasks.jar {
     manifest.attributes["Automatic-Module-Name"] = "${project.group}.${project.name}"
